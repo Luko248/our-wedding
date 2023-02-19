@@ -49,8 +49,7 @@ address {
 
 body {
   display: flex;
-  flex-flow: column wrap;
-  padding-top: var(--nav-height); }
+  flex-flow: column wrap; }
   body nav {
     flex: none; }
   body header {
@@ -859,7 +858,18 @@ textarea.text-box {
   --border-width: .1rem; }
 
 header {
-  padding: 3.2rem; }
+  position: relative;
+  display: grid;
+  place-items: center;
+  block-size: 100dvh;
+  text-align: center; }
+
+.header__container > h1 {
+  margin: 0;
+  font-size: 8em; }
+
+.header__container > span {
+  font-size: 5em; }
 
 :root {
   --color-border: hsla(0, 0%, 70%, 1);

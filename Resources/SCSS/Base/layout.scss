@@ -3,7 +3,6 @@
 body {
     display: flex;
     flex-flow: column wrap;
-    padding-top: var(--nav-height);
 
     nav {
         flex: none;

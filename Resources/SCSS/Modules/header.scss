@@ -1,5 +1,24 @@
 @import "../base/global";
 
 header {
-    padding: $gap--xxl;
+    position: relative;
+    display: grid;
+    place-items: center;
+    block-size: 100dvh;
+    text-align: center;
+
+    
+}
+
+.header{
+    &__container{
+        > h1{
+            margin: 0;
+            font-size: 8em;
+        }
+
+        >span{
+            font-size: 5em;
+        }
+    }
 }
