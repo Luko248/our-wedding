@@ -1,0 +1,129 @@
+@import "../../Base/global";
+
+.nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: $color-secondary;
+    z-index: 9999;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 5rem;
+
+        @include res-max-laptop-l {
+            padding: 0 $gap--xxl;
+        }
+
+        @include res-max-laptop-m {
+            padding: 0 $gap--xl;
+        }
+
+        @include res-max-laptop-s {
+            padding: 0 $gap--l;
+        }
+
+        .button {
+            margin-left: $gap--xxl;
+
+            @include res-max-laptop-l {
+                margin-left: 0;
+            }
+        }
+
+        li > .button {
+
+            @include res-max-laptop-l {
+                margin-top: $gap--l;
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        list-style: none;
+
+        @include res-max-laptop-s {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            flex-flow: column wrap;
+            align-items: stretch;
+            justify-content: flex-start;
+            width: 100%;
+            height: 100vh;
+            padding: $gap--l;
+            padding-top: 0;
+            background-color: $color-white;
+            transform: translateX(100%);
+            transition: transform $trans-time var(--anim-type);
+        }
+
+        &--open {
+            --anim-type: ease-in;
+
+            @include res-max-laptop-s {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    &__right {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        height: var(--nav-height);
+        padding: 0 $gap--xl;
+        font-size: medium;
+        line-height: var(--nav-height);
+        color: $color-white;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color $trans-time var(--anim-type);
+
+        &:hover {
+            color: $color-primary;
+
+            @include res-max-laptop-s {
+                color: $color-black;
+            }
+        }
+
+        &--active {
+            color: $color-primary;
+
+            @include res-max-laptop-s {
+                font-weight: bold;
+                color: $color-black;
+            }
+
+            &:after {
+                background-color: $color-primary;
+            }
+        }
+
+        &[disabled] {
+            color: $color-secondary;
+            cursor: not-allowed;
+
+            @include res-max-laptop-s {
+                color: $color-secondary;
+            }
+        }
+    }
+}

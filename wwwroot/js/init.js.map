@@ -1,0 +1,1 @@
+{"version":3,"file":"init.js","mappings":"AAAAA,SAASC,iBAAiB,oBAAoB,KAC1CC,QAAQC,IAAI,wBAAwB","sources":["webpack:///./Resources/Scripts/init.ts"],"sourcesContent":["document.addEventListener(\"DOMContentLoaded\", () => {\r\n    console.log('Hello from your page!');\r\n});\r\n"],"names":["document","addEventListener","console","log"],"sourceRoot":""}

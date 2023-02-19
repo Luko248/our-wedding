@@ -1,0 +1,10 @@
+@import "variables";
+
+:root {
+    --nav-height: 5.5rem;
+    --anim-type: ease-out;
+}
+
+*:hover {
+    --anim-type: ease-in;
+}

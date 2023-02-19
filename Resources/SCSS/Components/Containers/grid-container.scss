@@ -1,0 +1,61 @@
+@import "../../base/global";
+
+.grid-container {
+    --align-items: flex-start;
+    --gap: 5rem;
+    --col-count: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--col-count), 1fr);
+    grid-column-gap: var(--gap);
+    grid-row-gap: var(--gap);
+
+    @include res-max-laptop-s {
+        --gap: #{$gap--xxl};
+    }
+
+    @include res-max-mobile-l {
+        --gap: #{$gap--xl};
+    }
+
+    @include res-max-mobile-s {
+        --gap: #{$gap--l};
+    }
+
+    > * {
+        align-self: var(--align-items);
+    }
+
+    &--col-2 {
+        --col-count: 2;
+
+        @include res-max-tablet {
+            --col-count: 1;
+        }
+    }
+
+    &--col-3 {
+        @include res-max-laptop-s {
+            --col-count: 2;
+        }
+
+        @include res-max-mobile-l {
+            --col-count: 1;
+        }
+    }
+
+    &--stretch {
+        --align-items: stretch;
+    }
+
+    &--small-gap {
+        --gap: #{$gap--xxl};
+
+        @include res-max-laptop-l {
+            --gap: #{$gap--xl};
+        }
+
+        @include res-max-mobile-l {
+            --gap: #{$gap--l};
+        }
+    }
+}

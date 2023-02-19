@@ -1,0 +1,33 @@
+﻿@keyframes fail {
+    0% {
+        transform: translateX(0);
+    }
+
+    15% {
+        transform: translateX(-.5rem);
+    }
+
+    30% {
+        transform: translateX(.5rem);
+    }
+
+    45% {
+        transform: translateX(-.5rem);
+    }
+
+    60% {
+        transform: translateX(.5rem);
+    }
+
+    75% {
+        transform: translateX(-.5rem);
+    }
+
+    90% {
+        transform: translateX(.5rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
