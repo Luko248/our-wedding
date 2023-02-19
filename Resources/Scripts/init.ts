@@ -1,3 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
-    console.log('Hello from your page!');
+﻿import { createMap } from "./map"
+
+document.addEventListener("DOMContentLoaded", () => {
+    createMap()
 })
