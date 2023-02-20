@@ -335,38 +335,6 @@ class Loader {
 //# sourceMappingURL=index.esm.js.map
 
 
-/***/ }),
-
-/***/ "./Resources/Scripts/map.ts":
-/*!**********************************!*\
-  !*** ./Resources/Scripts/map.ts ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-/// <reference path="../../node_modules/@types/googlemaps/index.d.ts" />
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createMap = void 0;
-const js_api_loader_1 = __webpack_require__(/*! @googlemaps/js-api-loader */ "./node_modules/@googlemaps/js-api-loader/dist/index.esm.js");
-let map;
-const loader = new js_api_loader_1.Loader({
-    apiKey: "AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8",
-    version: "weekly",
-});
-function createMap() {
-    function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
-        });
-    }
-    loader.load().then(() => {
-        window.initMap = initMap;
-    });
-}
-exports.createMap = createMap;
-
-
 /***/ })
 
 /******/ 	});
@@ -433,11 +401,23 @@ var exports = __webpack_exports__;
   !*** ./Resources/Scripts/init.ts ***!
   \***********************************/
 
+/// <reference path="../../node_modules/@types/googlemaps/index.d.ts" />
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const map_1 = __webpack_require__(/*! ./map */ "./Resources/Scripts/map.ts");
-document.addEventListener("DOMContentLoaded", () => {
-    (0, map_1.createMap)();
+const js_api_loader_1 = __webpack_require__(/*! @googlemaps/js-api-loader */ "./node_modules/@googlemaps/js-api-loader/dist/index.esm.js");
+const loader = new js_api_loader_1.Loader({
+    apiKey: "",
+    version: "weekly",
 });
+let map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+    });
+}
+window.initMap = initMap;
+// loader.load().then(() => {
+// })
 
 })();
 

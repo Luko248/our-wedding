@@ -2,29 +2,37 @@
 
 import { Loader } from "@googlemaps/js-api-loader";
 
-let map: google.maps.Map;
-
-
-declare global {
-  interface Window {
-    initMap: () => void;
-  }
-}
 
 const loader = new Loader({
     apiKey: "AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8",
     version: "weekly",
 });
 
-export function createMap() {  
-    function initMap(): void {
-        map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-          center: { lat: -34.397, lng: 150.644 },
-          zoom: 8,
-        });
-      } 
-
-    loader.load().then(() => {
-        window.initMap = initMap;
-    })
+export function createMap(){
+    
 }
+
+// export function createMap() {  
+
+//     let map: google.maps.Map;
+
+//     function initMap(): void {
+//       map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+//         center: { lat: -34.397, lng: 150.644 },
+//         zoom: 8,
+//       });
+//     }
+    
+//     declare global {
+//       interface Window {
+//         initMap: () => void;
+//       }
+//     }
+    
+//     window.initMap = initMap;
+
+//     loader.load().then(() => {
+
+        
+//     })
+// }
