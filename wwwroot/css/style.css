@@ -893,10 +893,15 @@ header {
   background-color: #2a2c2a;
   text-align: center; }
 
-.header__container > span {
-  font-size: 5em;
-  font-weight: 300;
-  cursor: pointer; }
+.header__container {
+  color: white; }
+  .header__container > strong {
+    display: block;
+    font-size: clamp(32px, 30dvb, 15rem); }
+  .header__container > span {
+    font-size: 5em;
+    font-weight: 300;
+    cursor: pointer; }
 
 .header__anim {
   position: fixed;
@@ -905,13 +910,14 @@ header {
   background-color: white;
   font-family: var(--font-title);
   font-weight: 500;
-  animation: circle-close 1.5s forwards 1s linear, show-content 0 forwards 3s; }
+  animation: circle-close 1.5s forwards 1s linear, display-none 0 forwards 3s; }
   .header__anim > span {
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     font-size: clamp(32px, 30dvb, 20rem);
+    color: #2a2c2a;
     text-transform: uppercase;
     animation: show-content .5s forwards;
     visibility: hidden; }
@@ -925,6 +931,10 @@ header {
     visibility: visible; }
   to {
     visibility: hidden; } }
+
+@keyframes display-none {
+  to {
+    display: none; } }
 
 @keyframes circle-close {
   from {

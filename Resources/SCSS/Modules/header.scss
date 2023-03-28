@@ -11,6 +11,13 @@ header {
 
 .header {
     &__container {
+        color: $color-white;
+
+        >strong {
+            display: block;
+            font-size: clamp(32px, 30dvb, 15rem);
+        }
+
         >span {
             font-size: 5em;
             font-weight: 300;
@@ -25,11 +32,12 @@ header {
         background-color: $color-white;
         font-family: var(--font-title);
         font-weight: 500;
-        animation: circle-close 1.5s forwards 1s linear, show-content 0 forwards 3s;
+        animation: circle-close 1.5s forwards 1s linear, display-none 0 forwards 3s;
 
         >span {
             @include center-item;
             font-size: clamp(32px, 30dvb, 20rem);
+            color: $color-secondary;
             text-transform: uppercase;
             animation: show-content .5s forwards;
             visibility: hidden;
@@ -52,6 +60,12 @@ header {
 
     to {
         visibility: hidden;
+    }
+}
+
+@keyframes display-none {
+    to {
+        display: none;
     }
 }
 
