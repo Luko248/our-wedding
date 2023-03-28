@@ -5,27 +5,66 @@ header {
     display: grid;
     place-items: center;
     block-size: 100dvh;
+    background-color: $color-secondary;
     text-align: center;
-
-
 }
 
 .header {
     &__container {
-        >h1 {
-            margin: 0;
-            font-family: var(--font-title);
-            font-size: 8em;
-            font-weight: 500;
-        }
-
         >span {
             font-size: 5em;
             font-weight: 300;
+            cursor: pointer;
+        }
+    }
+
+    &__anim {
+        position: fixed;
+        inset: 0;
+        margin: 0;
+        background-color: $color-white;
+        font-family: var(--font-title);
+        font-weight: 500;
+        animation: circle-close 1.5s forwards 1s linear, show-content 0 forwards 3s;
+
+        >span {
+            @include center-item;
+            font-size: clamp(32px, 30dvb, 20rem);
+            text-transform: uppercase;
+            animation: show-content .5s forwards;
+            visibility: hidden;
+
+            &:nth-of-type(2) {
+                animation-delay: .5s;
+            }
+
+            &:nth-of-type(3) {
+                animation-delay: 1s;
+            }
         }
     }
 }
 
+@keyframes show-content {
+    from {
+        visibility: visible;
+    }
+
+    to {
+        visibility: hidden;
+    }
+}
+
+@keyframes circle-close {
+    from {
+        clip-path: circle(100% at 50% 50%);
+    }
+
+    to {
+        clip-path: circle(0% at 50% 50%);
+
+    }
+}
 
 #map {
     block-size: 50vh;

@@ -1,0 +1,30 @@
+@import "../base/global";
+
+details {
+    counter-increment: details;
+
+    >summary {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: $gap--l;
+        font-size: x-large;
+
+        &::marker {
+            visibility: hidden;
+        }
+
+        &:before {
+            display: grid;
+            content: counter(details);
+            place-items: center;
+            inline-size: 50px;
+            aspect-ratio: 1;
+            background-color: $color-secondary;
+            border-radius: 50%;
+            font-size: large;
+            color: $color-white;
+        }
+    }
+}
