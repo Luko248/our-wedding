@@ -15,6 +15,7 @@ header {
 
         >strong {
             display: block;
+            font-family: var(--font-title);
             font-size: clamp(32px, 30dvb, 15rem);
         }
 

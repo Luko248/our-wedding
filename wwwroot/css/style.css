@@ -897,6 +897,7 @@ header {
   color: white; }
   .header__container > strong {
     display: block;
+    font-family: var(--font-title);
     font-size: clamp(32px, 30dvb, 15rem); }
   .header__container > span {
     font-size: 5em;
