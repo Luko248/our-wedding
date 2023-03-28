@@ -3,8 +3,10 @@
 :root {
     --nav-height: 5.5rem;
     --anim-type: ease-out;
+    --font-text: #{$font-text};
+    --font-title: #{$font-title};
 }
 
 *:hover {
-    --anim-type: ease-in;
+    --anim-type: ease-in-out;
 }

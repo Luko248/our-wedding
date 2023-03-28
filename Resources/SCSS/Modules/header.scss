@@ -7,23 +7,26 @@ header {
     block-size: 100dvh;
     text-align: center;
 
-    
+
 }
 
-.header{
-    &__container{
-        > h1{
+.header {
+    &__container {
+        >h1 {
             margin: 0;
+            font-family: var(--font-title);
             font-size: 8em;
+            font-weight: 500;
         }
 
-        >span{
+        >span {
             font-size: 5em;
+            font-weight: 300;
         }
     }
 }
 
 
-#map{
+#map {
     block-size: 50vh;
 }

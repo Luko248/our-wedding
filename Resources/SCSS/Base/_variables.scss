@@ -9,7 +9,7 @@ $color-disabled: hsla(0, 0%, 90%, 1);
 $color-border: hsla(0, 0%, 70%, 1);
 $color-font: $color-black;
 $color-overlay: hsla(0, 0%, 0%, .5);
-$color-error: hsla(0, 72%, 40%,1);
+$color-error: hsla(0, 72%, 40%, 1);
 
 //alert
 $color-success: $color-primary--hover;
@@ -19,19 +19,29 @@ $color-info--bg: hsla(211, 100%, 90%, 1);
 $color-warning: hsla(45, 100%, 45%, 1);
 $color-warning--bg: hsla(45, 100%, 90%, 1);
 $color-danger: $color-error;
-$color-danger--bg: hsla(0, 72%, 90%,1);
+$color-danger--bg: hsla(0, 72%, 90%, 1);
 
 //gaps
 $gap--m: .8rem;
-$gap--xs: ($gap--m / 4);
-$gap--s: ($gap--m / 2);
-$gap--l: ($gap--m * 2);
-$gap--xl: ($gap--m * 3);
-$gap--xxl: ($gap--m * 4);
+$gap--xs: (
+    $gap--m / 4
+);
+$gap--s: (
+    $gap--m / 2
+);
+$gap--l: (
+    $gap--m * 2
+);
+$gap--xl: (
+    $gap--m * 3
+);
+$gap--xxl: (
+    $gap--m * 4
+);
 
 //Font family
-$font-text: 'Open Sans', sans-serif;
-$font-title: $font-text;
+$font-text: azo-sans-web, sans-serif;
+$font-title: museo-sans, sans-serif;
 
 //Others
 $trans-time: .25s;

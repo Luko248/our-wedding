@@ -64,10 +64,12 @@ body {
 
 :root {
   --nav-height: 5.5rem;
-  --anim-type: ease-out; }
+  --anim-type: ease-out;
+  --font-text: azo-sans-web, sans-serif;
+  --font-title: museo-sans, sans-serif; }
 
 *:hover {
-  --anim-type: ease-in; }
+  --anim-type: ease-in-out; }
 
 :root {
   --color-border: hsla(0, 0%, 70%, 1);
@@ -179,18 +181,18 @@ h6 {
   font-size: x-small; }
 
 span, a {
-  font-family: "Open Sans", sans-serif;
+  font-family: azo-sans-web, sans-serif;
   font-size: medium; }
   @media only screen and (max-width: 425px) {
     span, a {
       font-size: small; } }
 
 p {
-  font-family: "Open Sans", sans-serif;
+  font-family: azo-sans-web, sans-serif;
   font-size: medium; }
 
 small {
-  font-family: "Open Sans", sans-serif;
+  font-family: azo-sans-web, sans-serif;
   font-size: x-small; }
 
 .title {
@@ -199,7 +201,7 @@ small {
   --title-color: black;
   margin-top: 0;
   margin-bottom: var(--title-margin-botton);
-  font-family: "Open Sans", sans-serif;
+  font-family: museo-sans, sans-serif;
   font-size: var(--title-font-size);
   font-weight: 400;
   color: var(--title-color);
@@ -212,7 +214,7 @@ small {
     .title {
       --title-margin-botton: 1.6rem; } }
   .title > span, .title > strong {
-    font-family: "Open Sans", sans-serif;
+    font-family: museo-sans, sans-serif;
     font-size: 1em;
     font-weight: 400;
     color: var(--title-color); }
@@ -237,7 +239,7 @@ small {
   --desc-color: black;
   margin: 0;
   margin-bottom: var(--desc-margin-bottom);
-  font-family: "Open Sans", sans-serif;
+  font-family: azo-sans-web, sans-serif;
   font-size: var(--desc-font-size);
   line-height: 1.5;
   color: var(--desc-color); }
@@ -552,7 +554,7 @@ small {
   padding: var(--button-padding);
   background-color: var(--button-background);
   border-radius: 0.4rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: museo-sans, sans-serif;
   font-size: var(--button-font-size);
   color: var(--button-color);
   text-align: center;
@@ -683,7 +685,7 @@ textarea, .textarea {
 .text-box, .combo-box {
   padding: 0.4rem 0.8rem;
   border-radius: 0.4rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: azo-sans-web, sans-serif;
   font-size: medium;
   color: black;
   -webkit-appearance: none;
@@ -719,7 +721,7 @@ textarea.text-box {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: azo-sans-web, sans-serif;
   font-size: medium;
   color: var(--color-link);
   text-decoration: underline;
@@ -808,7 +810,7 @@ textarea.text-box {
       flex-flow: row nowrap;
       align-items: center;
       justify-content: flex-start;
-      font-family: "Open Sans", sans-serif;
+      font-family: azo-sans-web, sans-serif;
       font-size: medium;
       color: var(--label-color); }
       .form__item > label:not([class]):after {
@@ -866,10 +868,13 @@ header {
 
 .header__container > h1 {
   margin: 0;
-  font-size: 8em; }
+  font-family: var(--font-title);
+  font-size: 8em;
+  font-weight: 500; }
 
 .header__container > span {
-  font-size: 5em; }
+  font-size: 5em;
+  font-weight: 300; }
 
 #map {
   block-size: 50vh; }
@@ -1024,7 +1029,7 @@ header {
   align-items: center;
   justify-content: flex-end;
   margin-left: var(--lang-margin-left);
-  font-family: "Open Sans", sans-serif;
+  font-family: azo-sans-web, sans-serif;
   font-size: var(--lang-font-size);
   color: var(--lang-color); }
   @media only screen and (max-width: 768px) {
@@ -1045,7 +1050,7 @@ header {
     font-size: var(--lang-font-size);
     color: var(--lang-color);
     text-decoration: var(--lang-text-decoration);
-    transition: color "Open Sans", sans-serif var(--anim-type); }
+    transition: color azo-sans-web, sans-serif var(--anim-type); }
     .lang-switch__item:hover {
       --lang-text-decoration: underlne; }
 
