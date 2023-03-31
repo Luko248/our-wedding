@@ -7,6 +7,15 @@ header {
     block-size: 100dvh;
     background-color: $color-secondary;
     text-align: center;
+
+    >b {
+        position: absolute;
+        bottom: 5dvb;
+        left: 50%;
+        font-size: 2.5dvb;
+        color: $color-white;
+        translate: -50%;
+    }
 }
 
 .header {
@@ -16,14 +25,28 @@ header {
         >strong {
             display: block;
             font-family: var(--font-title);
-            font-size: clamp(32px, 30dvb, 15rem);
+            font-size: clamp(2rem, 30dvb, var(--max-font-size, 15rem));
+
+            @include res-max-laptop-s {
+                --max-font-size: 10rem;
+            }
+
+            @include res-max-mobile-l {
+                --max-font-size: 4rem;
+            }
         }
 
         >span {
-            font-size: 5em;
+            font-size: clamp(1.5rem, 10dvb, 5em);
             font-weight: 300;
             cursor: pointer;
+
+            @include res-max-mobile-l {
+                font-size: clamp(1.5rem, 10dvb, 2.5em);
+            }
         }
+
+
     }
 
     &__anim {
@@ -34,14 +57,23 @@ header {
         font-family: var(--font-title);
         font-weight: 500;
         animation: circle-close 1.5s forwards 1s linear, display-none 0 forwards 3s;
+        z-index: 2;
 
         >span {
             @include center-item;
-            font-size: clamp(32px, 30dvb, 20rem);
+            font-size: clamp(2rem, 30dvb, var(--max-font-size, 20rem));
             color: $color-secondary;
             text-transform: uppercase;
             animation: show-content .5s forwards;
             visibility: hidden;
+
+            @include res-max-laptop-s {
+                --max-font-size: 10rem;
+            }
+
+            @include res-max-mobile-l {
+                --max-font-size: 6rem;
+            }
 
             &:nth-of-type(2) {
                 animation-delay: .5s;
