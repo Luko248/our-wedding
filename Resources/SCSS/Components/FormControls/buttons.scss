@@ -7,11 +7,10 @@
     --button-background: #{$color-primary};
     --button-color: #{$color-white};
     --button-border-color: #{$color-primary};
-    --button-padding: #{$gap--m $gap--l};
-    --button-font-size: medium;
+    --button-padding: #{$gap--l $gap--xl};
+    --button-font-size: large;
     --button-cursor: pointer;
     --button-outline: none;
-    --loading-icon-url: url("../../images/icons/button-loader.svg");
 
     @include res-max-laptop-s {
         --button-min-width: 10rem;
@@ -41,7 +40,6 @@
         --button-color: #{$color-white};
         --button-border-color: #{$color-secondary};
         --button-background: #{$color-secondary};
-        --loading-icon-url: url("../../images/icons/button-loader-secondary.svg");
     }
 
     &--white {
@@ -90,19 +88,22 @@
     @include border("def", var(--button-border-width), var(--button-border-color));
     @include set-button-box-shadw(var(--shadow-alpha));
     display: inline-flex;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
     width: auto;
     min-width: var(--button-min-width);
+    gap: $gap--m;
     padding: var(--button-padding);
     background-color: var(--button-background);
-    border-radius: $border-radius;
+    border-radius: 100vmax;
     font-family: $font-title;
     font-size: var(--button-font-size);
     color: var(--button-color);
     text-align: center;
     text-decoration: none;
     text-decoration: none;
+    text-transform: uppercase;
     transition: color $trans-time var(--anim-type), border-color $trans-time var(--anim-type), background-color $trans-time var(--anim-type), box-shadow $trans-time var(--anim-type);
     cursor: var(--button-cursor);
 
@@ -121,9 +122,8 @@
     }
 
     > .icon {
-        margin-left: $gap--m;
+        --icon-size: 2rem;
         fill: var(--button-color);
-        stroke: var(--button-color);
     }
 
     > img {

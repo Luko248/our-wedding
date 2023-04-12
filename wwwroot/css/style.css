@@ -511,11 +511,10 @@ details {
   --button-background: #78c266;
   --button-color: white;
   --button-border-color: #78c266;
-  --button-padding: 0.8rem 1.6rem;
-  --button-font-size: medium;
+  --button-padding: 1.6rem 2.4rem;
+  --button-font-size: large;
   --button-cursor: pointer;
-  --button-outline: none;
-  --loading-icon-url: url("../../images/icons/button-loader.svg"); }
+  --button-outline: none; }
   @media only screen and (max-width: 1024px) {
     .button {
       --button-min-width: 10rem;
@@ -539,8 +538,7 @@ details {
   .button--secondary {
     --button-color: white;
     --button-border-color: #2a2c2a;
-    --button-background: #2a2c2a;
-    --loading-icon-url: url("../../images/icons/button-loader-secondary.svg"); }
+    --button-background: #2a2c2a; }
   .button--white {
     --button-color: black;
     --button-border-color: white;
@@ -573,19 +571,22 @@ details {
   border: var(--button-border-width) solid var(--button-border-color);
   box-shadow: 2px 2px 4px 0px hsla(0, 0%, 0%, var(--shadow-alpha));
   display: inline-flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   width: auto;
   min-width: var(--button-min-width);
+  gap: 0.8rem;
   padding: var(--button-padding);
   background-color: var(--button-background);
-  border-radius: 0.4rem;
+  border-radius: 100vmax;
   font-family: museo-sans, sans-serif;
   font-size: var(--button-font-size);
   color: var(--button-color);
   text-align: center;
   text-decoration: none;
   text-decoration: none;
+  text-transform: uppercase;
   transition: color 0.25s var(--anim-type), border-color 0.25s var(--anim-type), background-color 0.25s var(--anim-type), box-shadow 0.25s var(--anim-type);
   cursor: var(--button-cursor); }
   .button:focus:not(:focus-visible) {
@@ -595,9 +596,8 @@ details {
   .button > span, .button > * {
     font-family: inherit; }
   .button > .icon {
-    margin-left: 0.8rem;
-    fill: var(--button-color);
-    stroke: var(--button-color); }
+    --icon-size: 2rem;
+    fill: var(--button-color); }
   .button > img {
     display: block;
     width: 1.6rem;
