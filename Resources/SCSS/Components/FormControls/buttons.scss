@@ -12,18 +12,6 @@
     --button-cursor: pointer;
     --button-outline: none;
 
-    @include res-max-laptop-s {
-        --button-min-width: 10rem;
-        --button-padding: #{$gap--m};
-        --button-font-size: medium
-    }
-
-    @include res-max-tablet {
-        --button-border-width: 1px;
-        --button-padding: #{$gap--s $gap--m};
-        --button-font-size: small
-    }
-
     &[disabled] {
         --shadow-alpha: 0;
         --button-color: #{$color-black};
@@ -41,52 +29,9 @@
         --button-border-color: #{$color-secondary};
         --button-background: #{$color-secondary};
     }
-
-    &--white {
-        --button-color: #{$color-black};
-        --button-border-color: #{$color-white};
-        --button-background: #{$color-white};
-    }
-
-    &--small {
-        --button-min-width: 8rem;
-        --button-padding: #{$gap--s $gap--m};
-        --button-font-size: small;
-        --button-border-width: .1rem;
-
-        @include res-max-laptop-s {
-            --button-padding: #{$gap--s};
-        }
-    }
-
-    &--icon {
-        --button-min-width: 3rem;
-        --button-padding: #{$gap--s};
-        --button-font-size: small;
-    }
-
-    &--auto {
-        --button-min-width: 0;
-    }
-
-    &--loading {
-        --button-color: #{$color-trans};
-    }
-
-    &--delete {
-        --button-color: #{$color-danger};
-        --button-border-color: #{$color-danger};
-        --button-background: #{$color-trans};
-
-        @include res-max-mobile-l {
-            --button-min-width: 3rem;
-        }
-    }
 }
 
 .button {
-    @include border("def", var(--button-border-width), var(--button-border-color));
-    @include set-button-box-shadw(var(--shadow-alpha));
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -104,11 +49,17 @@
     text-decoration: none;
     text-decoration: none;
     text-transform: uppercase;
-    transition: color $trans-time var(--anim-type), border-color $trans-time var(--anim-type), background-color $trans-time var(--anim-type), box-shadow $trans-time var(--anim-type);
+    transition: background-color $trans-time var(--anim-type);
     cursor: var(--button-cursor);
 
     &:focus:not(:focus-visible) {
         outline: var(--button-outline);
+    }
+
+    @media (hover:hover){
+        &:hover {
+            --button-background: #{$color-primary--hover};
+        }
     }
 
     &[disabled] {
@@ -132,100 +83,5 @@
         min-width: $gap--l;
         height: $gap--l;
         margin-right: $gap--m;
-    }
-
-    &:hover {
-        --shadow-alpha: .6;
-
-        > .icon {
-            transition: fill $trans-time ease-in-out;
-        }
-    }
-
-    &--auto {
-        width: auto;
-        max-width: none;
-    }
-
-    &--loading {
-        position: relative;
-
-        &:before {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            display: block;
-            content: "";
-            width: 90%;
-            height: 90%;
-            background-image: var(--loading-icon-url);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 33%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-        }
-    }
-
-    &--fail {
-        animation: fail $trans-time forwards;
-        transform: translateX(0);
-    }
-
-    &--delete {
-        > .icon {
-            @include res-max-mobile-l {
-                margin-left: 0;
-            }
-        }
-
-        > span {
-            @include res-max-mobile-l {
-                display: none;
-            }
-        }
-    }
-}
-
-
-/**/
-.show-password {
-    position: relative;
-    display: block;
-    background-color: $color-trans;
-    border-width: 0;
-    cursor: pointer;
-
-    > .icon {
-        transition: fill $trans-time var(--anim-type);
-        fill: $color-secondary;
-        pointer-events: none;
-        @include center-item;
-
-        @include res-max-tablet {
-            transition-duration: 0s;
-        }
-
-        &:first-child {
-            display: block;
-        }
-
-        &:last-child {
-            display: none;
-        }
-    }
-
-    &:hover > .icon {
-        fill: $color-black;
-    }
-
-    &--visible {
-        > .icon:first-child {
-            display: none;
-        }
-
-        > .icon:last-child {
-            display: block;
-        }
     }
 }

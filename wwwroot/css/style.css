@@ -515,18 +515,6 @@ details {
   --button-font-size: large;
   --button-cursor: pointer;
   --button-outline: none; }
-  @media only screen and (max-width: 1024px) {
-    .button {
-      --button-min-width: 10rem;
-      --button-padding: 0.8rem;
-      --button-font-size: medium
-    ; } }
-  @media only screen and (max-width: 768px) {
-    .button {
-      --button-border-width: 1px;
-      --button-padding: 0.4rem 0.8rem;
-      --button-font-size: small
-    ; } }
   .button[disabled] {
     --shadow-alpha: 0;
     --button-color: black;
@@ -539,37 +527,8 @@ details {
     --button-color: white;
     --button-border-color: #2a2c2a;
     --button-background: #2a2c2a; }
-  .button--white {
-    --button-color: black;
-    --button-border-color: white;
-    --button-background: white; }
-  .button--small {
-    --button-min-width: 8rem;
-    --button-padding: 0.4rem 0.8rem;
-    --button-font-size: small;
-    --button-border-width: .1rem; }
-    @media only screen and (max-width: 1024px) {
-      .button--small {
-        --button-padding: 0.4rem; } }
-  .button--icon {
-    --button-min-width: 3rem;
-    --button-padding: 0.4rem;
-    --button-font-size: small; }
-  .button--auto {
-    --button-min-width: 0; }
-  .button--loading {
-    --button-color: rgba(0, 0, 0, 0); }
-  .button--delete {
-    --button-color: #af1d1d;
-    --button-border-color: #af1d1d;
-    --button-background: rgba(0, 0, 0, 0); }
-    @media only screen and (max-width: 425px) {
-      .button--delete {
-        --button-min-width: 3rem; } }
 
 .button {
-  border: var(--button-border-width) solid var(--button-border-color);
-  box-shadow: 2px 2px 4px 0px hsla(0, 0%, 0%, var(--shadow-alpha));
   display: inline-flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -587,10 +546,13 @@ details {
   text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 0.25s var(--anim-type), border-color 0.25s var(--anim-type), background-color 0.25s var(--anim-type), box-shadow 0.25s var(--anim-type);
+  transition: background-color 0.25s var(--anim-type);
   cursor: var(--button-cursor); }
   .button:focus:not(:focus-visible) {
     outline: var(--button-outline); }
+  @media (hover: hover) {
+    .button:hover {
+      --button-background: #519d3f; } }
   .button[disabled]:focus {
     outline: var(--button-outline); }
   .button > span, .button > * {
@@ -604,67 +566,6 @@ details {
     min-width: 1.6rem;
     height: 1.6rem;
     margin-right: 0.8rem; }
-  .button:hover {
-    --shadow-alpha: .6; }
-    .button:hover > .icon {
-      transition: fill 0.25s ease-in-out; }
-  .button--auto {
-    width: auto;
-    max-width: none; }
-  .button--loading {
-    position: relative; }
-    .button--loading:before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      display: block;
-      content: "";
-      width: 90%;
-      height: 90%;
-      background-image: var(--loading-icon-url);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 33%;
-      transform: translate(-50%, -50%);
-      z-index: 10; }
-  .button--fail {
-    animation: fail 0.25s forwards;
-    transform: translateX(0); }
-  @media only screen and (max-width: 425px) {
-    .button--delete > .icon {
-      margin-left: 0; } }
-  @media only screen and (max-width: 425px) {
-    .button--delete > span {
-      display: none; } }
-
-/**/
-.show-password {
-  position: relative;
-  display: block;
-  background-color: rgba(0, 0, 0, 0);
-  border-width: 0;
-  cursor: pointer; }
-  .show-password > .icon {
-    transition: fill 0.25s var(--anim-type);
-    fill: #2a2c2a;
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%; }
-    @media only screen and (max-width: 768px) {
-      .show-password > .icon {
-        transition-duration: 0s; } }
-    .show-password > .icon:first-child {
-      display: block; }
-    .show-password > .icon:last-child {
-      display: none; }
-  .show-password:hover > .icon {
-    fill: black; }
-  .show-password--visible > .icon:first-child {
-    display: none; }
-  .show-password--visible > .icon:last-child {
-    display: block; }
 
 :root {
   --color-border: hsla(0, 0%, 70%, 1);
