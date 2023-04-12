@@ -20,6 +20,11 @@ header {
 
 .header {
     &__container {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        row-gap: $gap--xl;
         color: $color-white;
 
         >strong {
@@ -39,14 +44,11 @@ header {
         >span {
             font-size: clamp(1.5rem, 10dvb, 5em);
             font-weight: 300;
-            cursor: pointer;
 
             @include res-max-mobile-l {
                 font-size: clamp(1.5rem, 10dvb, 2.5em);
             }
         }
-
-
     }
 
     &__anim {

@@ -901,6 +901,11 @@ header {
     translate: -50%; }
 
 .header__container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2.4rem;
   color: white; }
   .header__container > strong {
     display: block;
@@ -914,8 +919,7 @@ header {
         --max-font-size: 4rem; } }
   .header__container > span {
     font-size: clamp(1.5rem, 10dvb, 5em);
-    font-weight: 300;
-    cursor: pointer; }
+    font-weight: 300; }
     @media only screen and (max-width: 425px) {
       .header__container > span {
         font-size: clamp(1.5rem, 10dvb, 2.5em); } }
