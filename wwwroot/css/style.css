@@ -885,37 +885,30 @@ textarea.text-box {
   --color-border: hsla(0, 0%, 70%, 1);
   --border-width: .1rem; }
 
-header {
-  position: relative;
-  display: grid;
-  place-items: center;
-  block-size: 100dvh;
-  background-color: #2a2c2a;
-  text-align: center; }
-  header > b {
-    position: absolute;
-    bottom: 5dvb;
-    left: 50%;
-    font-size: 2.5dvb;
-    color: white;
-    translate: -50%; }
-
 .header__container {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  block-size: 100dvb;
   row-gap: 2.4rem;
-  color: white; }
-  .header__container > strong {
+  background-color: #2a2c2a;
+  color: white;
+  text-align: center;
+  animation: circle-show 1.5s forwards 2s linear;
+  z-index: 2;
+  clip-path: circle(0% at 50% 50%); }
+  .header__container > h1 {
     display: block;
+    margin: 0;
     font-family: var(--font-title);
     font-size: clamp(2rem, 30dvb, var(--max-font-size, 15rem)); }
     @media only screen and (max-width: 1024px) {
-      .header__container > strong {
+      .header__container > h1 {
         --max-font-size: 10rem; } }
     @media only screen and (max-width: 425px) {
-      .header__container > strong {
+      .header__container > h1 {
         --max-font-size: 4rem; } }
   .header__container > span {
     font-size: clamp(1.5rem, 10dvb, 5em);
@@ -923,6 +916,12 @@ header {
     @media only screen and (max-width: 425px) {
       .header__container > span {
         font-size: clamp(1.5rem, 10dvb, 2.5em); } }
+  .header__container > b {
+    position: absolute;
+    bottom: 5dvb;
+    left: 50%;
+    font-size: 2.5dvb;
+    translate: -50%; }
 
 .header__anim {
   position: fixed;
@@ -931,8 +930,8 @@ header {
   background-color: white;
   font-family: var(--font-title);
   font-weight: 500;
-  animation: circle-close 1.5s forwards 1s linear, display-none 0 forwards 3s;
-  z-index: 2; }
+  animation: display-none 0 forwards 3s;
+  z-index: 1; }
   .header__anim > span {
     position: absolute;
     top: 50%;
@@ -941,7 +940,7 @@ header {
     font-size: clamp(2rem, 30dvb, var(--max-font-size, 20rem));
     color: #2a2c2a;
     text-transform: uppercase;
-    animation: show-content .5s forwards;
+    animation: show-content 0.5s forwards 0.5s;
     visibility: hidden; }
     @media only screen and (max-width: 1024px) {
       .header__anim > span {
@@ -950,9 +949,9 @@ header {
       .header__anim > span {
         --max-font-size: 6rem; } }
     .header__anim > span:nth-of-type(2) {
-      animation-delay: .5s; }
-    .header__anim > span:nth-of-type(3) {
       animation-delay: 1s; }
+    .header__anim > span:nth-of-type(3) {
+      animation-delay: 1.5s; }
 
 @keyframes show-content {
   from {
@@ -964,11 +963,11 @@ header {
   to {
     display: none; } }
 
-@keyframes circle-close {
+@keyframes circle-show {
   from {
-    clip-path: circle(100% at 50% 50%); }
+    clip-path: circle(0% at 50% 50%); }
   to {
-    clip-path: circle(0% at 50% 50%); } }
+    clip-path: circle(100% at 50% 50%); } }
 
 #map {
   block-size: 50vh; }
