@@ -5,17 +5,20 @@
         "noEmitOnError": true,
         "noEmitHelpers": false,
         "module": "CommonJS",
-        "target": "ES2021",
+        "target": "ESNext",
         "esModuleInterop": true,
         "lib": [
             "DOM",
-            "ES2021",
+            "ES2022",
             "ESNext"
         ],
+        "strict": true,
+        "forceConsistentCasingInFileNames": true
     },
     "include": [
-        "./Resources/**/*"
-, "scripts"    ],
+        "./Resources/**/*",
+        "scripts"
+    ],
     "exclude": [
         "node_modules"
     ],
