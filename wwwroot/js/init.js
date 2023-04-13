@@ -1,1 +1,0 @@
-import { Loader as e } from "@googlemaps/js-api-loader"; const i = new e({ apiKey: "", version: "weekly" }); let o; function a() { o = new google.maps.Map(document.getElementById("map"), { center: { lat: -34.397, lng: 150.644 }, zoom: 8 }) } window.initMap = a;
