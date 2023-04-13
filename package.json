@@ -41,6 +41,6 @@
     "depcheck": "depcheck",
     "lint": "npm run lint:style",
     "lint:style": "stylelint --fix **/*.scss --custom-syntax postcss-scss",
-    "browser-sync": "browser-sync start --proxy https://localhost:44354/ --files=\"dist/**/*.css\" \"dist/**/*.js\""
+    "browser-sync": "browser-sync start --proxy http://127.0.0.1:5500/ --files=\"dist/**/*.css\" \"dist/**/*.js\" \"index.html\""
   }
 }

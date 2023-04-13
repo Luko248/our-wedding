@@ -5,11 +5,11 @@
         "noEmitOnError": true,
         "noEmitHelpers": false,
         "module": "CommonJS",
-        "target": "ESNext",
+        "target": "ES2021",
         "esModuleInterop": true,
         "lib": [
             "DOM",
-            "ES2022",
+            "ES2021",
             "ESNext"
         ],
         "strict": true,
