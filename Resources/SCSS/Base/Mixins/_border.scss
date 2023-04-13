@@ -1,36 +1,47 @@
-:root {
-    --color-border: hsla(0, 0%, 70%, 1);
-    --border-width: .1rem;
+@use '../functions/get-color' as *;
+@use '../variables/sizes' as *;
+
+$radiusList: (
+  xs: $radius-xs,
+  s: $radius-s,
+  m: $radius-m,
+  l: $radius-l,
+  circle: $radius-circle,
+  full: $radius-full,
+);
+
+@mixin border-set($top: $border-width, $right: $border-width, $bottom: $border-width, $left: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border-style: $style;
+  border-color: $color;
+  border-top-width: $top;
+  border-right-width: $right;
+  border-bottom-width: $bottom;
+  border-left-width: $left;
 }
 
-@mixin border($var-direction: "def", $var-width: var(--border-width), $var-color: var(--color-border)) {
-    @if $var-direction == 'def' {
-        border: $var-width solid $var-color;
-    }
+@mixin border-set-x($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border: $width $style $color;
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
 
-    @if $var-direction == 'bottom' {
-        border-bottom: $var-width solid $var-color;
-    }
+@mixin border-set-y($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border: $width $style $color;
+  border-right-width: 0;
+  border-left-width: 0;
+}
 
-    @if $var-direction == 'top' {
-        border-top: $var-width solid $var-color;
-    }
+@mixin border-set-all($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border: $width $style $color;
+}
 
-    @if $var-direction == 'right' {
-        border-right: $var-width solid $var-color;
-    }
+@mixin border-radius($size) {
+  @if map_has_key($radiusList, $size) {
+    $size: map_get($radiusList, $size);
+    border-radius: $size;
+  }
 
-    @if $var-direction == 'left' {
-        border-left: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'tb' {
-        border-bottom: $var-width solid $var-color;
-        border-top: $var-width solid $var-color;
-    }
-
-    @if $var-direction == 'lr' {
-        border-left: $var-width solid $var-color;
-        border-right: $var-width solid $var-color;
-    }
+  @else {
+    border-radius: $size;
+  }
 }

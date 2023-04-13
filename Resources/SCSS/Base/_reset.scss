@@ -1,0 +1,27 @@
+@mixin reset {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-block-size: 100dvh;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    textarea {
+        font-family: inherit;
+        resize: vertical;
+    }
+
+    address {
+        font-style: normal;
+    }
+}

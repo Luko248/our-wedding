@@ -1,0 +1,13 @@
+$color-white: hsl(0 0% 100%);
+$color-black: hsl(0 0% 0%);
+$color-shadow: hsl(0 0% 0% / 15%);
+$color-transparent: hsl(0 0% 0% / 0%);
+$color-primary: $color-white;
+$color-secondary: hsl(0 0% 12%);
+
+@mixin generate-colors {
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-transparent: #{$color-transparent};
+  --color-shadow: #{$color-shadow};
+}

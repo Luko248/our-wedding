@@ -1,0 +1,28 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-nav {
+    .nav {
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        inline-size: 100%;
+        block-size: var(--nav-height);
+        background-color: $color-secondary;
+        isolation: isolate;
+
+        >ul {
+            >li {}
+
+            a {
+                text-decoration: var(--nav-item_text-decor, none);
+
+                @include mq-hover {
+                    --nav-item_text-decor: underline;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+@use '../variables/sizes' as *;
+
+@mixin box-shadow-set($radius: $gap-xs, $x: 0, $y: 0, $shadow-color: var(--color-shadow)) {
+  box-shadow: $x $y $radius 0 $shadow-color;
+}

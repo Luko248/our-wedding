@@ -1,9 +1,12 @@
-@import "../base/global";
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
 
-.icon {
-    --icon-size: #{$gap--l};
-    display: block;
-    width: var(--icon-size);
-    min-width: var(--icon-size);
-    height: var(--icon-size);
+
+@mixin create-icon {
+    .icon {
+        --icon-size: #{$gap-l};
+        display: block;
+        inline-size: min(var(--icon-size), var(--icon-size));
+        aspect-ratio: 1;
+    }
 }

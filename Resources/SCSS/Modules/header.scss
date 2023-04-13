@@ -1,117 +1,120 @@
-@import "../base/global";
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
 
-.header {
-    &__container {
-        position: relative;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        justify-content: center;
-        block-size: 100dvb;
-        row-gap: $gap--xl;
-        background-color: $color-secondary;
-        color: $color-white;
-        text-align: center; 
-        animation: circle-show 1.5s forwards 2s linear;
-        z-index: 2;
-        clip-path: circle(0% at 50% 50%);
+@mixin create-header {
+    .header {
+        &__container {
+            position: relative;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+            block-size: 100dvb;
+            row-gap: $gap-2xl;
+            background-color: $color-secondary;
+            color: $color-white;
+            text-align: center;
+            // animation: circle-show 1.5s forwards 2s linear;
+            z-index: 2;
+            // clip-path: circle(0% at 50% 50%);
 
-        > h1 {
-            display: block;
+            >h1 {
+                display: block;
+                margin: 0;
+                font-family: var(--font-title);
+                font-size: clamp(1rem, 30dvb, var(--max-font-size, 8rem));
+
+                @include mq-responsive('desktop-s', max) {
+                    --max-font-size: 6rem;
+                }
+
+                @include mq-responsive('mobile-l', max) {
+                    --max-font-size: 3rem;
+                }
+            }
+
+            >span {
+                font-size: clamp(1.5rem, 10dvb, 4em);
+                font-weight: 300;
+
+                @include mq-responsive('mobile-l', max) {
+                    font-size: clamp(1.5rem, 10dvb, 2.5em);
+                }
+            }
+
+            >b {
+                position: absolute;
+                bottom: 5dvb;
+                left: 50%;
+                font-size: 2.5dvb;
+                translate: -50%;
+            }
+        }
+
+        &__anim {
+            position: fixed;
+            inset: 0;
             margin: 0;
+            background-color: $color-white;
             font-family: var(--font-title);
-            font-size: clamp(2rem, 30dvb, var(--max-font-size, 15rem));
+            font-weight: 500;
+            animation: display-none 0 forwards 3s;
+            z-index: 1;
 
-            @include res-max-laptop-s {
-                --max-font-size: 10rem;
+            >span {
+                // @include center-item;
+                font-size: clamp(2rem, 30dvb, var(--max-font-size, 20rem));
+                color: $color-secondary;
+                text-transform: uppercase;
+                animation: show-content 0.5s forwards 0.5s;
+                visibility: hidden;
+
+                @include mq-responsive('desktop-s', max) {
+                    --max-font-size: 10rem;
+                }
+
+                @include mq-responsive('mobile-l', max) {
+                    --max-font-size: 6rem;
+                }
+
+                &:nth-of-type(2) {
+                    animation-delay: 1s;
+                }
+
+                &:nth-of-type(3) {
+                    animation-delay: 1.5s;
+                }
             }
-
-            @include res-max-mobile-l {
-                --max-font-size: 4rem;
-            }
-        }
-
-        > span {
-            font-size: clamp(1.5rem, 10dvb, 5em);
-            font-weight: 300;
-
-            @include res-max-mobile-l {
-                font-size: clamp(1.5rem, 10dvb, 2.5em);
-            }
-        }
-
-        > b {
-            position: absolute;
-            bottom: 5dvb;
-            left: 50%;
-            font-size: 2.5dvb;
-            translate: -50%;
         }
     }
 
-    &__anim {
-        position: fixed;
-        inset: 0;
-        margin: 0;
-        background-color: $color-white;
-        font-family: var(--font-title);
-        font-weight: 500;
-        animation: display-none 0 forwards 3s;
-        z-index: 1;
+    @keyframes show-content {
+        from {
+            visibility: visible;
+        }
 
-        > span {
-            @include center-item;
-            font-size: clamp(2rem, 30dvb, var(--max-font-size, 20rem));
-            color: $color-secondary;
-            text-transform: uppercase;
-            animation: show-content 0.5s forwards 0.5s;
+        to {
             visibility: hidden;
-
-            @include res-max-laptop-s {
-                --max-font-size: 10rem;
-            }
-
-            @include res-max-mobile-l {
-                --max-font-size: 6rem;
-            }
-
-            &:nth-of-type(2) {
-                animation-delay: 1s;
-            }
-
-            &:nth-of-type(3) {
-                animation-delay: 1.5s;
-            }
         }
     }
-}
 
-@keyframes show-content {
-    from {
-        visibility: visible;
+    @keyframes display-none {
+        to {
+            display: none;
+        }
     }
 
-    to {
-        visibility: hidden;
-    }
-}
+    @keyframes circle-show {
+        from {
+            clip-path: circle(0% at 50% 50%);
+        }
 
-@keyframes display-none {
-    to {
-        display: none;
-    }
-}
-
-@keyframes circle-show {
-    from {
-        clip-path: circle(0% at 50% 50%); 
+        to {
+            clip-path: circle(100% at 50% 50%);
+        }
     }
 
-    to {
-        clip-path: circle(100% at 50% 50%);
+    #map {
+        block-size: 50vh;
     }
-}
-
-#map {
-    block-size: 50vh;
 }

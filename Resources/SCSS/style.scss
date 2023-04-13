@@ -1,34 +1,37 @@
-﻿// Base
-@import "Base/default";
-@import "Base/font-faces";
-@import "Base/keyframes";
-@import "Base/layout";
-@import "Base/root";
-@import "Base/shared-classes";
-@import "Base/typography";
+﻿@use 'base/layers' as *;
+@use 'base/reset' as *;
+@use 'base/root' as *;
+@use 'components/burger' as *;
+@use 'components/button' as *;
+@use 'components/icon' as *;
+@use 'components/nav' as *;
+@use 'modules/container' as *;
+@use 'modules/header' as *;
+@use 'modules/section' as *;
+@use 'utilities/classes' as *;
 
-// Components
-@import "Components/alert";
-@import "Components/icon";
-@import "Components/details";
-@import "Components/logo";
-// Components > Containers
-@import "Components/Containers/button-container";
-@import "Components/Containers/container";
-@import "Components/Containers/grid-container";
-@import "Components/Containers/section";
-// Components > FormControls
-@import "Components/FormControls/buttons";
-@import "Components/FormControls/checkbox";
-@import "Components/FormControls/inputs";
-@import "Components/FormControls/link";
+@at-root {
+  @include create-root;
+  @include create-layers;
 
-// Modules
-@import "Modules/footer";
-@import "Modules/form";
-@import "Modules/header";
-@import "Modules/modal";
-// Modules > Navigation
-@import "Modules/Navigation/burger";
-@import "Modules/Navigation/lang-switch";
-@import "Modules/Navigation/nav";
+  @layer base {
+    @include reset;
+  }
+
+  @layer components {
+    @include create-burger;
+    @include create-button;
+    @include create-icon;
+    @include create-nav;
+  }
+
+  @layer modules {
+    @include create-container;
+    @include create-header;
+    @include create-section;
+  }
+
+  @layer utilities {
+    @include create-utilities;
+  }
+}
