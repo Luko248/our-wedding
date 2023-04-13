@@ -14,9 +14,9 @@
             background-color: $color-secondary;
             color: $color-white;
             text-align: center;
-            // animation: circle-show 1.5s forwards 2s linear;
+            animation: circle-show 1.5s forwards 2s linear;
             z-index: 2;
-            // clip-path: circle(0% at 50% 50%);
+            clip-path: circle(0% at 50% 50%);
 
             >h1 {
                 display: block;
@@ -28,6 +28,10 @@
                     --max-font-size: 6rem;
                 }
 
+                @include mq-responsive('tablet', max) {
+                    --max-font-size: 4.5rem;
+                }
+
                 @include mq-responsive('mobile-l', max) {
                     --max-font-size: 3rem;
                 }
@@ -35,6 +39,7 @@
 
             >span {
                 font-size: clamp(1.5rem, 10dvb, 4em);
+                font-family: var(--font-text);
                 font-weight: 300;
 
                 @include mq-responsive('mobile-l', max) {
@@ -57,24 +62,27 @@
             margin: 0;
             background-color: $color-white;
             font-family: var(--font-title);
-            font-weight: 500;
+            font-weight: 600;
             animation: display-none 0 forwards 3s;
             z-index: 1;
 
             >span {
-                // @include center-item;
-                font-size: clamp(2rem, 30dvb, var(--max-font-size, 20rem));
+                position: absolute;
+                inset: 50% auto auto 50%;
+                font-size: clamp(2rem, 30dvb, var(--max-font-size, 15rem));
                 color: $color-secondary;
+
                 text-transform: uppercase;
-                animation: show-content 0.5s forwards 0.5s;
+                animation: show-content .5s forwards .5s;
+                translate: -50% -50%;
                 visibility: hidden;
 
                 @include mq-responsive('desktop-s', max) {
-                    --max-font-size: 10rem;
+                    --max-font-size: 7rem;
                 }
 
                 @include mq-responsive('mobile-l', max) {
-                    --max-font-size: 6rem;
+                    --max-font-size: 4rem;
                 }
 
                 &:nth-of-type(2) {

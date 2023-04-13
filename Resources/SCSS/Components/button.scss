@@ -7,25 +7,13 @@
         --shadow-alpha: .3;
         --button-min-width: 18rem;
         --button-border-width: .2rem;
-        --button-background: lime;
+        --button-background: var(--color-primary);
         --button-color: #{$color-white};
         --button-border-color: #{$color-primary};
-        --button-padding: #{$gap-l $gap-xl};
-        --button-font-size: large;
+        --button-padding: clamp(#{$gap-m}, 5vw, #{$gap-l}) clamp(#{$gap-l}, 5vw, #{$gap-xl});
+        --button-font-size: clamp(#{$gap-s}, 5dvi, #{$gap-l});
         --button-cursor: pointer;
         --button-outline: none;
-
-        &[disabled] {
-            --shadow-alpha: 0;
-            --button-color: #{$color-black};
-            --button-border-color: red;
-            --button-background: red;
-            --button-cursor: not-allowed;
-
-            &:hover {
-                --shadow-alpha: 0;
-            }
-        }
 
         &--secondary {
             --button-color: #{$color-white};
@@ -50,34 +38,20 @@
         color: var(--button-color);
         text-align: center;
         text-decoration: none;
-        text-decoration: none;
         text-transform: uppercase;
-        transition: background-color $trans-time var(--anim-type);
-        cursor: var(--button-cursor);
+        transition: background-color $trans-time ease-in-out;
+        cursor: pointer;
 
         &:focus:not(:focus-visible) {
             outline: var(--button-outline);
         }
 
-        @media (hover:hover) {
-            &:hover {
-                --button-background: #{$color-primary};
-            }
-        }
-
-        &[disabled] {
-            &:focus {
-                outline: var(--button-outline);
-            }
-        }
-
-        >span,
-        >* {
-            font-family: inherit;
+        @include mq-hover {
+            --button-background: var(--color-primary--hover);
         }
 
         >.icon {
-            --icon-size: 2rem;
+            --icon-size: 1.2em;
             fill: var(--button-color);
         }
     }

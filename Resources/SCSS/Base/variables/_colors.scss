@@ -1,13 +1,20 @@
 $color-white: hsl(0 0% 100%);
 $color-black: hsl(0 0% 0%);
-$color-shadow: hsl(0 0% 0% / 15%);
 $color-transparent: hsl(0 0% 0% / 0%);
-$color-primary: $color-white;
+$color-primary: hsl(41 57% 55%);
+$color-primary--hover: hsl(41 57% 45%);
 $color-secondary: hsl(0 0% 12%);
+$color-secondary--hover: hsl(0 0% 17%);
+$color-shadow: hsl(0 0% 0% / 15%);
+
 
 @mixin generate-colors {
   --color-white: #{$color-white};
   --color-black: #{$color-black};
   --color-transparent: #{$color-transparent};
+  --color-primary: #{$color-primary};
+  --color-primary--hover: #{$color-primary--hover};
+  --color-secondary: #{$color-secondary};
+  --color-secondary--hover: #{$color-secondary--hover};
   --color-shadow: #{$color-shadow};
 }
