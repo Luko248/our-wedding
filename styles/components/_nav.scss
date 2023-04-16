@@ -3,19 +3,44 @@
 
 @mixin create-nav {
     nav {
-        @include flex-set(flex, row, nowrap, var(--gap-3l), center, stretch);
+        @include flex-set(flex, row, nowrap, center);
         position: fixed;
         inset: 0 0 auto 0;
         inline-size: 100%;
         block-size: var(--nav-height);
-        background-color: $color-secondary;
+        background-color: var(--nav_bg, var(--color-transparent));
         z-index: 9999;
 
-        >ul {
+        @include mq-responsive('tablet', max){
+            --nav_bg: var(--color-white);
+        }
+
+        .container{
             @include flex-set(flex, row, nowrap, var(--gap-3xl), center, flex-end);
+        }
+
+        ul {
+            @include flex-set(var(--menu_display, inline-flex), var(--menu_fd, row), nowrap, var(--menu_gap, var(--gap-3xl)), center, var(--menu_jc, flex-end));
             padding: 0;
             margin: 0;
             list-style: none;
+
+            @include mq-responsive('tablet', max){
+                --menu_display: none;
+                --menu_fd: column;
+                --menu_jc: center;
+                --menu_gap: var(--gap-2xl);
+                background-color: var(--color-white);
+                position: absolute;
+                inset: 100% 0 auto 0;
+                block-size: calc(100dvb - var(--nav-height));
+            }
+
+            &.open{
+                @include mq-responsive('tablet', max){
+                    --menu_display: flex;
+                }
+            }
 
             a {
                 font-family: var(--font-text);
@@ -26,6 +51,10 @@
 
                 @include mq-hover {
                     --nav-item_text-decor: underline;
+                }
+
+                @include mq-responsive('tablet', max){
+                    --nav-link_color: var(--color-black);
                 }
             }
         }
