@@ -5,7 +5,7 @@ $font-size-s: convert-to-rem(14px);
 $font-size-m: convert-to-rem(16px);
 
 //gap
-$gap: 0.8rem;
+$gap: .8rem;
 $gap-xs: calc($gap / 4);
 $gap-s: calc($gap / 2);
 $gap-m: $gap;
@@ -42,6 +42,9 @@ $width-desktop-full-hd: 1920px;
 $width-desktop-2k: 2048px;
 $width-desktop-4k: 3840px;
 
+//others
+$nav-height: clamp($gap-3xl, 10dvb, 8rem);
+
 @mixin generate-sizes {
   --font-size-s: #{$font-size-s};
   --font-size-m: #{$font-size-m};
@@ -74,4 +77,5 @@ $width-desktop-4k: 3840px;
   --width-desktop-full-hd: #{$width-desktop-full-hd};
   --width-desktop-2k: #{$width-desktop-2k};
   --width-desktop-4k: #{$width-desktop-4k};
+  --nav-height: #{$nav-height};
 }

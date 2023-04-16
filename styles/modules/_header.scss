@@ -14,9 +14,9 @@
             background-color: $color-secondary;
             color: $color-white;
             text-align: center;
-            animation: circle-show 1.5s forwards 2s linear;
+            // animation: circle-show 1.5s forwards 2s linear;
             z-index: 2;
-            clip-path: circle(0% at 50% 50%);
+            // clip-path: circle(0% at 50% 50%);
 
             >h1 {
                 display: block;

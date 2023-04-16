@@ -37,4 +37,11 @@
 
 // window.initMap = initMap;
 
-initMap()
+// initMap()
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menuBtn') as HTMLButtonElement
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('burger--open')
+    })
+})

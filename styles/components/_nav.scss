@@ -2,22 +2,27 @@
 @use '../base/variables/index' as *;
 
 @mixin create-nav {
-    .nav {
-        position: sticky;
-        top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    nav {
+        @include flex-set(flex, row, nowrap, var(--gap-3l), center, stretch);
+        position: fixed;
+        inset: 0 0 auto 0;
         inline-size: 100%;
         block-size: var(--nav-height);
         background-color: $color-secondary;
-        isolation: isolate;
+        z-index: 9999;
 
         >ul {
-            >li {}
+            @include flex-set(flex, row, nowrap, var(--gap-3xl), center, flex-end);
+            padding: 0;
+            margin: 0;
+            list-style: none;
 
             a {
-                text-decoration: var(--nav-item_text-decor, none);
+                font-family: var(--font-text);
+                font-weight: 300;
+                color: var(--nav-link_color, var(--color-white));
+                text-decoration: var(--nav-item_text-decor, none);;
+                text-transform: uppercase;
 
                 @include mq-hover {
                     --nav-item_text-decor: underline;
