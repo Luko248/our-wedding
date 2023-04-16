@@ -1,28 +1,40 @@
-﻿/// <reference path="../node_modules/@types/googlemaps/index.d.ts" />
+﻿function initMap(): void {
+    let mapElement = document.getElementById('map') as HTMLDivElement
+    const eventPosition = { lat: 49.412402, lng: 18.569880 };
 
-import { Loader } from "@googlemaps/js-api-loader";
+    const map = new google.maps.Map(
+        mapElement,
+        {
+            zoom: 17,
+            center: eventPosition,
+        }
+    );
 
-declare global {
-    interface Window {
-        initMap: () => void;
-    }
-}
-const loader = new Loader({
-    apiKey: "",
-    version: "weekly",
-});
+    const infoWindow = new google.maps.InfoWindow({
+        content: '<div class="map__widnow"><strong>Penzión Kriváň<strong><br><span>Lucie & Lukáš Svatba</span></div>',
+        ariaLabel: "Penzión Kriváň",
+    });
 
-let map: google.maps.Map;
+    const marker = new google.maps.Marker({
+        position: eventPosition,
+        map,
+        title: "Penzión Kriváň",
+    });
 
-function initMap(): void {
-    map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
+    marker.addListener("click", () => {
+        infoWindow.open({
+            anchor: marker,
+            map,
+        });
     });
 }
 
-window.initMap = initMap;     
+// declare global {
+//     interface Window {
+//         initMap: () => void;
+//     }
+// }
 
-// loader.load().then(() => {
-      
-// })
+// window.initMap = initMap;
+
+initMap()
