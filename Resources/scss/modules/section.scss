@@ -1,0 +1,8 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-section {
+    section {
+        padding-block: 5dvb;
+    }
+}
