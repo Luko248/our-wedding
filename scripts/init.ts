@@ -1,49 +1,27 @@
-﻿function initMap(): void {
-    let mapElement = document.getElementById('map') as HTMLDivElement
-    const eventPosition = { lat: 49.412402, lng: 18.569880 };
+﻿import { Loader } from "@googlemaps/js-api-loader";
+import { initNav } from "./_nav";
+import { configMap } from "./_map";
 
-    const map = new google.maps.Map(
-        mapElement,
-        {
-            zoom: 17,
-            center: eventPosition,
-        }
-    );
+declare global {
+    interface Window {
+        initMap: () => void;
+    }
+}
+const loader = new Loader({
+    apiKey: "AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8",
+    version: "weekly",
+});
 
-    const infoWindow = new google.maps.InfoWindow({
-        content: '<div class="map__widnow"><strong>Penzión Kriváň<strong><br><span>Lucie & Lukáš Svatba</span></div>',
-        ariaLabel: "Penzión Kriváň",
-    });
+// loader.load().then(() => {
 
-    const marker = new google.maps.Marker({
-        position: eventPosition,
-        map,
-        title: "Penzión Kriváň",
-    });
+// })
 
-    marker.addListener("click", () => {
-        infoWindow.open({
-            anchor: marker,
-            map,
-        });
-    });
+function initMap(): void {
+    configMap()
 }
 
-// declare global {
-//     interface Window {
-//         initMap: () => void;
-//     }
-// }
-
-// window.initMap = initMap;
-
-// initMap()
+window.initMap = initMap
 
 document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.getElementById('menuBtn') as HTMLButtonElement
-    const menu = document.querySelector('nav ul') as HTMLButtonElement
-    menuBtn.addEventListener('click', () => {
-        menuBtn.classList.toggle('burger--open')
-        menu.classList.toggle('open')
-    })
+    initNav()
 })

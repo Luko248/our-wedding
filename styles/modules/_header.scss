@@ -14,9 +14,9 @@
             background-color: $color-secondary;
             color: $color-white;
             text-align: center;
-            // animation: circle-show 1.5s forwards 2s linear;
+            animation: circle-show 1.5s forwards 2s linear;
             z-index: 2;
-            // clip-path: circle(0% at 50% 50%);
+            clip-path: circle(0% at 50% 50%);
 
             >h1 {
                 display: block;
@@ -72,7 +72,6 @@
                 inset: 50% auto auto 50%;
                 font-size: clamp(2rem, 30dvb, var(--max-font-size, 15rem));
                 color: $color-secondary;
-
                 text-transform: uppercase;
                 animation: show-content .5s forwards .5s;
                 translate: -50% -50%;
