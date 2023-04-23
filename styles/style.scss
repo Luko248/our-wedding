@@ -7,6 +7,7 @@
 @use 'components/nav' as *;
 @use 'modules/container' as *;
 @use 'modules/header' as *;
+@use 'modules/parallax' as *;
 @use 'modules/section' as *;
 @use 'utilities/classes' as *;
 
@@ -28,6 +29,7 @@
   @layer modules {
     @include create-container;
     @include create-header;
+    @include create-parallax;
     @include create-section;
   }
 

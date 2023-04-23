@@ -2,27 +2,34 @@
 @use '../base/variables/index' as *;
 
 @mixin create-header {
+    header{
+        position: relative;
+    }
     .header {
+
         &__container {
             position: relative;
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             block-size: 100dvb;
-            row-gap: $gap-2xl;
-            background-color: $color-secondary;
-            color: $color-white;
+            padding-block-end: 10dvb;
+            background-color: $color-white;
+            color: $color-secondary;
             text-align: center;
-            animation: circle-show 1.5s forwards 2s linear;
+            // animation: circle-show 1.5s forwards 2s linear;
             z-index: 2;
-            clip-path: circle(0% at 50% 50%);
+            // clip-path: circle(0% at 50% 50%);
 
             >h1 {
+                position: relative;
                 display: block;
                 margin: 0;
                 font-family: var(--font-title);
-                font-size: clamp(1rem, 30dvb, var(--max-font-size, 8rem));
+                @include padding-set-y(3dvb);
+                font-size: clamp(1rem, 35dvb, var(--max-font-size, 9rem));
+                background-color: $color-white;
 
                 @include mq-responsive('desktop-s', max) {
                     --max-font-size: 6rem;
@@ -35,12 +42,22 @@
                 @include mq-responsive('mobile-l', max) {
                     --max-font-size: 3rem;
                 }
+
+                // &:before{
+                //     position: absolute;
+                //     inset: 0;
+                //     content: attr(data-before);
+                //     color: $color-white;
+                //     font-size: inherit;
+                // }
             }
 
             >span {
                 font-family: var(--font-text);
-                font-size: clamp(1.5rem, 10dvb, 4em);
+                font-size: 2.2em;
                 font-weight: 300;
+                translate: 0 -.25em;
+                background-color: $color-white;
 
                 @include mq-responsive('mobile-l', max) {
                     font-size: clamp(1.5rem, 10dvb, 2.5em);
@@ -53,7 +70,20 @@
                 left: 50%;
                 font-size: 2.5dvb;
                 translate: -50%;
+                display: none;
             }
+        }
+
+        &__img{      
+            @include border-radius(circle);
+            @include center-content(absolute, 45%);
+            @include border-set-all($gap-s, solid, $color-secondary);
+            block-size: 70dvb;
+            aspect-ratio: 1;
+            background-image: url('../images/kiss.jpg');
+            background-position: center 10%;     
+            background-size: cover;    
+            z-index: -1;
         }
 
         &__anim {

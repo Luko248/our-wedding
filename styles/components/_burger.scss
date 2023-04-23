@@ -5,9 +5,9 @@
 @mixin create-burger {
     .burger {
         position: relative;
+        display: var(--burger_display, none);
         inline-size: var(--gap-2xl);
         aspect-ratio: 4 / 3;
-        display: var(--burger_display, none);
         background-color: var(--color-transparent);
         border-color: var(--color-transparent);
         cursor: pointer;
@@ -24,11 +24,11 @@
             display: block;
             inline-size: 100%;
             block-size: var(--gap-xs);
-            background-color: var(--color-secondary);  
+            background-color: var(--color-secondary);
+            opacity: var(--opacity, 1);  
             translate: var(--trans-x, -50%) var(--trans-y, -50%);
-            rotate: var(--rotate, 0);
             scale: var(--scale, 1);
-            opacity: var(--opacity, 1);
+            rotate: var(--rotate, 0);
             transition: translate $trans-time ease-in-out, rotate $trans-time ease-in-out, scale $trans-time ease-in-out,
                 opacity $trans-time ease-in-out;
 
