@@ -1,0 +1,22 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-map {
+    #mapElem {
+        position: absolute;
+        inset: calc(30% + 5dvb) 0 29% 0;
+        background-color: #0f0f0f;
+
+        >div {
+            opacity: .1;
+        }
+    }
+
+    .map-container {
+        display: grid;
+        grid-template-columns: 8fr 5fr;
+        block-size: 100%;
+        background-color: hsl(0 0% 0% / 10%) !important;
+
+    }
+}

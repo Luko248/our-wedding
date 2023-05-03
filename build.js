@@ -93,7 +93,7 @@ async function main() {
                     sassPlugin({
                         async transform(source) {
                             const { css } = await postcss([autoprefixer, postcssPresetEnv({
-                                stage: 1,
+                                stage: 3,
                                 features: {
                                     "cascade-layers": false
                                 }

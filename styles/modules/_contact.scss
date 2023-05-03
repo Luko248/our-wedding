@@ -1,0 +1,19 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin creacte-contact {
+    .contact {
+        position: relative;
+        z-index: 10;
+        grid-column-start: 2;
+
+        &__card {
+            position: absolute;
+            inset: calc(25% + 5dvb) 5dvi calc(25% + 5dvb) -5dvi;
+            display: grid;
+            background-color: hsla(0 0% 0% / 30%);
+            border-radius: 3rem;
+            backdrop-filter: blur(1rem);
+        }
+    }
+}
