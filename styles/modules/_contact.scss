@@ -11,27 +11,22 @@
             inset: calc(25% + 5dvb) 2.5dvi calc(25% + 5dvb) -2.5dvi;
             padding-block: 5dvb;
             padding-inline: 2.5dvi;
-            background-color: hsla(0 0% 0% / 30%);
+            background-color: hsla(0 0% 0% / 40%);
             border-radius: $gap-2xl;
             color: $color-white;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-
-            // &:before{
-            //     filter: blur(10px);
-            //     position: absolute;
-            //     inset: 0;
-            //     content: '';
-            //     z-index: -1;
-            //     background-color: red;
-            //     opacity: .5;
-            // }
+            backdrop-filter: blur($gap-m);
+            border: 5px solid hsla(0 0% 0% / 10%);
+            box-shadow: 0 0 2dvi 0 hsla(0 0% 0% / 60%);
         }
 
         &__title {
             margin: 0;
             margin-block-end: clamp($gap-l, 3dvb, $gap-2xl);
             font-size: clamp($gap-l, 5dvb, $gap-3xl);
+        }
+
+        &__button{
+            
         }
     }
 }
