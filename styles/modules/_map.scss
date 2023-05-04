@@ -5,6 +5,10 @@
     #mapElem {
         position: absolute;
         inset: 25% 0 25% 0;
+
+        img[alt='Google'], .gmnoprint, .gm-style-cc{
+            display: none;
+        }
     }
 
     .map-container {

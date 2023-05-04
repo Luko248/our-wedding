@@ -9,13 +9,13 @@ import { initNav } from "./_nav";
 
 function initMap(): void {
     let mapElement = document.getElementById('mapElem') as HTMLDivElement
-    const eventPosition = { lat: 49.412402, lng: 18.569880 };
+    const centerPosition = { lat: 49.412290, lng: 18.574300 };
 
     const map = new google.maps.Map(
         mapElement,
         {
             zoom: 17,
-            center: eventPosition,
+            center: centerPosition,
             mapId: '1406e53bf9ae68ff',
             disableDefaultUI: true,
             options: {
@@ -24,23 +24,41 @@ function initMap(): void {
         }
     );
 
+    const iconsUrl = "/dist/images/map-icons/";
+
+    const markers: Record<string, { icon: string }> = {
+        main: {
+            icon: iconsUrl + "marker.svg",
+        }
+    };
+
+    const positions = [
+        {
+            position: new google.maps.LatLng(49.412402, 18.569880),
+            type: "main",
+            title: "Penzión Kriváň",
+        }
+    ];
+
     const infoWindow = new google.maps.InfoWindow({
         content: '<div class="map__widnow"><strong>Penzión Kriváň<strong><br><span>Lucie & Lukáš Svatba</span></div>',
         ariaLabel: "Penzión Kriváň",
     });
 
-    const marker = new google.maps.Marker({
-        position: eventPosition,
-        map,
-        title: "Penzión Kriváň",
-    });
-
-    marker.addListener("click", () => {
-        infoWindow.open({
-            anchor: marker,
-            map,
+    for (let i = 0; i < positions.length; i++) {
+        const marker = new google.maps.Marker({
+            position: positions[i].position,
+            icon: markers[positions[i].type].icon,
+            map: map,
         });
-    });
+
+        marker.addListener("click", () => {
+            infoWindow.open({
+                anchor: marker,
+                map,
+            });
+        });
+    }
 }
 
 initMap()
