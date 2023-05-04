@@ -5,18 +5,20 @@
     .contact {
         position: relative;
         grid-column-start: 2;
+        font-size: .5em;
 
         &__card {
+            @include flex-set(flex, column, nowrap, $gap-l, stretch, space-between);
             position: absolute;
-            inset: calc(25% + 5dvb) 2.5dvi calc(25% + 5dvb) -2.5dvi;
-            padding-block: 5dvb;
-            padding-inline: 2.5dvi;
-            background-color: hsla(0 0% 0% / 40%);
+            inset: calc(25% + 7dvb) 2.5dvi calc(25% + 7dvb) -2.5dvi;
+            padding-block: 7dvb;
+            padding-inline: 3.5dvi;
+            background-color: hsla(0 0% 100% / 10%);
             border-radius: $gap-2xl;
             color: $color-white;
             backdrop-filter: blur($gap-m);
-            border: 5px solid hsla(0 0% 0% / 10%);
-            box-shadow: 0 0 2dvi 0 hsla(0 0% 0% / 60%);
+            border: $gap-s solid hsla(0 0% 0% / 10%);
+            box-shadow: 0 0 2dvi 0 hsla(0 0% 0% / 40%);
         }
 
         &__title {
@@ -25,8 +27,70 @@
             font-size: clamp($gap-l, 5dvb, $gap-3xl);
         }
 
-        &__button{
-            
+        p {
+            font-size: clamp(1rem, 2dvb, $gap-l);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        address {
+            font-size: clamp($gap-l, 2.5dvb, $gap-xl);
+            line-height: 1.7;
+            margin-block-start: clamp($gap-l, 6dvb, $gap-3xl);
+
+            >strong {
+                display: block;
+                letter-spacing: $gap-xs;
+                font-weight: 1.5em;
+                text-transform: uppercase;
+                margin-block-end: $gap-s;
+            }
+        }
+
+        &__button-wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: var(--button-wrapper_justify-content, flex-end);
+            gap: $gap-l;
+            align-items: stretch;
+        }
+
+        &__button {
+            --contact-button-icon_scale: 1;
+            --color-shadow: #{$color-secondary};
+            @include box-shadow-set($gap-l);
+            display: inline-grid;
+            gap: clamp($gap, 2dvb, $gap-l);
+            place-items: center;
+            border-radius: $gap;
+            background-color: var(--contact-button_bg-color);
+            color: var(--contact-button_color);
+            text-decoration: none;
+            padding: clamp($gap, 2dvb, $gap-l);
+            aspect-ratio: 1;
+            transition: background-color $trans-time $trans-fnc, box-shadow $trans-time $trans-fnc;
+
+            @include mq-hover {
+                --color-shadow: #{$color-black};
+                --contact-button-icon_scale: 1.05;
+            }
+
+            >svg {
+                scale: var(--contact-button-icon_scale);
+                transition: scale $trans-time $trans-fnc;
+                inline-size: 5rem;
+                block-size: 5rem;
+                aspect-ratio: 1;
+                display: block;
+            }
+
+            &--google {
+                --contact-button_bg-color: #{$color-white};
+            }
+
+            &--waze {
+                --contact-button_bg-color: #{$color-waze};
+            }
         }
     }
 }
