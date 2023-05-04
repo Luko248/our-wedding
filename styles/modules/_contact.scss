@@ -4,16 +4,34 @@
 @mixin creacte-contact {
     .contact {
         position: relative;
-        z-index: 10;
         grid-column-start: 2;
 
         &__card {
             position: absolute;
-            inset: calc(25% + 5dvb) 5dvi calc(25% + 5dvb) -5dvi;
-            display: grid;
+            inset: calc(25% + 5dvb) 2.5dvi calc(25% + 5dvb) -2.5dvi;
+            padding-block: 5dvb;
+            padding-inline: 2.5dvi;
             background-color: hsla(0 0% 0% / 30%);
-            border-radius: 3rem;
-            backdrop-filter: blur(1rem);
+            border-radius: $gap-2xl;
+            color: $color-white;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+
+            // &:before{
+            //     filter: blur(10px);
+            //     position: absolute;
+            //     inset: 0;
+            //     content: '';
+            //     z-index: -1;
+            //     background-color: red;
+            //     opacity: .5;
+            // }
+        }
+
+        &__title {
+            margin: 0;
+            margin-block-end: clamp($gap-l, 3dvb, $gap-2xl);
+            font-size: clamp($gap-l, 5dvb, $gap-3xl);
         }
     }
 }

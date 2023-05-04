@@ -1,3 +1,7 @@
+@use '../base/variables/colors' as *;
+@use '../base/variables/fonts' as *;
+@use '../base/variables/sizes' as *;
+
 @mixin reset {
 
     *,
@@ -25,7 +29,17 @@
     }
 
     address {
+        font-family: $font-text;
+        font-weight: 300;
         font-style: normal;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-title;
+    }
+
+    p {
+        font-family: $font-text;
     }
 
     @keyframes body-overflow {

@@ -16,6 +16,11 @@ function initMap(): void {
         {
             zoom: 17,
             center: eventPosition,
+            mapId: '1406e53bf9ae68ff',
+            disableDefaultUI: true,
+            options: {
+                gestureHandling: 'cooperative',
+            }
         }
     );
 
@@ -37,8 +42,5 @@ function initMap(): void {
         });
     });
 }
-initMap()
-document.addEventListener('DOMContentLoaded', () => {
-    initNav()
 
-})
+initMap()

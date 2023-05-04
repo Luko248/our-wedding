@@ -78,11 +78,12 @@
     text-transform: uppercase;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+
     &--l{
+        top: 35%;
         font-size: 20dvb;
-        top: 40%;
-        white-space: nowrap;
         text-transform: none;
+        white-space: nowrap;
     }
   }
 
