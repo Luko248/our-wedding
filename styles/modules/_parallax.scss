@@ -34,6 +34,7 @@
   .parallax__layer--fore {
     transform: translateZ(90px) scale(.7);
     z-index: 1;
+    pointer-events: none;
   }
 
   .parallax__layer--base {
