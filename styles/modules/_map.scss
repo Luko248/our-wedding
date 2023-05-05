@@ -13,9 +13,9 @@
 
     .map-container {
         position: relative;
-        z-index: 10;
         display: grid;
         grid-template-columns: 8fr 5fr;
         block-size: 200dvb;
+        z-index: 10;
     }
 }
