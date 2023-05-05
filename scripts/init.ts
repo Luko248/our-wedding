@@ -1,5 +1,7 @@
 ﻿// /// <reference path="../../node_modules/@types/googlemaps/index.d.ts" />
 import { initNav } from "./_nav";
+import { initSeatingPlan } from "./_seatingPlan";
+
 
 // declare global {
 //     interface Window {
@@ -62,3 +64,8 @@ function initMap(): void {
 }
 
 initMap()
+
+document.addEventListener('DOMContentLoaded', () => {
+    // initNav()
+    initSeatingPlan()
+})

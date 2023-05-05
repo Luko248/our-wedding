@@ -3,14 +3,15 @@
 @use 'base/root' as *;
 @use 'components/burger' as *;
 @use 'components/button' as *;
-
 @use 'components/icon' as *;
 @use 'components/nav' as *;
+@use 'components/select' as *;
 @use 'modules/contact' as *;
 @use 'modules/container' as *;
 @use 'modules/header' as *;
 @use 'modules/map' as *;
 @use 'modules/parallax' as *;
+@use 'modules/seating-plan' as *;
 @use 'modules/section' as *;
 @use 'utilities/classes' as *;
 
@@ -27,6 +28,7 @@
     @include create-button;
     @include create-icon;
     @include create-nav;
+    @include create-select;
   }
 
   @layer modules {
@@ -35,6 +37,7 @@
     @include create-header;
     @include create-map;
     @include create-parallax;
+    @include create-seating-plan;
     @include create-section;
   }
 

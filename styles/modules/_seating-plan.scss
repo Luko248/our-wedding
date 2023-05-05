@@ -1,0 +1,86 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-seating-plan {
+    .plan {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        padding: 20dvb 25dvi;
+        row-gap: 1rem;
+    }
+
+    .table {
+        background-color: #984f21;
+
+        &:not(.table--main) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: stretch;
+            gap: 1rem;
+        }
+
+        &--main {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            aspect-ratio: 7 / 1;
+            grid-column-end: span 7;
+        }
+
+        &--1 {
+            aspect-ratio: 1 / 10;
+            grid-column: 1 / 2;
+        }
+
+        &--2 {
+            aspect-ratio: 1 / 10;
+            grid-column: 4 / 5;
+        }
+
+        &--3 {
+            aspect-ratio: 1 / 10;
+            grid-column: 7 / 8;
+        }
+    }
+
+    .chair {
+        --chair-top: 0;
+        --chair-left: 50%;
+        --chair-translate: -50% calc(-100% - 1rem);
+        --chair-size: 50cqi;
+        --chair_bg-color: darkgrey;
+        position: relative;
+        container-type: inline-size;
+
+        &--selected {
+            --chair_bg-color: lime;
+        }
+
+        &--left:before {
+            --chair-top: 50%;
+            --chair-size: 100cqi;
+            --chair-left: 0;
+            --chair-translate: calc(-100% - 1rem) -50%;
+        }
+
+        &--right:before {
+            --chair-top: 50%;
+            --chair-size: 100cqi;
+            --chair-left: 100%;
+            --chair-translate: 1rem -50%;
+        }
+
+        &:before {
+            display: grid;
+            place-items: center;
+            inline-size: var(--chair-size);
+            content: attr(id);
+            background-color: var(--chair_bg-color);
+            border-radius: 50%;
+            position: absolute;
+            aspect-ratio: 1;
+            top: var(--chair-top);
+            left: var(--chair-left);
+            translate: var(--chair-translate);
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@use "../base/functions/index" as *;
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin create-select {
+    .select {
+        display: inline-flex;
+        margin-inline: auto;
+    }
+}
