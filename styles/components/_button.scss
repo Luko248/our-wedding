@@ -5,13 +5,13 @@
 
     .button {
         --shadow-alpha: .3;
-        --button-min-width: 18rem;
-        --button-border-width: .2rem;
-        --button-background: var(--color-primary);
+        --button-min-width: 15rem;
+        --button-border-width: #{$gap-xs};
+        --button-background: var(--color-secondary--bg);
         --button-color: #{$color-white};
-        --button-border-color: #{$color-primary};
-        --button-padding: clamp(#{$gap-m}, 5vw, #{$gap-l}) clamp(#{$gap-l}, 5vw, #{$gap-xl});
-        --button-font-size: clamp(#{$gap-s}, 5dvi, #{$gap-l});
+        --button-border-color: #{$color-secondary--trans};
+        --button-padding: clamp(#{$gap-m}, .4dvb, #{$gap-l}) clamp(#{$gap-m}, 2.5dvb, #{$gap-xl});
+        --button-font-size: clamp(#{$gap-s}, 1em, #{$gap-l});
         --button-cursor: pointer;
         --button-outline: none;
 
@@ -23,6 +23,8 @@
     }
 
     .button {
+        @include border-radius(m);
+        @include border-set-all(var(--button-border-width), solid, var(--button-border-color));
         display: inline-flex;
         flex-flow: row nowrap;
         align-items: center;
@@ -32,13 +34,13 @@
         gap: $gap-m;
         padding: var(--button-padding);
         background-color: var(--button-background);
-        border-radius: 100vmax;
-        font-family: var(--font-title);
+        font-family: var(--font-text);
         font-size: var(--button-font-size);
         color: var(--button-color);
         text-align: center;
+        font-weight: 300;
         text-decoration: none;
-        text-transform: uppercase;
+        letter-spacing: 2.5px;
         transition: background-color $trans-time ease-in-out;
         cursor: pointer;
 
@@ -47,7 +49,9 @@
         }
 
         @include mq-hover {
-            --button-background: var(--color-primary--hover);
+            --button-background: var(--color-secondary--hover);
+            --button-border-color: #{$color-secondary};
+
         }
 
         >.icon {
