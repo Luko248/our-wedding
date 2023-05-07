@@ -69,8 +69,8 @@
         position: relative;
         background-color: $color-transparent;
         border-width: 0;
-        outline: none;
         z-index: 1;
+        outline: none;
 
         &--selected {
             --chair_bg-color: lime;
