@@ -9,18 +9,20 @@
         inline-size: 100%;
         block-size: var(--nav-height);
         background-color: var(--nav_bg, var(--color-transparent));
-        z-index: 9999;
+        z-index: 10;
+        opacity: 0;
+        animation: showNav $trans-time forwards 2.5s linear;
 
         @include mq-responsive('tablet', max){
             --nav_bg: var(--color-white);
         }
 
         .container{
-            @include flex-set(flex, row, nowrap, var(--gap-3xl), center, flex-end);
+            @include flex-set(flex, row, nowrap, var(--gap-3xl), center, space-between);
         }
 
         ul {
-            @include flex-set(var(--menu_display, inline-flex), var(--menu_fd, row), nowrap, var(--menu_gap, var(--gap-3xl)), center, var(--menu_jc, flex-end));
+            @include flex-set(var(--menu_display, inline-flex), var(--menu_fd, row), nowrap, var(--menu_gap, var(--gap-2xl)), center, var(--menu_jc, flex-end));
             padding: 0;
             margin: 0;
             list-style: none;
@@ -45,7 +47,7 @@
             a {
                 font-family: var(--font-text);
                 font-weight: 300;
-                color: var(--nav-link_color, var(--color-white));
+                color: var(--nav-link_color, var(--color-font));
                 text-decoration: var(--nav-item_text-decor, none);;
                 text-transform: uppercase;
 
@@ -57,6 +59,15 @@
                     --nav-link_color: var(--color-black);
                 }
             }
+        }
+    }
+
+    @keyframes showNav{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
         }
     }
 }

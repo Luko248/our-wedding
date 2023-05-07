@@ -39,6 +39,7 @@
         color: var(--button-color);
         text-align: center;
         font-weight: 300;
+        backdrop-filter: blur($gap-s);
         text-decoration: none;
         letter-spacing: 2.5px;
         transition: background-color $trans-time ease-in-out;

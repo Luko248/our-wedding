@@ -5,6 +5,8 @@ $color-primary: hsl(41 57% 55%);
 $color-primary--hover: hsl(41 57% 45%);
 $color-secondary: hsl(0 0% 12%);
 $color-secondary--hover: hsl(0 0% 17%);
+$color-secondary--bg: hsl(0 0% 17% / 90%);
+$color-secondary--trans: hsl(0 0% 70% / 50%);
 $color-shadow: hsl(0 0% 0% / 15%);
 $color-waze: hsl(194.71 99.03% 59.61%);
 
@@ -17,5 +19,7 @@ $color-waze: hsl(194.71 99.03% 59.61%);
   --color-primary--hover: #{$color-primary--hover};
   --color-secondary: #{$color-secondary};
   --color-secondary--hover: #{$color-secondary--hover};
+  --color-secondary--bg: #{$color-secondary--bg};
+  --color-secondary--transr: #{$color-secondary--trans};
   --color-shadow: #{$color-shadow};
 }
