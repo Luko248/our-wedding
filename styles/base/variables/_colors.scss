@@ -9,6 +9,10 @@ $color-secondary--bg: hsl(0 0% 17% / 90%);
 $color-secondary--trans: hsl(0 0% 70% / 50%);
 $color-shadow: hsl(0 0% 0% / 15%);
 $color-waze: hsl(194.71 99.03% 59.61%);
+$color-contact_bg: hsla(0 0% 100% / 10%);
+$color-contact_border-color: hsla(0 0% 0% / 10%);
+$color-contact_shadow-color: hsla(0 0% 0% / 40%);
+
 
 
 @mixin generate-colors {

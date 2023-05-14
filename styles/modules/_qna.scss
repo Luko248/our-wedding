@@ -2,15 +2,104 @@
 @use '../base/variables/index' as *;
 
 @mixin create-qna {
-    .qna {
-        position: relative;
+  .qna {
+    position: relative;
+    background-image: url(/dist/images/backgrounds/sticker.svg);
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position: 90% 50%;
+    background-attachment: fixed;
 
-        &__background {
-            position: absolute;
-            inset: 0;
+    // &__background {
+    //   position: absolute;
+    //   inset: 0;
+    //   z-index: -1;
+
+
+    //   >div {
+    //     position: relative;
+    //     block-size: 100%;
+
+    //     &:after {
+    //       position: sticky;
+    //       top: 0;
+    //       left: 0;
+    //       display: block;
+    //       content: '';
+         
+    //       inline-size: 100%;
+    //       block-size: 100dvb;
+    //       border: 5px solid red;
+    //     }
+    //   }
+    // }
+
+    .container {
+      @include flex-set(flex, column, nowrap, var(--qna_gap, $gap-2xl));
+    }
+
+    &__item {
+      --question_gap: #{$gap-xl};
+      --question-number_size: #{$gap-3xl};
+      --question-number_bg-color: #{$color-secondary};
+      --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
+      counter-increment: questions;
+
+      &[open] {
+        --question-number_bg-color: #{$color-primary};
+      }
+
+      >p {
+        line-height: 1.7;
+        padding-inline-start: var(--question-content_pad-left);
+        font-weight: 300;
+      }
+
+      >summary {
+        --qna-question_text-decoration: none;
+        --qna-number_box-shadow-radius: 0;
+        @include flex-set(flex, row, nowrap, var(--question_gap), center);
+        font-size: clamp($gap-l, 5dvb, $gap-xl);
+        font-family: var(--font-title);
+        cursor: pointer;
+
+        @include mq-hover {
+          --qna-question_text-decoration: underline;
+          --qna-number_box-shadow-radius: #{$gap-m};
         }
 
-        &__item {}
+        &::marker {
+          visibility: hidden;
+          color: $color-transparent;
+          display: none;
+        }
 
+        &:before {
+          @include border-radius(circle);
+          @include box-shadow-set(var(--qna-number_box-shadow-radius), 0, 0, var(--question-number_bg-color));
+          display: inline-grid;
+          place-items: center;
+          content: counter(questions, upper-roman);
+          font-size: 2rem;
+          font-weight: 500;
+          block-size: var(--question-number_size);
+          aspect-ratio: 1;
+          color: $color-white;
+          text-decoration: none;
+          text-align: center;
+          line-height: 1;
+          background-color: var(--question-number_bg-color);
+          transition: box-shadow var(--trans-time) var(--trans-fnc), background-color var(--trans-time) var(--trans-fnc);
+
+          @include mq-responsive('mobile-l', max) {
+            font-size: 1.5rem;
+          }
+        }
+
+        >span {
+          text-decoration: var(--qna-question_text-decoration);
+        }
+      }
     }
+  }
 }

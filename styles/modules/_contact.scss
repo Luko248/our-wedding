@@ -9,16 +9,16 @@
 
         &__card {
             @include flex-set(flex, column, nowrap, $gap-l, stretch, space-between);
+            @include border-set-all($gap-s, solid, $color-contact_border-color);
+            @include box-shadow-set(2dvi, 0, 0, $color-contact_shadow-color) ;
             position: absolute;
             inset: calc(25% + 7dvb) 2.5dvi calc(25% + 7dvb) -2.5dvi;
             padding-block: 7dvb;
             padding-inline: 3.5dvi;
-            background-color: hsla(0 0% 100% / 10%);
-            border: $gap-s solid hsla(0 0% 0% / 10%);
+            background-color: $color-contact_bg;
             border-radius: $gap-2xl;
             color: $color-white;
             backdrop-filter: blur($gap-m);
-            box-shadow: 0 0 2dvi 0 hsla(0 0% 0% / 40%);
         }
 
         &__title {

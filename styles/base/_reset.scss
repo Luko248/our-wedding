@@ -40,6 +40,7 @@
 
     p {
         font-family: $font-text;
+        font-size: clamp(1rem, 2.5dvb, $gap-l);
     }
 
     @keyframes body-overflow {

@@ -23,7 +23,7 @@
     }
 
     .button {
-        @include border-radius(m);
+        @include border-radius(full);
         @include border-set-all(var(--button-border-width), solid, var(--button-border-color));
         display: inline-flex;
         flex-flow: row nowrap;
