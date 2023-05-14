@@ -2,9 +2,10 @@
 @use '../base/variables/index' as *;
 
 @mixin create-header {
-    header{
+    header {
         position: relative;
     }
+
     .header {
 
         &__container {
@@ -27,6 +28,9 @@
                 display: block;
                 margin: 0;
                 background-color: $color-white;
+                color: $color-transparent;
+                -webkit-text-stroke: 2px $color-secondary;
+
                 font-family: var(--font-title);
                 font-size: clamp(1rem, 35dvb, var(--max-font-size, 9rem));
                 @include padding-set-y(3dvb);
@@ -74,15 +78,15 @@
             }
         }
 
-        &__img{      
+        &__img {
             @include border-radius(circle);
             @include center-content(absolute, 45%);
             @include border-set-all($gap-s, solid, $color-secondary);
             block-size: 70dvb;
             aspect-ratio: 1;
             background-image: url('../images/kiss.jpg');
-            background-position: center 10%;     
-            background-size: cover;    
+            background-position: center 10%;
+            background-size: cover;
             z-index: -1;
         }
 

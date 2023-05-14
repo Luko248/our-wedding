@@ -58,12 +58,12 @@
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
             <a href="./dist/download/lucie_&_lukas_svatba.ics" class="button" aria-label="Pridať do kalendára"
-            rel="noopener">
-            <svg class="icon icon-calendar">
-                <use xlink:href="#icon-calendar"></use>
-            </svg>
-            Pridať do kalendára
-        </a>
+                rel="noopener">
+                <svg class="icon icon-calendar">
+                    <use xlink:href="#icon-calendar"></use>
+                </svg>
+                Pridať do kalendára
+            </a>
             <button id="menuBtn" class="burger" aria-label="Open mobile menu">
                 <span></span>
                 <span></span>
@@ -73,7 +73,7 @@
     </nav>
 
     <main class="parallax">
-        <header id="group1" class="parallax__group">
+        <!-- <header id="group1" class="parallax__group">
             <div class="parallax__layer parallax__layer--base">
                 <div class="header__anim">
                     <span>Budeme</span>
@@ -88,7 +88,7 @@
                     <span><time datetime="2023-09-02T13:00:00">2. 9. 2023</time></span>
                 </div>
             </div>
-        </header>
+        </header> -->
         <section class="parallax__group parallax__group--l">
             <div class="parallax__layer parallax__layer--base">
                 <h2 class="title">Tešíme sa na Vás
@@ -182,25 +182,66 @@
                     </div>
                 </div>
             </div>
-            </div>
             <div class="parallax__layer parallax__layer--back">
                 <h2 class="title title--l">Kde to bude?
             </div>
-            </div>
         </section>
-        <section id="group3" class="parallax__group">
+        <section id="qna" class="parallax__group qna">
             <div class="parallax__layer parallax__layer--fore">
-                <!-- <div class="title">Foreground Layer</div> -->
+                <div class="title">Q & A</div>
             </div>
             <div class="parallax__layer parallax__layer--base">
-                <div class="title">Q & A</div>
-                <div class="container text-to-center">
-                    <!-- <div class="select">
-                        <input list="guestList" id="guestsSelect">
+                <div class="title">base Layer</div>
+                <div class="qna__background"></div>
+                <div class="container">
+                    <details class="qna__item">
+                        <summary>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, quod.
+                        </summary>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quo fuga eius
+                            tempora. Reiciendis optio impedit, cumque quod qui sit officia et, eligendi totam, minus
+                            suscipit! Laborum culpa quam repellat quibusdam? Doloremque distinctio quia suscipit
+                            consequatur deleniti repellat soluta rem illo repudiandae, eveniet omnis itaque nam hic
+                            explicabo, dolorem eum?</p>
+                    </details>
+                    <details class="qna__item">
+                        <summary>
+                            Lorem ipsum dolor sit amet.
+                        </summary>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto esse
+                            consequatur repellat eius soluta quidem doloribus, eaque adipisci! Provident velit eius sed
+                            dignissimos quis voluptatem voluptas tenetur, pariatur voluptates laboriosam ullam
+                            consequuntur harum, cum facere quo suscipit! Officia voluptatum nemo voluptate asperiores.
+                        </p>
+                    </details>
+                    <details class="qna__item">
+                        <summary>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </summary>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta velit fugiat
+                            earum quia, architecto quo perferendis labore, assumenda necessitatibus recusandae vel quas
+                            eius neque reprehenderit alias molestiae ducimus, amet mollitia vero dolorum optio et
+                            perspiciatis. Aspernatur unde perspiciatis, officia id nisi dolorem hic, obcaecati nam natus
+                            accusantium beatae quod, sint porro? Odio tenetur laborum debitis. Impedit, ad voluptatibus
+                            in maiores ipsa odit quasi. Totam non accusamus quis quos, quod eveniet doloribus saepe
+                            laborum praesentium ullam.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        </div>
+        </section>
+        <section id="group4" class="parallax__group">
+            <div class="parallax__layer parallax__layer--base">
+                <div class="title">Zasadací poriadok</div>
+                <!-- <div class="container text-to-center">
+                    <label class="select">
+                        Select guest
+                        <input type="text" list="guestList" id="guestsSelect">
                         <datalist id="guestList">
                         </datalist>
                         <button id="clearSelect">Clear</button>
-                    </div> -->
+                    </label>
                 </div>
 
                 <div class="plan">
@@ -208,12 +249,7 @@
                     <div class="table table--1"></div>
                     <div class="table table--2"></div>
                     <div class="table table--3"></div>
-                </div>
-            </div>
-        </section>
-        <section id="group4" class="parallax__group">
-            <div class="parallax__layer parallax__layer--base">
-                <div class="title">Base Layer</div>
+                </div> -->
             </div>
             <div class="parallax__layer parallax__layer--back">
                 <div class="title">Background Layer</div>
@@ -249,28 +285,7 @@
             </div>
         </section> -->
         <!-- <section>
-            <div class="container">
-                <h2>Dôležité informácie</h2>
-                <details>
-                    <summary>
-                        Otázka číslo
-                    </summary>
-                    <p class="desc">Odpoveď číslo 1</p>
-                </details>
-                <details>
-                    <summary>
-                        Otázka číslo
-                    </summary>
-                    <p class="desc">Odpoveď číslo 2</p>
-                </details>
-                <details>
-                    <summary>
-                        Otázka číslo
-                    </summary>
-                    <p class="desc">Odpoveď číslo 3</p>
-                </details>
-            </div>
-        </section> -->
+           
     </main>
 
     <!-- <footer>
@@ -280,11 +295,11 @@
     </footer> -->
 
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8&callback=initMap&v=weekly"
-        defer></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8&callback=initMap&v=weekly"
+            defer></script>
 
-    <script type="text/javascript" src="./dist/scripts/init.js" defer></script>
+        <script type="text/javascript" src="./dist/scripts/init.js" defer></script>
 </body>
 
 </html>

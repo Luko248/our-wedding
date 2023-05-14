@@ -1,0 +1,16 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-qna {
+    .qna {
+        position: relative;
+
+        &__background {
+            position: absolute;
+            inset: 0;
+        }
+
+        &__item {}
+
+    }
+}

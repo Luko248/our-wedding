@@ -1,0 +1,13 @@
+@use 'burger' as *;
+@use 'button' as *;
+@use 'icon' as *;
+@use 'nav' as *;
+@use 'select' as *;
+
+@mixin create-components {
+    @include create-burger;
+    @include create-button;
+    @include create-icon;
+    @include create-nav;
+    @include create-select;
+}

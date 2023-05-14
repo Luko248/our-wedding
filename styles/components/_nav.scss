@@ -9,9 +9,9 @@
         inline-size: 100%;
         block-size: var(--nav-height);
         background-color: var(--nav_bg, var(--color-transparent));
-        z-index: 10;
         opacity: 0;
         animation: showNav $trans-time forwards 2.5s linear;
+        z-index: 10;
 
         @include mq-responsive('tablet', max){
             --nav_bg: var(--color-white);

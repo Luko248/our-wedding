@@ -1,18 +1,8 @@
 ﻿@use 'base/layers' as *;
 @use 'base/reset' as *;
 @use 'base/root' as *;
-@use 'components/burger' as *;
-@use 'components/button' as *;
-@use 'components/icon' as *;
-@use 'components/nav' as *;
-@use 'components/select' as *;
-@use 'modules/contact' as *;
-@use 'modules/container' as *;
-@use 'modules/header' as *;
-@use 'modules/map' as *;
-@use 'modules/parallax' as *;
-@use 'modules/seating-plan' as *;
-@use 'modules/section' as *;
+@use 'components/index' as *;
+@use 'modules/index' as *;
 @use 'utilities/classes' as *;
 
 @at-root {
@@ -24,21 +14,11 @@
   }
 
   @layer components {
-    @include create-burger;
-    @include create-button;
-    @include create-icon;
-    @include create-nav;
-    @include create-select;
+    @include create-components;
   }
 
   @layer modules {
-    @include create-container;
-    @include creacte-contact;
-    @include create-header;
-    @include create-map;
-    @include create-parallax;
-    // @include create-seating-plan;
-    @include create-section;
+    @include create-modules;
   }
 
   @layer utilities {
