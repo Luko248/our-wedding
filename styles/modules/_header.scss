@@ -28,11 +28,11 @@
                 display: block;
                 margin: 0;
                 background-color: $color-white;
-                color: $color-transparent;
-                -webkit-text-stroke: 2px $color-secondary;
 
                 font-family: var(--font-title);
                 font-size: clamp(1rem, 35dvb, var(--max-font-size, 9rem));
+                color: $color-transparent;
+                -webkit-text-stroke: 2px $color-secondary;
                 @include padding-set-y(3dvb);
 
                 @include mq-responsive('desktop-s', max) {
