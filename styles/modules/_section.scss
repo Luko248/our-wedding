@@ -3,6 +3,15 @@
 
 @mixin create-section {
     section {
-        padding-block: 5dvb;
+        padding-block: clamp($gap-3xl, var(--section_pad-block, 10dvb), 5rem);
+
+        @include mq-responsive('tablet', max) {
+            --section_pad-block: 8dvb;
+
+        }
+
+        @include mq-responsive('mobile', max) {
+            --section_pad-block: 5dvb;
+        }
     }
 }

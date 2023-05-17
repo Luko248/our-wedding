@@ -1,0 +1,27 @@
+@use '../base/variables/colors' as *;
+@use '../base/variables/fonts' as *;
+@use '../base/variables/sizes' as *;
+
+@mixin create-typography{
+    .title {
+        font-size: var(--title_font-size, clamp($gap-3xl, 5dvb, 5rem));
+        margin-block: 0;
+        margin-inline: auto;
+        font-family: $font-title;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: $gap-s;
+        color: var(--title_color, #{$color-secondary});
+        text-align: center;
+        text-transform: uppercase;
+    
+        &--l {
+          --title_color: #{$color-transparent};
+          --title_font-size: clamp(#{$gap-3xl}, 17dvb, 8rem);
+          text-transform: none;
+          text-transform: uppercase;
+          white-space: nowrap;
+          -webkit-text-stroke: $border-width-l $color-secondary;
+        }
+      }
+}
