@@ -3,9 +3,14 @@
 
 @mixin create-map {
     #mapElem {
-        position: absolute;
-        inset: 25% 0 25% 0;
+        position: var(--map_position, absolute);
+        inset: var(--map_inset, 0);
 
+        // @include mq-responsive('tablet', max){
+        //     --map_position: relative;
+        //     --map_inset: unset;
+        // }
+        
         img[alt='Google'], .gmnoprint, .gm-style-cc{
             display: none;
         }
@@ -14,8 +19,13 @@
     .map-container {
         position: relative;
         display: grid;
-        grid-template-columns: 8fr 5fr;
-        block-size: 200dvb;
-        z-index: 10;
+        grid-template-columns: var(--map_grid-columns, minmax($gap-3xl, 8fr) minmax($gap-3xl, 5fr));
+        block-size: var(--map-container_block-size, 100dvb);
+
+        @include mq-responsive('tablet', max){
+            --map_grid-columns: minmax(#{$width-mobile-s}, 1fr);
+            --map-container_block-size: 165dvb;
+            sctoll-margin-block-start: var(--nav-height);
+        }
     }
 }

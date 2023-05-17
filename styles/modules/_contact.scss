@@ -4,21 +4,33 @@
 @mixin create-contact {
     .contact {
         position: relative;
-        font-size: .5em;
-        grid-column-start: 2;
+        grid-column-start: var(--contact_col-start, 2);
+
+        @include mq-responsive("tablet", max) {
+            --contact_col-start: 1;
+        }
 
         &__card {
+            --cart_margin-block: 8dvb;
             @include flex-set(flex, column, nowrap, $gap-l, stretch, space-between);
             @include border-set-all($gap-s, solid, $color-contact_border-color);
             @include box-shadow-set(2dvi, 0, 0, $color-contact_shadow-color);
-            position: absolute;
-            inset: calc(25% + 7dvb) 2.5dvi calc(25% + 7dvb) -2.5dvi;
+            position: var(--card_position, absolute);
+            inset: var(--card_inset, var(--cart_margin-block) 2.5dvi var(--cart_margin-block) -2.5dvi);
             padding-block: 7dvb;
             padding-inline: 3.5dvi;
             background-color: $color-contact_bg;
             border-radius: $gap-2xl;
             color: $color-white;
             backdrop-filter: blur($gap-m);
+
+            @include mq-responsive("tablet", max) {
+                --contact_col-start: 1;
+                --card_position: relative;
+                --card_inset: none;
+                margin-inline: $gap-xl;
+                margin-block-start: 7dvb;
+            }
         }
 
         &__title {

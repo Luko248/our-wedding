@@ -3,6 +3,7 @@
 
 @mixin create-nav {
     nav {
+        --nav_color: #{$color-secondary};
         @include flex-set(flex, row, nowrap, center);
         @include box-shadow-set($gap, 0, 0, var(--nav_shadow-color, $color-transparent));
         position: fixed;
@@ -10,11 +11,11 @@
         inline-size: 100%;
         block-size: var(--nav-height);
         background-color: var(--nav_bg, var(--color-transparent));
-        color: var(--nav_color, var(--color-font));
+        color: var(--nav_color);
+        transition: block-size $trans-time ease-in-out, color $trans-time ease-in-out, background-color $trans-time ease-in-out, box-shadow $trans-time ease-in-out;
         // opacity: 0;
         // animation: showNav $trans-time forwards 2.5s linear;
         z-index: 9999;
-        transition: block-size $trans-time ease-in-out, color $trans-time ease-in-out, background-color $trans-time ease-in-out, box-shadow $trans-time ease-in-out;
 
         @include mq-responsive('tablet', max){
             --nav_bg: var(--color-white);

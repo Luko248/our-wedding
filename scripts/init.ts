@@ -11,7 +11,22 @@ import { initNav } from "./_nav";
 
 function initMap(): void {
     let mapElement = document.getElementById('mapElem') as HTMLDivElement
-    const centerPosition = { lat: 49.412290, lng: 18.574300 };
+    var centerPosition;
+    const mobileCenterPosition = { lat: 49.415000, lng: 18.570000 }
+    const laptopCenterPosition = { lat: 49.412290, lng: 18.572500 }
+    const desktopCenterPosition = { lat: 49.412290, lng: 18.574300 }
+
+    if (window.innerWidth < 768) {
+        centerPosition = mobileCenterPosition
+    }
+
+    else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
+        centerPosition = laptopCenterPosition
+    }
+
+    else{
+        centerPosition = desktopCenterPosition
+    }
 
     const map = new google.maps.Map(
         mapElement,

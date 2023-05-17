@@ -20,6 +20,11 @@
             --button-border-color: #{$color-secondary};
             --button-background: #{$color-secondary};
         }
+
+        &--s{
+            --button-font-size: clamp(#{$gap-s}, 1em, #{$gap-m});
+            text-transform: uppercase;
+        }
     }
 
     .button {
@@ -54,6 +59,8 @@
             --button-border-color: #{$color-secondary};
 
         }
+
+
 
         >.icon {
             --icon-size: 1.2em;

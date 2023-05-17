@@ -3,7 +3,12 @@
 
 @mixin create-section {
     section {
+        scroll-margin-block-start: var(--nav-height);
         padding-block: clamp($gap-3xl, var(--section_pad-block, 10dvb), 5rem);
+
+        &:has(.map-container){
+            --section_pad-block: 0;
+        }
 
         @include mq-responsive('tablet', max) {
             --section_pad-block: 8dvb;

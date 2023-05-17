@@ -8,7 +8,7 @@ export const initNav = () => {
 
     const navObserver = new IntersectionObserver((entries) => {
         nav.classList.toggle('sticked', !entries[0].isIntersecting)
-    }, {rootMargin: '200px 0px 0px 0px'})
+    }, {rootMargin: '100% 0px 0px 0px'})
 
     navObserver.observe(scrollWatcher)
 

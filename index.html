@@ -57,7 +57,7 @@
         <li><a href="#q&a">Q&A</a></li>
         <li><a href="#contact">Kontakt</a></li>
       </ul>
-      <a href="./dist/download/lucie_&_lukas_svatba.ics" class="button" aria-label="Pridať do kalendára" rel="noopener">
+      <a href="./dist/download/lucie_&_lukas_svatba.ics" class="button button--s" aria-label="Pridať do kalendára" rel="noopener">
         <svg class="icon icon-calendar">
           <use xlink:href="#icon-calendar"></use>
         </svg>
@@ -78,9 +78,7 @@
         <span>brať</span>
       </div> -->
       <div class="header__container">
-        <div class="header__img">
-
-        </div>
+        <div class="header__img"></div>
         <h1 data-before="Lucie & Lukáš">Lucie & Lukáš</h1>
         <span><time datetime="2023-09-02T13:00:00">2. 9. 2023</time></span>
       </div>
@@ -88,7 +86,11 @@
   </header>
   <main>
     <section>
-      <h2 class="title title--l">Kde to bude?</h2>
+      <div class="container">
+        <h2 class="title title--l">Kde to bude?</h2>
+      </div>
+    </section>
+    <section>
       <div class="map-container" id="place">
         <div id="mapElem"></div>
         <div class="contact">
@@ -122,7 +124,7 @@
         </div>
     </section>
 
-    <section id="qna" class="qna">
+    <section id="q&a" class="qna">
       <div class="container container--small">
         <h2 class="title title--l">Q&A</h2>
         <details class="qna__item">
@@ -137,7 +139,7 @@
             consequatur deleniti repellat soluta rem illo repudiandae, eveniet omnis itaque nam hic
             explicabo, dolorem eum?</p>
         </details>
-        <details class="qna__item">
+        <details class="qna__item" open>
           <summary>
             <span>
               Aký darček vybrať?
