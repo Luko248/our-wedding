@@ -10,7 +10,7 @@
         &__card {
             @include flex-set(flex, column, nowrap, $gap-l, stretch, space-between);
             @include border-set-all($gap-s, solid, $color-contact_border-color);
-            @include box-shadow-set(2dvi, 0, 0, $color-contact_shadow-color) ;
+            @include box-shadow-set(2dvi, 0, 0, $color-contact_shadow-color);
             position: absolute;
             inset: calc(25% + 7dvb) 2.5dvi calc(25% + 7dvb) -2.5dvi;
             padding-block: 7dvb;
@@ -75,21 +75,21 @@
                 --contact-button-icon_scale: 1.05;
             }
 
-            >svg {
-                display: block;
-                inline-size: 5rem;
-                block-size: 5rem;
-                aspect-ratio: 1;
-                scale: var(--contact-button-icon_scale);
-                transition: scale $trans-time $trans-fnc;
-            }
-
             &--google {
                 --contact-button_bg-color: #{$color-white};
             }
 
             &--waze {
                 --contact-button_bg-color: #{$color-waze};
+            }
+
+            >img {
+                display: block;
+                inline-size: 5rem;
+                block-size: 5rem;
+                aspect-ratio: 1;
+                scale: var(--contact-button-icon_scale);
+                transition: scale $trans-time $trans-fnc;
             }
         }
     }

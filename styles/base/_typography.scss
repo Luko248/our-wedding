@@ -4,10 +4,10 @@
 
 @mixin create-typography{
     .title {
-        font-size: var(--title_font-size, clamp($gap-3xl, 5dvb, 5rem));
         margin-block: 0;
         margin-inline: auto;
         font-family: $font-title;
+        font-size: var(--title_font-size, clamp($gap-3xl, 5dvb, 5rem));
         font-weight: 800;
         line-height: 1;
         letter-spacing: $gap-s;

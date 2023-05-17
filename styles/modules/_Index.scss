@@ -2,7 +2,6 @@
 @use 'container' as *;
 @use 'header' as *;
 @use 'map' as *;
-@use 'parallax' as *;
 @use 'qna' as *;
 @use 'seating-plan' as *;
 @use 'section' as *;
@@ -12,7 +11,6 @@
     @include create-contact;
     @include create-header;
     @include create-map;
-    @include create-parallax;
     @include create-qna;
     // @include create-seating-plan;
     @include create-section;
