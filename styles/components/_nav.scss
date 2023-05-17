@@ -4,17 +4,27 @@
 @mixin create-nav {
     nav {
         @include flex-set(flex, row, nowrap, center);
+        @include box-shadow-set($gap, 0, 0, var(--nav_shadow-color, $color-transparent));
         position: fixed;
         inset: 0 0 auto 0;
         inline-size: 100%;
         block-size: var(--nav-height);
         background-color: var(--nav_bg, var(--color-transparent));
-        opacity: 0;
-        animation: showNav $trans-time forwards 2.5s linear;
-        z-index: 10;
+        color: var(--nav_color, var(--color-font));
+        // opacity: 0;
+        // animation: showNav $trans-time forwards 2.5s linear;
+        z-index: 9999;
+        transition: block-size $trans-time ease-in-out, color $trans-time ease-in-out, background-color $trans-time ease-in-out, box-shadow $trans-time ease-in-out;
 
         @include mq-responsive('tablet', max){
             --nav_bg: var(--color-white);
+        }
+
+        &.sticked{
+            --nav-height: 4rem;
+            --nav_bg: #{$color-secondary};
+            --nav_color: #{$color-white};
+            --nav_shadow-color: #{$color-secondary};
         }
 
         .container{
@@ -47,7 +57,7 @@
             a {
                 font-family: var(--font-text);
                 font-weight: 300;
-                color: var(--nav-link_color, var(--color-font));
+                color: var(--nav-link_color, currentColor);
                 text-decoration: var(--nav-item_text-decor, none);;
                 text-transform: uppercase;
 
