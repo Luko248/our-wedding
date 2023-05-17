@@ -5,6 +5,7 @@
     .contact {
         position: relative;
         grid-column-start: var(--contact_col-start, 2);
+        container-type: inline-size;
 
         @include mq-responsive("tablet", max) {
             --contact_col-start: 1;
@@ -17,8 +18,8 @@
             @include box-shadow-set(2dvi, 0, 0, $color-contact_shadow-color);
             position: var(--card_position, absolute);
             inset: var(--card_inset, var(--cart_margin-block) 2.5dvi var(--cart_margin-block) -2.5dvi);
-            padding-block: 7dvb;
-            padding-inline: 3.5dvi;
+            padding-block: clamp($gap-xl, 8cqi, $gap-3xl);
+            padding-inline: clamp($gap-xl, 6cqi, $gap-3xl);
             background-color: $color-contact_bg;
             border-radius: $gap-2xl;
             color: $color-white;
@@ -35,36 +36,32 @@
 
         &__title {
             margin: 0;
-            margin-block-end: clamp($gap-l, 3dvb, $gap-2xl);
-            font-size: clamp($gap-l, 5dvb, $gap-3xl);
+            margin-block-end: clamp($gap-l, 5cqi, $gap-2xl);
+            font-size: clamp($gap-l, 6cqi, $gap-3xl);
         }
 
         p {
             font-size: clamp(1rem, 2dvb, $gap-l);
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.7;
         }
 
         address {
             margin-block-start: clamp($gap-l, 6dvb, $gap-3xl);
-            font-size: clamp($gap-l, 2.5dvb, $gap-xl);
+            font-size: clamp($gap-m, 3cqi, $gap-xl);
             line-height: 1.7;
 
             >strong {
                 display: block;
                 margin-block-end: $gap-s;
-                font-weight: 1.5em;
+                font-size: 1.2em;
                 letter-spacing: $gap-xs;
                 text-transform: uppercase;
             }
         }
 
         &__button-wrapper {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: stretch;
-            justify-content: var(--button-wrapper_justify-content, flex-end);
-            gap: $gap-l;
+            @include flex-set(flex, row, nowrap, $gap-l, stretch, var(--button-wrapper_justify-content, flex-end))
         }
 
         &__button {
@@ -73,11 +70,10 @@
             @include box-shadow-set($gap-l);
             display: inline-grid;
             place-items: center;
-            gap: clamp($gap, 2dvb, $gap-l);
             aspect-ratio: 1;
-            padding: clamp($gap, 2dvb, $gap-l);
+            padding: clamp($gap, 2cqi, $gap-l);
             background-color: var(--contact-button_bg-color);
-            border-radius: $gap;
+            border-radius: clamp($gap-s, 2.5cqi, $gap);
             color: var(--contact-button_color);
             text-decoration: none;
             transition: background-color $trans-time $trans-fnc, box-shadow $trans-time $trans-fnc;
@@ -97,8 +93,8 @@
 
             >img {
                 display: block;
-                inline-size: 5rem;
-                block-size: 5rem;
+                max-inline-size: clamp($gap-3xl, 10cqi, 5rem);
+                max-block-size: clamp($gap-3xl, 10cqi, 5rem);
                 aspect-ratio: 1;
                 scale: var(--contact-button-icon_scale);
                 transition: scale $trans-time $trans-fnc;

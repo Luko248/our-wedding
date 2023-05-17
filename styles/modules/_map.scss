@@ -14,6 +14,19 @@
         img[alt='Google'], .gmnoprint, .gm-style-cc{
             display: none;
         }
+
+        .gm-style .gm-style-iw-c{
+            box-shadow: 0 0 $gap 0 $color-secondary !important;
+            padding: 0 !important;
+            button{
+                scale: 1.5;
+                translate: -30% 30%;
+            }
+            .gm-ui-hover-effect>span{
+                background-color: $color-white !important;
+                
+            }
+        }
     }
 
     .map-container {
@@ -26,6 +39,29 @@
             --map_grid-columns: minmax(#{$width-mobile-s}, 1fr);
             --map-container_block-size: 165dvb;
             sctoll-margin-block-start: var(--nav-height);
+        }
+
+       
+    }
+
+    .map{
+        &__widnow{
+            >img{
+                display: block;
+            }
+
+            address{
+                padding: $gap-m;
+                font-family: $font-text;
+                font-weight: 200;
+                font-size: 1rem;
+                line-height: 1.5;
+
+                >strong{
+                    font-weight: 500;
+                    font-size: 1.2em;
+                }
+            }
         }
     }
 }
