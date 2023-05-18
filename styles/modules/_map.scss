@@ -5,26 +5,21 @@
     #mapElem {
         position: var(--map_position, absolute);
         inset: var(--map_inset, 0);
-
-        // @include mq-responsive('tablet', max){
-        //     --map_position: relative;
-        //     --map_inset: unset;
-        // }
         
         img[alt='Google'], .gmnoprint, .gm-style-cc{
             display: none;
         }
 
         .gm-style .gm-style-iw-c{
-            box-shadow: 0 0 $gap 0 $color-secondary !important;
             padding: 0 !important;
+            box-shadow: 0 0 $gap 0 $color-secondary !important;
             button{
-                scale: 1.5;
                 translate: -30% 30%;
+                scale: 1.5;
             }
+            
             .gm-ui-hover-effect>span{
                 background-color: $color-white !important;
-                
             }
         }
     }
@@ -53,13 +48,13 @@
             address{
                 padding: $gap-m;
                 font-family: $font-text;
-                font-weight: 200;
                 font-size: 1rem;
+                font-weight: 200;
                 line-height: 1.5;
 
                 >strong{
-                    font-weight: 500;
                     font-size: 1.2em;
+                    font-weight: 500;
                 }
             }
         }

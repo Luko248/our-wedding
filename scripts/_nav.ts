@@ -19,4 +19,14 @@ export const initNav = () => {
         menuBtn.classList.toggle('burger--open')
         menu.classList.toggle('open')
     })
+
+    const navLinks = menu.querySelectorAll('nav a') as NodeListOf<HTMLAnchorElement>
+
+    navLinks.forEach(link => {
+        link as HTMLAnchorElement
+        link.addEventListener('click', () => {
+            menu.classList.remove('open')
+            menuBtn.classList.remove('burger--open')
+        })
+    })
 }

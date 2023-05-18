@@ -3,9 +3,9 @@
 
 @mixin create-contact {
     .contact {
+        container-type: inline-size;
         position: relative;
         grid-column-start: var(--contact_col-start, 2);
-        container-type: inline-size;
 
         @include mq-responsive("tablet", max) {
             --contact_col-start: 1;
@@ -29,8 +29,8 @@
                 --contact_col-start: 1;
                 --card_position: relative;
                 --card_inset: none;
-                margin-inline: $gap-xl;
                 margin-block-start: 7dvb;
+                margin-inline: $gap-xl;
             }
         }
 

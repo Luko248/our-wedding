@@ -7,32 +7,12 @@
     background-image: url(/dist/images/backgrounds/sticker.svg);
     background-repeat: no-repeat;
     background-position: 90% 50%;
-    background-size: 25%;
+    background-size: var(--qna_background-size, 25%);
     background-attachment: fixed;
 
-    // &__background {
-    //   position: absolute;
-    //   inset: 0;
-    //   z-index: -1;
-
-
-    //   >div {
-    //     position: relative;
-    //     block-size: 100%;
-
-    //     &:after {
-    //       position: sticky;
-    //       top: 0;
-    //       left: 0;
-    //       display: block;
-    //       content: '';
-         
-    //       inline-size: 100%;
-    //       block-size: 100dvb;
-    //       border: 5px solid red;
-    //     }
-    //   }
-    // }
+    @include mq-responsive('tablet', max) {
+      --qna_background-size: 40%;
+    }
 
     .container {
       @include flex-set(flex, column, nowrap, var(--qna_gap, $gap-2xl));

@@ -23,14 +23,15 @@
             >h1 {
                 position: relative;
                 display: block;
+                padding-block-end: 10dvb;
                 margin: 0;
-                background-color: $color-white;
-
+                // background-color: $color-white;
+                pointer-events: none;
                 font-family: var(--font-title);
-                font-size: clamp(1rem, 35dvb, var(--max-font-size, 9rem));
-                color: $color-transparent;
-                -webkit-text-stroke: 2px $color-secondary;
-                @include padding-set-y(3dvb);
+                font-size: clamp(1rem, 35dvb, var(--max-font-size, 11rem));
+                color: hsl(0 0 100% / 30%);
+                backgdrop-filter: blur(10px);
+                -webkit-text-stroke: $gap-xs $color-secondary;
 
                 @include mq-responsive('desktop-s', max) {
                     --max-font-size: 6rem;
@@ -43,20 +44,12 @@
                 @include mq-responsive('mobile-l', max) {
                     --max-font-size: 3rem;
                 }
-
-                // &:before{
-                //     position: absolute;
-                //     inset: 0;
-                //     content: attr(data-before);
-                //     color: $color-white;
-                //     font-size: inherit;
-                // }
             }
 
             >span {
                 background-color: $color-white;
                 font-family: var(--font-text);
-                font-size: 2.2em;
+                font-size: 3em;
                 font-weight: 300;
                 translate: 0 -.25em;
 
@@ -64,27 +57,24 @@
                     font-size: clamp(1.5rem, 10dvb, 2.5em);
                 }
             }
-
-            >b {
-                position: absolute;
-                bottom: 5dvb;
-                left: 50%;
-                display: none;
-                font-size: 2.5dvb;
-                translate: -50%;
-            }
         }
 
         &__img {
             @include border-radius(circle);
             @include center-content(absolute, 45%);
-            @include border-set-all($gap-s, solid, $color-secondary);
+            @include border-set-all(1rem, solid, $color-secondary);
             block-size: 70dvb;
             aspect-ratio: 1;
             background-image: url('../images/kiss.jpg');
             background-position: center 10%;
             background-size: cover;
+            filter: grayscale(100%) brightness(80%);
+            transition: filter .5s ease-in-out;
             z-index: -1;
+            
+            &:hover{
+                filter: grayscale(0%) brightness(100%);
+            }
         }
 
         &__anim {

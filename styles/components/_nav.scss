@@ -57,9 +57,11 @@
 
             a {
                 font-family: var(--font-text);
-                font-weight: 300;
+                font-size: var(--nav-link_font-size, clamp(1rem, 2dvb, $gap-l));
+                font-weight: 300;;
+                letter-spacing: 3pt;
                 color: var(--nav-link_color, currentColor);
-                text-decoration: var(--nav-item_text-decor, none);;
+                text-decoration: var(--nav-item_text-decor, none);
                 text-transform: uppercase;
 
                 @include mq-hover {
