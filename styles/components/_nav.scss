@@ -16,19 +16,21 @@
         // opacity: 0;
         // animation: showNav $trans-time forwards 2.5s linear;
         z-index: 9999;
+        backdrop-filter: blur($gap-s);
 
-        @include mq-responsive('tablet', max){
+
+        @include mq-responsive('tablet', max) {
             --nav_bg: var(--color-white);
         }
 
-        &.sticked{
+        &.sticked {
             --nav-height: 4rem;
             --nav_bg: #{$color-secondary};
             --nav_color: #{$color-white};
             --nav_shadow-color: #{$color-secondary};
         }
 
-        .container{
+        .container {
             @include flex-set(flex, row, nowrap, var(--gap-3xl), center, space-between);
         }
 
@@ -38,7 +40,7 @@
             margin: 0;
             list-style: none;
 
-            @include mq-responsive('tablet', max){
+            @include mq-responsive('tablet', max) {
                 --menu_display: none;
                 --menu_fd: column;
                 --menu_jc: center;
@@ -49,8 +51,8 @@
                 background-color: var(--color-white);
             }
 
-            &.open{
-                @include mq-responsive('tablet', max){
+            &.open {
+                @include mq-responsive('tablet', max) {
                     --menu_display: flex;
                 }
             }
@@ -58,7 +60,8 @@
             a {
                 font-family: var(--font-text);
                 font-size: var(--nav-link_font-size, clamp(1rem, 2dvb, $gap-l));
-                font-weight: 300;;
+                font-weight: 300;
+                ;
                 letter-spacing: 3pt;
                 color: var(--nav-link_color, currentColor);
                 text-decoration: var(--nav-item_text-decor, none);
@@ -68,18 +71,19 @@
                     --nav-item_text-decor: underline;
                 }
 
-                @include mq-responsive('tablet', max){
+                @include mq-responsive('tablet', max) {
                     --nav-link_color: var(--color-black);
                 }
             }
         }
     }
 
-    @keyframes showNav{
-        from{
+    @keyframes showNav {
+        from {
             opacity: 0;
         }
-        to{
+
+        to {
             opacity: 1;
         }
     }

@@ -6,14 +6,18 @@
     .button {
         --shadow-alpha: .3;
         --button-min-width: 15rem;
-        --button-border-width: #{$gap-xs};
-        --button-background: var(--color-secondary--bg);
-        --button-color: #{$color-white};
-        --button-border-color: #{$color-secondary--trans};
-        --button-padding: clamp(#{$gap-m}, .4dvb, #{$gap-l}) clamp(#{$gap-m}, 2.5dvb, #{$gap-xl});
+        --button-background: var(--color-transparent);
+        --button-color: #{$color-secondary};
+        --button-padding-inline: clamp(#{$gap-m}, 1dvi, #{$gap-xl});
+        --button-padding-block: clamp(#{$gap-m}, 1dvb, #{$gap-l});
         --button-font-size: clamp(#{$gap-s}, 1em, #{$gap-l});
         --button-cursor: pointer;
         --button-outline: none;
+        --button-before_inline-size: #{$gap-2xl};
+
+        @include mq-hover {
+            --button-before_inline-size: 100%;
+        }
 
         &--secondary {
             --button-color: #{$color-white};
@@ -21,7 +25,7 @@
             --button-background: #{$color-secondary};
         }
 
-        &--s{
+        &--s {
             --button-font-size: clamp(#{$gap-s}, 1em, #{$gap-m});
             text-transform: uppercase;
         }
@@ -29,7 +33,7 @@
 
     .button {
         @include border-radius(full);
-        @include border-set-all(var(--button-border-width), solid, var(--button-border-color));
+        position: relative;
         display: inline-flex;
         flex-flow: row nowrap;
         align-items: center;
@@ -37,7 +41,8 @@
         width: auto;
         min-width: var(--button-min-width);
         gap: $gap-m;
-        padding: var(--button-padding);
+        padding-block: var(--button-padding-block);
+        padding-inline: var(--button-padding-inline);
         background-color: var(--button-background);
         font-family: var(--font-text);
         font-size: var(--button-font-size);
@@ -46,24 +51,32 @@
         color: var(--button-color);
         text-align: center;
         text-decoration: none;
+        text-transform: uppercase;
         transition: background-color $trans-time ease-in-out;
         cursor: pointer;
-        backdrop-filter: blur($gap-s);
 
         &:focus:not(:focus-visible) {
             outline: var(--button-outline);
         }
 
-        @include mq-hover {
-            --button-background: var(--color-secondary--hover);
-            --button-border-color: #{$color-secondary};
-
+        &:before {
+            @include border-radius(full);
+            position: absolute;
+            inset: 50% auto auto 0;
+            content: '';
+            inline-size: var(--button-before_inline-size);
+            block-size: $gap-2xl;
+            background-color: var(--color-primary);
+            translate: 0 -50%;
+            transition: inline-size $trans-time ease-in-out;
+            z-index: -1;
         }
 
-
-
-        >.icon {
+        >.icon,
+        >svg {
             --icon-size: 1.2em;
+            inline-size: var(--icon-size);
+            aspect-ratio: 1;
             fill: var(--button-color);
         }
     }
