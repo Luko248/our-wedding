@@ -1,6 +1,7 @@
 @use 'burger' as *;
 @use 'button' as *;
 @use 'icon' as *;
+@use 'link' as *;
 @use 'heart' as *;
 @use 'nav' as *;
 @use 'select' as *;
@@ -9,6 +10,7 @@
     @include create-burger;
     @include create-button;
     @include create-icon;
+    @include create-link;
     @include create-heart;
     @include create-nav;
     @include create-select;

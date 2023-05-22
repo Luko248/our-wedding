@@ -27,7 +27,7 @@
                 margin: 0;
                 font-family: var(--font-title);
                 font-size: clamp(1rem, 35dvb, var(--max-font-size, 11rem));
-                color: hsl(0 0% 100% / 30%);
+                color: $color-white;
                 backgdrop-filter: blur(10px);
                 // background-color: $color-white;
                 pointer-events: none;
