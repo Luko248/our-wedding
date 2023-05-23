@@ -40,9 +40,9 @@
   }
 
   .desc{
-    line-height: 1.5;
     font-family: $font-text;
-    font-weight: 300;
     font-size: clamp(16px, 2.5dvi, 20px);
+    font-weight: 300;
+    line-height: 1.5;
   }
 }

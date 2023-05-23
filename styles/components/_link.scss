@@ -5,9 +5,9 @@
     .link{
         --link_color: #{$color-primary};
         --link_text-decor: none;
-        text-decoration: var(--link_text-decor);
         font-size: 1em;
         color: var(--link_color);
+        text-decoration: var(--link_text-decor);
         transition: color .1s ease-in-out;
     
         @include mq-hover{
