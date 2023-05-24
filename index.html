@@ -52,13 +52,16 @@
   </svg>
   <nav>
     <div class="container">
-      <a href="./dist/download/lucie_&_lukas_svatba.ics" class="button" aria-label="Pridať do kalendára" rel="noopener">
-        Pridať do kalendára
-      </a>
+      <a href="./dist/download/lucie_&_lukas_svatba.ics" class="button" aria-label="Pridať do kalendára" rel="noopener" data-localize="btn_calendar"></a>
       <ul>
-        <li><a href="#home">Úvod</a></li>
-        <li><a href="#place">Mapa</a></li>
-        <li><a href="#questions-and-answers">Q&A</a></li>
+        <li><a href="#home" data-localize="nav_home"></a></li>
+        <li><a href="#place" data-localize="nav_place"></a></li>
+        <li><a href="#questions-and-answers" data-localize="nav_qna">&A</a></li>
+        <li>
+          <div id="langSwitch" class="lang-switch">
+            <button data-lang="sk">SK</button>/<button data-lang="cs">CZ</button>
+          </div>
+        </li>
       </ul>
       <button id="menuBtn" class="burger" aria-label="Open mobile menu">
         <span></span>
@@ -85,14 +88,17 @@
   <main>
     <section>
       <div class="container container--s">
-        <h2 class="title title--l">Vytajte</h2>
-        <p class="desc">na našom svadobnom webe! Toto je miesto, kde sa dozviete všetky <a href="#qna" class="link"
-            rel="noopener">dôležité informácie</a> ohľadom <strong>sobáša</strong>, <strong>ubytovania</strong>,
-          <strong>dopravy</strong> a mnoho ďalších detailov. Veríme, že tento web vám bude slúžiť ako cenný sprievodca a
-          uľahčí vám rozhodovanie súvisiace s našou svadbou. Tešíme sa, že môžeme s vami zdieľať tento špeciálny okamih
-          nášho života.
+        <h2 class="title title--l" data-localize="about_title">Vitajte</h2>
+        <p class="desc">
+          <span data-localize="about_desc-1"></span>
+          <a href="#qna" class="link" rel="noopener" data-localize="about_link"></a>
+            <span data-localize="about_desc-2"></span>
+            <strong data-localize="about_strong-1"></strong>,
+            <strong data-localize="about_strong-2"></strong>,
+          <strong data-localize="about_strong-3"></strong>
+          <span data-localize="about_desc-3"></span>
           <br><br>
-          Pridite s nami osláviť náš veľký deň!
+          <span data-localize="about_desc-4"></span>
         </p>
       </div>
     </section>
@@ -135,61 +141,52 @@
         <h2 class="title title--l">Q&A</h2>
         <details class="qna__item" open>
           <summary>
-            <span>
-              Kde se bude odehrávat obřad?
+            <span data-localize="qna_question-1">
             </span>
           </summary>
-          <p class="desc">Obřad se uskuteční ve 13:00 v altánku za penzionem.</p>
+          <p class="desc" data-localize="qna_answer-1"></p>
         </details>
-        <details class="qna__item">
+      
+        <details class="qna__item" open>
           <summary>
-            <span>
-              Co na sebe?
-            </span>
+            <span data-localize="qna_question-2"></span>
           </summary>
-          <p class="desc">Ubytování pro hosty z dálky bude zajištěno přímo v penzionu Kriváň. Další informace získáte na místě. Pro nocležníky je ráno zajištěna snídaně.
-          </p>
+          <p class="desc" data-localize="qna_answer-2"></p>
         </details>
-        <details class="qna__item">
+
+        <details class="qna__item" open>
           <summary>
-            <span>
-              Jak je řešené ubytování?
-            </span>
+            <span data-localize="qna_question-3"></span>
           </summary>
-          <p class="desc">Ubytování pro hosty z dálky bude zajištěno přímo v penzionu Kriváň. Další informace se dozvíte na místě. Pro nocležníky je ráno zajištěna snídaně.
-        </p>
+          <p class="desc" data-localize="qna_answer-3"></p>
         </details>
-        <details class="qna__item">
+
+        <details class="qna__item" open>
           <summary>
-            <span>
-              Kde budeme sedět?
-            </span>
+            <span data-localize="qna_question-4"></span>
           </summary>
-          <p class="desc">Na stole najdete jmenovky, které vám ukážou váš přidělený stůl. Informace o uspořádání svatebního sálu a vašem konkrétním sezení naleznete včas na této stránce.
-          </p>
+          <p class="desc" data-localize="qna_answer-4"></p>
         </details>
-        <details class="qna__item">
+
+        <details class="qna__item" open>
           <summary>
-            <span>
-              Co s volným časem?
-            </span>
+            <span data-localize="qna_question-5"></span>
           </summary>
-          <p class="desc">Pokud budete mít volný čas, najdete v sekci s mapou několik zajímavých míst, která můžete navštívit během svého pobytu v Korni.</p>
+          <p class="desc" data-localize="qna_answer-5"></p>
         </details>
-        <details class="qna__item">
+
+        <details class="qna__item" open>
           <summary>
-            <span>
-              Jaký dárek vybrat?
-            </span>
+            <span data-localize="qna_question-6"></span>
           </summary>
-          <p class="desc">Pokud přemýšlíte o daru, věřte, že všechno potřebné již máme. Proto bychom ocenili finanční dar, který využijeme na naši společnou budoucnost. Rovněž vás prosíme, abyste se vyhnuli darům ve formě květin, na svatbě bude květin dostatek. Děkujeme.</p>
+          <p class="desc" data-localize="qna_answer-6"></p>
         </details>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2 class="title">Tešíme sa na Vás
+        <h2 class="title" data-localize="look-forward_title"></h2>
       </div>
     </section>
 
@@ -215,13 +212,14 @@
     </section> -->
   </main>
   <footer>
-    footer text
+    <!-- footer text -->
   </footer>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8&callback=initMap&v=weekly"
     defer></script>
 
   <script type="text/javascript" src="./dist/scripts/init.js" defer></script>
+  <script type="text/javascript" src="./dist/scripts/localize.js" defer></script>
 </body>
 
 </html>

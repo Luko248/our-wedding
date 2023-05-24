@@ -1,5 +1,4 @@
-﻿// /// <reference path="../../node_modules/@types/googlemaps/index.d.ts" />
-import { initNav } from "./_nav";
+﻿import { initNav } from "./_nav";
 import { initHearts } from "./_hearts";
 // import { initSeatingPlan } from "./_seatingPlan";
 

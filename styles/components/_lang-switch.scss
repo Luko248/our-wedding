@@ -1,0 +1,17 @@
+@use "../base/functions/index" as *;
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin create-lang-switch{
+    .lang-switch {
+        button{
+            background-color: $color-transparent;
+            border-color: $color-transparent;
+            color: var(--lang-switch_color, currentColor);
+
+            &.active{
+                --lang-switch_color: #{$color-primary};
+            }
+        }
+    }
+}
