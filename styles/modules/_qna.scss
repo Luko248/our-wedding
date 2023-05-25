@@ -6,7 +6,7 @@
     position: relative;
     background-image: url(/dist/images/backgrounds/sticker.svg);
     background-repeat: no-repeat;
-    background-position: 90% 50%;
+    background-position: var(--qna_bg-pos-x, 90%) 50%;
     background-size: var(--qna_background-size, 25%);
     background-attachment: fixed;
 
@@ -14,16 +14,27 @@
       --qna_background-size: 40%;
     }
 
+    @include mq-responsive('mobile-l', max) {
+      --qna_background-size: 70%;
+      --qna_bg-pos-x: 60%;
+    }
+
     .container {
-      @include flex-set(flex, column, nowrap, var(--qna_gap, $gap-2xl));
+      @include flex-set(flex, column, nowrap, var(--qna_gap, clamp($gap-xl, 5dvb, $gap-3xl)));
     }
 
     &__item {
-      --question_gap: #{$gap-xl};
-      --question-number_size: #{$gap-3xl};
+      --question_gap: clamp(#{$gap-m}, 2.5dvi, #{$gap-xl});
+      --question-number_size: clamp(#{$gap-xl}, 5dvi, #{$gap-3xl});
+      --question-number_font-size: clamp(#{$gap-xl}, .5em, #{$gap-3xl});
       --question-number_bg-color: #{$color-secondary};
       --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
       counter-increment: questions;
+
+      @include mq-responsive('tablet', max) {
+        --question-number_size: clamp(#{$gap-xl}, 4dvi, #{$gap-3xl});
+        --question-number_font-size: clamp(#{$gap-l}, 1em, #{$gap-2xl});
+      }
 
       &[open] {
         --question-number_bg-color: #{$color-primary};
@@ -38,14 +49,19 @@
       >summary {
         --qna-question_text-decoration: none;
         --qna-number_box-shadow-radius: 0;
+
         @include flex-set(flex, row, nowrap, var(--question_gap), center);
         font-family: var(--font-title);
-        font-size: clamp($gap-l, 5dvb, $gap-xl);
+        font-size: clamp($gap-l, var(--qna-question_font-size, 4dvb), $gap-2xl);
         cursor: pointer;
 
         @include mq-hover {
           --qna-question_text-decoration: underline;
           --qna-number_box-shadow-radius: #{$gap-m};
+        }
+
+        @include mq-responsive('tablet', max) {
+          --qna-question_font-size: 4dvi;
         }
 
         &::marker {
@@ -57,15 +73,14 @@
         &:before {
           @include border-radius(circle);
           @include box-shadow-set(var(--qna-number_box-shadow-radius), 0, 0, var(--question-number_bg-color));
-
           display: inline-grid;
           content: counter(questions);
           place-items: center;
-          block-size: var(--question-number_size);
+          block-size: clamp($gap-xl, var(--question-number_size), $gap-3xl);
           aspect-ratio: 1;
           background-color: var(--question-number_bg-color);
           font-family: var(--font-text);
-          font-size: 2rem;
+          font-size: var(--question-number_font-size);
           font-weight: 300;
           line-height: 1;
           color: $color-white;
