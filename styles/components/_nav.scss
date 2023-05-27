@@ -31,9 +31,9 @@
         block-size: var(--nav-height);
         background-color: var(--nav_bg, var(--color-transparent));
         color: var(--nav_color);
-        transition: block-size .1s ease-in-out, color .1s ease-in-out, background-color .1s ease-in-out, box-shadow .1s ease-in-out;
-        translate: 0 -100%;
         animation: showNav $trans-time forwards 3s linear;
+        translate: 0 -100%;
+        transition: block-size .1s ease-in-out, color .1s ease-in-out, background-color .1s ease-in-out, box-shadow .1s ease-in-out;
         z-index: 999;
         backdrop-filter: blur($gap-s);
 
@@ -72,10 +72,10 @@
                 --menu_gap: var(--gap-2xl);
                 position: absolute;
                 inset: 100% 0 auto 0;
-                opacity: 0;
-                animation: showMenu $trans-time linear forwards;
                 block-size: calc(100dvb - var(--nav-height));
                 background-color: $color-nenu_bg;
+                opacity: 0;
+                animation: showMenu $trans-time linear forwards;
             }
 
             &.open {

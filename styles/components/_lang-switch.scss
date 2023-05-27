@@ -17,8 +17,8 @@
 
         &__button {
             @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
-            color: currentColor;
             font-size: 1em;
+            color: currentColor;
         }
 
         .icon {
@@ -31,8 +31,8 @@
             @include center-content(absolute, 100%, 50%, -50%, 0);
             @include box-shadow-set;
             @include border-radius(s);
-            overflow: hidden;
             background-color: var(--lang-pop-up_bg-color, $color-secondary--bg);
+            overflow: hidden;
 
             @include mq-responsive('tablet', max) {
                 --lang-pop-up_bg-color: #{$color-nav_bg};
