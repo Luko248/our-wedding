@@ -1,5 +1,6 @@
 @use "../base/mixins/index" as *;
 @use "../base/variables/index" as *;
+@import "../base/fragments/container";
 
 @mixin create-contact {
     .contact {
@@ -9,6 +10,8 @@
 
         @include mq-responsive("tablet", max) {
             --contact_col-start: 1;
+            --container_padding-x: #{$gap-xl};
+            @extend %container;
         }
 
         &__card {
@@ -30,7 +33,6 @@
                 --card_position: relative;
                 --card_inset: none;
                 margin-block-start: 7dvb;
-                margin-inline: $gap-xl;
             }
         }
 

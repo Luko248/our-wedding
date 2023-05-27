@@ -3,58 +3,95 @@
 
 @mixin create-header {
     header {
+        --header-img_size: 70dvb;
         position: relative;
+        block-size: 100dvb;
+        display: grid;
+        place-items: center;
+
+        @include mq-responsive('desktop-s', max) {
+            --header-img_size: 70dvi;
+        }
+
+        @include mq-responsive('mobile-xl', max) {
+            --header-img_size: clamp(calc(#{$width-mobile-s} / 2), 80dvi, #{$width-mobile-l});
+        }
     }
 
     .header {
 
         &__container {
-            @include flex-set(flex, column, nowrap, 0, center, flex-end);
+            --header-container_gap: 5dvb;
+            @include flex-set(flex, column, nowrap, var(--header-container_gap), center, flex-end);
+            @include padding-set-x(var(--container_padding-x, $gap-2xl));
             position: relative;
-            block-size: 100dvb;
-            padding-block-end: 10dvb;
             background-color: $color-white;
             color: $color-secondary;
             text-align: center;
             // animation: circle-show 1.5s forwards 2s linear;
             z-index: 2;
+
             // clip-path: circle(0% at 50% 50%);
+            @include mq-responsive('tablet', max) {
+                --header-container_pad-bottom: clamp(5rem, 14dvb, 10rem);
+                --container_padding-x: #{$gap-xl};
+            }
+
+            @include mq-responsive('mobile-l', max) {
+                --container_padding-x: #{$gap-l};
+            }
 
             >h1 {
                 position: relative;
                 display: block;
-                padding-block-end: 10dvb;
                 margin: 0;
                 font-family: var(--font-title);
-                font-size: clamp(1rem, 35dvb, var(--max-font-size, 11rem));
+                font-size: clamp($gap-xl, var(--font-size, 12dvi), var(--max-font-size, 12.5rem));
                 color: $color-white;
                 backgdrop-filter: blur(10px);
-                // background-color: $color-white;
                 pointer-events: none;
-                -webkit-text-stroke: $gap-xs $color-secondary;
-
-                @include mq-responsive('desktop-s', max) {
-                    --max-font-size: 6rem;
-                }
+                translate: 0 calc(var(--header-img_size) / 3.5);
+                -webkit-text-stroke: clamp($border-width, .5dvi, $gap-xs) $color-secondary;
 
                 @include mq-responsive('tablet', max) {
-                    --max-font-size: 4.5rem;
+                    --font-size: 10dvb;
+                    --max-font-size: 6rem;
+                    translate: 0 calc(var(--header-img_size) / 3);
+                }
+
+                @include mq-responsive('mobile-xl', max) {
+                    --font-size: 6dvb;
+                    --max-font-size: 3.5rem;
+                    translate: 0 calc(var(--header-img_size) / 2.5);
                 }
 
                 @include mq-responsive('mobile-l', max) {
-                    --max-font-size: 3rem;
+                    translate: 0 calc(var(--header-img_size) / 2.5);
                 }
+
+
+                @include mq-responsive('mobile-m', max) {
+                    --font-size: 7dvb;
+                    --max-font-size: 5rem;
+                    translate: 0 calc(var(--header-img_size) / 2.5);
+                }
+
             }
 
             >span {
                 background-color: $color-white;
                 font-family: var(--font-text);
-                font-size: 3em;
+                font-size: clamp($gap-l, 4em, $gap-2xl);
                 font-weight: 300;
-                translate: 0 -.25em;
+                translate: 0 calc(var(--header-img_size) / 2.5);
 
-                @include mq-responsive('mobile-l', max) {
-                    font-size: clamp(1.5rem, 10dvb, 2.5em);
+                @include mq-responsive('tablet', max) {
+                    translate: 0 calc(var(--header-img_size) / 2.2);
+                }
+
+                @include mq-responsive('mobile-xl', max) {
+                    font-size: clamp($gap-l, 2.5em, $gap-xl);
+                    translate: 0 calc(var(--header-img_size) / 2);
                 }
             }
         }
@@ -62,8 +99,8 @@
         &__img {
             @include border-radius(circle);
             @include center-content(absolute, 45%);
-            @include border-set-all(1rem, solid, $color-secondary);
-            block-size: 70dvb;
+            @include border-set-all(clamp($gap-s, 2dvi, 1rem), solid, $color-secondary);
+            block-size: var(--header-img_size);
             aspect-ratio: 1;
             background-image: url('../images/kiss.jpg');
             background-position: center 10%;

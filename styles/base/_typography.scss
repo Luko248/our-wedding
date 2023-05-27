@@ -33,16 +33,16 @@
       }
     }
 
-    &--outline{
+    &--outline {
       --title_color: #{$color-transparent};
       -webkit-text-stroke: $border-width-l $color-secondary;
     }
   }
 
-  .desc{
+  .desc {
     font-family: $font-text;
     font-size: clamp(16px, 2.5dvi, 20px);
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.7;
   }
 }

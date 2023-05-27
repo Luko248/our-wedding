@@ -6,7 +6,7 @@
     position: relative;
     background-image: url(/dist/images/backgrounds/sticker.svg);
     background-repeat: no-repeat;
-    background-position: var(--qna_bg-pos-x, 90%) 50%;
+    background-position: var(--qna_bg-pos-x, 90%) var(--qna_bg-pos-y, 50%);
     background-size: var(--qna_background-size, 25%);
     background-attachment: fixed;
 
@@ -14,8 +14,8 @@
       --qna_background-size: 40%;
     }
 
-    @include mq-responsive('mobile-l', max) {
-      --qna_background-size: 70%;
+    @include mq-responsive('mobile-xl', max) {
+      --qna_background-size: 65%;
       --qna_bg-pos-x: 60%;
     }
 
