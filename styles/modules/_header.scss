@@ -108,26 +108,12 @@
             background-image: url('../images/kiss.jpg');
             background-position: center 10%;
             background-size: cover;
-            opacity: 0;
-            // filter: grayscale(100%) brightness(80%);
+            filter: grayscale(100%);
             transition: filter .5s ease-in-out;
             transition: opacity $trans-time $trans-fnc;
 
-            &:hover {
-                // filter: grayscale(0%) brightness(100%);
-            }
-
-            &:has(+ .header__img--art:hover) {
-                opacity: 1;
-            }
-
-            &--art {
-                background-image: url('../images/kiss-art.jpg');
-                opacity: 1;
-
-                &:hover {
-                    opacity: 0;
-                }
+            @include mq-hover {
+                filter: grayscale(0%);
             }
         }
 
