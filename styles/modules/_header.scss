@@ -5,11 +5,15 @@
     header {
         --header-img_size: 70dvb;
         position: relative;
-        block-size: 100dvb;
         display: grid;
         place-items: center;
+        block-size: 100dvb;
 
         @include mq-responsive('desktop-s', max) {
+            --header-img_size: 50dvi;
+        }
+
+        @include mq-responsive('tablet', max) {
             --header-img_size: 70dvi;
         }
 
@@ -48,9 +52,9 @@
                 font-family: var(--font-title);
                 font-size: clamp($gap-xl, var(--font-size, 12dvi), var(--max-font-size, 12.5rem));
                 color: $color-white;
+                translate: 0 calc(var(--header-img_size) / 3.5);
                 backgdrop-filter: blur(10px);
                 pointer-events: none;
-                translate: 0 calc(var(--header-img_size) / 3.5);
                 -webkit-text-stroke: clamp($border-width, .5dvi, $gap-xs) $color-secondary;
 
                 @include mq-responsive('tablet', max) {
@@ -99,8 +103,8 @@
         &__img {
             @include border-radius(circle);
             @include center-content(absolute, 45%);
-            @include border-set-all(clamp($gap-s, 2dvi, 1rem), solid, $color-secondary);
-            block-size: var(--header-img_size);
+            @include border-set-all(clamp($gap-xs, 2dvi, 1rem), solid, $color-secondary);
+            block-size: clamp(200px, var(--header-img_size), $width-desktop-s);
             aspect-ratio: 1;
             background-image: url('../images/kiss.jpg');
             background-position: center 10%;

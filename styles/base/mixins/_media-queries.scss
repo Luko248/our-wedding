@@ -19,7 +19,7 @@ $breakpoints: (
     $width: map_get($breakpoints, $width
   );
 
-  @if $type ==min {
+  @if $type == min {
     $width: calc($width + 1px);
   }
 
@@ -30,7 +30,7 @@ $breakpoints: (
 }
 
 @mixin mq-hover($value: hover) {
-  @if $value ==hover {
+  @if $value == hover {
     @media (hover: hover) {
       &:hover {
         @content;
