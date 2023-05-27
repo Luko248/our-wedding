@@ -89,8 +89,6 @@
           }
         }
 
-
-
         >span {
           text-decoration: var(--qna-question_text-decoration);
         }
@@ -101,6 +99,7 @@
         width: 0;
         height: 0;
         font-size: 0;
+        content: none;
         color: $color-transparent;
       }
     }
