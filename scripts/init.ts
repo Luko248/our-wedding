@@ -95,4 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initNav()
     initHearts()
     // initSeatingPlan()
+
+    const body = document.querySelector('body');
+    const headerAnim = document.querySelector('.header__anim');
+    const headerAnimDuration = 1900;
+
+    window.setTimeout(() => {
+        headerAnim?.remove()
+        body?.classList.remove('start')
+    }, headerAnimDuration)
 })

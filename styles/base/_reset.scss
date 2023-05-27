@@ -18,9 +18,11 @@
         min-block-size: 100dvh;
         max-block-size: 100dvh;
         margin: 0;
-        // animation: body-overflow 0s forwards 3s;
         overflow-x: hidden;
-        // overflow-y: hidden;
+
+        &.start {
+            overflow: hidden;
+        }
     }
 
     textarea {

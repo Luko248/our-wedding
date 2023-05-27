@@ -32,9 +32,9 @@
         background-color: var(--nav_bg, var(--color-transparent));
         color: var(--nav_color);
         transition: block-size .1s ease-in-out, color .1s ease-in-out, background-color .1s ease-in-out, box-shadow .1s ease-in-out;
-        // opacity: 0;
-        // animation: showNav $trans-time forwards 2.5s linear;
-        z-index: 9999;
+        translate: 0 -100%;
+        animation: showNav $trans-time forwards 3s linear;
+        z-index: 999;
         backdrop-filter: blur($gap-s);
 
         @include mq-responsive('tablet', max) {
@@ -131,6 +131,12 @@
     @keyframes showMenu {
         to {
             opacity: 1;
+        }
+    }
+
+    @keyframes showNav {
+        to {
+            translate: 0 0;
         }
     }
 }

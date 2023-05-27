@@ -33,10 +33,8 @@
             background-color: $color-white;
             color: $color-secondary;
             text-align: center;
-            // animation: circle-show 1.5s forwards 2s linear;
             z-index: 2;
 
-            // clip-path: circle(0% at 50% 50%);
             @include mq-responsive('tablet', max) {
                 --header-container_pad-bottom: clamp(5rem, 14dvb, 10rem);
                 --container_padding-x: #{$gap-xl};
@@ -54,31 +52,32 @@
                 font-size: clamp($gap-l, var(--font-size, 10dvi), var(--max-font-size, 12.5rem));
                 color: $color-white;
                 white-space: nowrap;
-                translate: 0 calc(var(--header-img_size) / 3.5);
-                backgdrop-filter: blur(10px);
+                opacity: 0;
+                translate: 0 calc(var(--header-img_size) / var(--title_trans-y-factor, 3.5));
                 pointer-events: none;
                 -webkit-text-stroke: clamp($border-width, .5dvi, $gap-xs) $color-secondary;
+                animation: show-text .5s linear 2.5s forwards;
+                opacity: 0;
+
+                @include mq-responsive('desktop-l', max) {
+                    --title_trans-y-factor: 6;
+                }
 
                 @include mq-responsive('tablet', max) {
                     --font-size: 10dvb;
                     --max-font-size: 6rem;
-                    translate: 0 calc(var(--header-img_size) / 3);
+                    --title_trans-y-factor: 3;
                 }
 
                 @include mq-responsive('mobile-xl', max) {
                     --font-size: 7dvb;
                     --max-font-size: 4rem;
-                    translate: 0 calc(var(--header-img_size) / 2.5);
-                }
-
-                @include mq-responsive('mobile-l', max) {
-                    translate: 0 calc(var(--header-img_size) / 2.5);
+                    --title_trans-y-factor: 2.5;
                 }
 
                 @include mq-responsive('mobile-m', max) {
                     --font-size: 8dvb;
                     --max-font-size: 3.2rem;
-                    translate: 0 calc(var(--header-img_size) / 2.5);
                 }
             }
 
@@ -86,15 +85,21 @@
                 font-family: var(--font-text);
                 font-size: clamp($gap-l, 4em, $gap-2xl);
                 font-weight: 300;
-                translate: 0 calc(var(--header-img_size) / 2.6);
+                translate: 0 calc(var(--header-img_size) / var(--date_trans-y-factor, 2.6));
+                animation: show-text .5s linear 3s forwards;
+                opacity: 0;
+
+                @include mq-responsive('desktop-l', max) {
+                    --date_trans-y-factor: 2.4;
+                }
 
                 @include mq-responsive('tablet', max) {
-                    translate: 0 calc(var(--header-img_size) / 2.2);
+                    --date_trans-y-factor: 2.2;
                 }
 
                 @include mq-responsive('mobile-xl', max) {
+                    --date_trans-y-factor: 2;
                     font-size: clamp($gap-l, 1.7em, $gap-xl);
-                    translate: 0 calc(var(--header-img_size) / 2);
                 }
             }
         }
@@ -109,24 +114,23 @@
             background-position: center 10%;
             background-size: cover;
             filter: grayscale(100%);
-            transition: filter .5s ease-in-out;
-            transition: opacity $trans-time $trans-fnc;
+            transition: opacity $trans-time $trans-fnc, filter .5s ease-in-out;
+            animation: circle-show 1s forwards 2s linear;
+            clip-path: circle(0% at 50% 50%);
 
             @include mq-hover {
-                filter: grayscale(0%);
+                filter: grayscale(0);
             }
         }
 
         &__anim {
-            // display: none;
             position: fixed;
             inset: 0;
             margin: 0;
             background-color: $color-white;
             font-family: var(--font-title);
             font-weight: 600;
-            animation: display-none 0 forwards 3s;
-            z-index: 1;
+            z-index: 9999;
 
             >span {
                 position: absolute;
@@ -167,12 +171,6 @@
         }
     }
 
-    @keyframes display-none {
-        to {
-            display: none;
-        }
-    }
-
     @keyframes circle-show {
         from {
             clip-path: circle(0% at 50% 50%);
@@ -183,7 +181,9 @@
         }
     }
 
-    #map {
-        block-size: 50vh;
+    @keyframes show-text {
+        to {
+            opacity: 1;
+        }
     }
 }
