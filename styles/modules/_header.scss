@@ -108,9 +108,9 @@
             @include border-radius(circle);
             @include center-content(absolute, 45%);
             @include border-set-all(clamp($gap-xs, 2dvi, 1rem), solid, $color-secondary);
+            inline-size: clamp(200px, var(--header-img_size), $width-desktop-s);
             block-size: clamp(200px, var(--header-img_size), $width-desktop-s);
-            aspect-ratio: 1;
-            background-image: url('../images/kiss.jpg');
+            background-image: url('../images/backgrounds/header-bg.webp');
             background-position: center 10%;
             background-size: cover;
             filter: grayscale(100%);

@@ -7,11 +7,11 @@
         --lang-pop-up_display: none;
         position: relative;
 
-        @include mq-hover {
+        &:focus-within {
             --lang-pop-up_display: inline-flex;
         }
 
-        &:focus-within {
+        @include mq-hover {
             --lang-pop-up_display: inline-flex;
         }
 
@@ -19,6 +19,17 @@
             @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
             font-size: 1em;
             color: currentColor;
+
+            >span,
+            >.icon {
+                pointer-events: none;
+            }
+
+            &.open+.lang-switch__pop-up {
+                @include mq-responsive('tablet', max) {
+                    --lang-pop-up_display: inline-flex;
+                }
+            }
         }
 
         .icon {

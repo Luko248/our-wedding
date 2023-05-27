@@ -33,4 +33,12 @@ export const initNav = () => {
             body.classList.remove('overflow-hidden');
         });
     });
+
+    const langButtonOpen = document.querySelector('button.open');
+    document.addEventListener('click', (e) => {
+        console.log('Click event:', e.target);
+        if (langButtonOpen && e.target !== langButtonOpen) {
+            langButtonOpen.classList.remove('open');
+        }
+    });
 }
