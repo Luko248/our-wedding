@@ -64,7 +64,6 @@
         text-decoration: none;
         text-transform: uppercase;
         transition: color $trans-time ease-in-out;
-        transition-delay: calc($trans-time / 2);
         cursor: pointer;
 
         &:focus:not(:focus-visible) {

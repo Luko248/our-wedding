@@ -27,9 +27,9 @@
         &__container {
             --header-container_gap: 5dvb;
             @include flex-set(flex, column, nowrap, var(--header-container_gap), center, flex-end);
+            position: relative;
             inline-size: calc(100% - var(--container_padding-x, 0));
             margin-inline: auto;
-            position: relative;
             background-color: $color-white;
             color: $color-secondary;
             text-align: center;
@@ -53,9 +53,9 @@
                 font-family: var(--font-title);
                 font-size: clamp($gap-l, var(--font-size, 10dvi), var(--max-font-size, 12.5rem));
                 color: $color-white;
+                white-space: nowrap;
                 translate: 0 calc(var(--header-img_size) / 3.5);
                 backgdrop-filter: blur(10px);
-                white-space: nowrap;
                 pointer-events: none;
                 -webkit-text-stroke: clamp($border-width, .5dvi, $gap-xs) $color-secondary;
 
