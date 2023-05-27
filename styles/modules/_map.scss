@@ -5,20 +5,23 @@
     #mapElem {
         position: var(--map_position, absolute);
         inset: var(--map_inset, 0);
-        
-        img[alt='Google'], .gmnoprint, .gm-style-cc{
+
+        img[alt='Google'],
+        .gmnoprint,
+        .gm-style-cc {
             display: none;
         }
 
-        .gm-style .gm-style-iw-c{
+        .gm-style .gm-style-iw-c {
             padding: 0 !important;
             box-shadow: 0 0 $gap 0 $color-secondary !important;
-            button{
+
+            button {
                 translate: -30% 30%;
                 scale: 1.5;
             }
-            
-            .gm-ui-hover-effect>span{
+
+            .gm-ui-hover-effect>span {
                 background-color: $color-white !important;
             }
         }
@@ -28,31 +31,31 @@
         position: relative;
         display: grid;
         grid-template-columns: var(--map_grid-columns, minmax($gap-3xl, 8fr) minmax($gap-3xl, 5fr));
-        block-size: var(--map-container_block-size, 100dvb);
+        block-size: var(--map-container_block-size, calc(100dvb - 4rem));
 
-        @include mq-responsive('tablet', max){
+        @include mq-responsive('tablet', max) {
             --map_grid-columns: minmax(#{$width-mobile-s}, 1fr);
             --map-container_block-size: 165dvb;
             sctoll-margin-block-start: var(--nav-height);
         }
 
-       
+
     }
 
-    .map{
-        &__widnow{
-            >img{
+    .map {
+        &__widnow {
+            >img {
                 display: block;
             }
 
-            address{
+            address {
                 padding: $gap-m;
                 font-family: $font-text;
                 font-size: 1rem;
                 font-weight: 200;
                 line-height: 1.5;
 
-                >strong{
+                >strong {
                     font-size: 1.2em;
                     font-weight: 500;
                 }

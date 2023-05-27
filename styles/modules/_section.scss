@@ -5,7 +5,7 @@
 
     section,
     footer {
-        scroll-margin-block-start: calc(var(--nav-height));
+        scroll-margin-block-start: 4rem;
         padding-block: clamp($gap-3xl, var(--section_pad-block, 10dvb), 5rem);
 
         &:has(.map-container) {
