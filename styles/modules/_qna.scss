@@ -30,8 +30,6 @@
       --question-number_font-size: clamp(#{$gap-xl}, .5em, #{$gap-3xl});
       --question-number_bg-color: #{$color-secondary};
       --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
-      --question-icon: '+';
-      --question-icon_line-height: 1;
       counter-increment: questions;
 
       @include mq-responsive('tablet', max) {
@@ -41,8 +39,6 @@
 
       &[open] {
         --question-number_bg-color: #{$color-primary};
-        --question-icon: '‒';
-        --question-icon_line-height: .85;
       }
 
       >p {
@@ -51,14 +47,15 @@
         line-height: 1.7;
       }
 
+
       >summary {
         --qna-question_text-decoration: none;
         --qna-number_box-shadow-radius: 0;
         @include flex-set(flex, row, nowrap, var(--question_gap), center);
         font-family: var(--font-title);
         font-size: clamp($gap-l, var(--qna-question_font-size, 4dvb), $gap-2xl);
-        cursor: pointer;
         list-style: none;
+        cursor: pointer;
 
         @include mq-hover {
           --qna-question_text-decoration: underline;
@@ -67,14 +64,6 @@
 
         @include mq-responsive('tablet', max) {
           --qna-question_font-size: 4dvi;
-        }
-
-        &::marker {
-          width: 0;
-          height: 0;
-          color: $color-transparent;
-          font-size: 0;
-          content: "";
         }
 
         &:before {
@@ -100,9 +89,19 @@
           }
         }
 
+
+
         >span {
           text-decoration: var(--qna-question_text-decoration);
         }
+      }
+
+      >summary::marker {
+        content: "";
+        width: 0;
+        height: 0;
+        font-size: 0;
+        color: $color-transparent;
       }
     }
   }
