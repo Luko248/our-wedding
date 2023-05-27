@@ -31,7 +31,6 @@
       --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
       --question-icon: '+';
       --question-icon_line-height: 1;
-      -webkit-appearance: none;
       counter-increment: questions;
 
       @include mq-responsive('tablet', max) {
@@ -58,7 +57,7 @@
         font-family: var(--font-title);
         font-size: clamp($gap-l, var(--qna-question_font-size, 4dvb), $gap-2xl);
         cursor: pointer;
-        -webkit-appearance: none;
+        list-style: none;
 
         @include mq-hover {
           --qna-question_text-decoration: underline;
@@ -70,6 +69,10 @@
         }
 
         &::marker {
+          width: 0;
+          height: 0;
+          color: $color-transparent;
+          font-size: 0;
           content: "";
         }
 
