@@ -6,7 +6,7 @@
     .burger {
         position: relative;
         display: var(--burger_display, none);
-        inline-size: var(--gap-2xl);
+        inline-size: 2.5rem;
         aspect-ratio: 4 / 3;
         background-color: var(--color-transparent);
         border-color: var(--color-transparent);
@@ -16,7 +16,7 @@
             --burger_display: block;
         }
 
-        > span {
+        >span {
             @include border-radius(full);
             position: absolute;
             top: 50%;
@@ -25,7 +25,7 @@
             inline-size: 100%;
             block-size: var(--gap-xs);
             background-color: var(--nav_color);
-            opacity: var(--opacity, 1);  
+            opacity: var(--opacity, 1);
             translate: var(--trans-x, -50%) var(--trans-y, -50%);
             scale: var(--scale, 1);
             rotate: var(--rotate, 0);
@@ -33,15 +33,15 @@
                 opacity $trans-time ease-in-out;
 
             &:nth-child(1) {
-                --trans-y: #{calc(num-neg($gap-m) - 100%)};
+                --trans-y: #{calc(num-neg(.6rem) - 100%)};
             }
 
             &:nth-child(3) {
-                --trans-y: #{$gap-m};
+                --trans-y: .6rem;
             }
         }
 
-        &--open > span {
+        &--open>span {
             &:nth-child(1) {
                 --trans-y: -50%;
                 --rotate: 45deg;

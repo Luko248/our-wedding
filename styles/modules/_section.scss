@@ -2,17 +2,18 @@
 @use '../base/variables/index' as *;
 
 @mixin create-section {
-    section {
-        scroll-margin-block-start: var(--nav-height);
+
+    section,
+    footer {
+        scroll-margin-block-start: calc(var(--nav-height));
         padding-block: clamp($gap-3xl, var(--section_pad-block, 10dvb), 5rem);
 
-        &:has(.map-container){
+        &:has(.map-container) {
             --section_pad-block: 0;
         }
 
         @include mq-responsive('tablet', max) {
             --section_pad-block: 8dvb;
-
         }
 
         @include mq-responsive('mobile', max) {

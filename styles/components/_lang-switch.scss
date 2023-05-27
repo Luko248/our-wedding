@@ -2,15 +2,56 @@
 @use "../base/mixins/index" as *;
 @use "../base/variables/index" as *;
 
-@mixin create-lang-switch{
+@mixin create-lang-switch {
     .lang-switch {
-        button{
-            background-color: $color-transparent;
-            border-color: $color-transparent;
-            color: var(--lang-switch_color, currentColor);
+        --lang-pop-up_display: none;
+        position: relative;
 
-            &.active{
-                --lang-switch_color: #{$color-primary};
+        @include mq-hover {
+            --lang-pop-up_display: inline-flex;
+        }
+
+        &:focus-within {
+            --lang-pop-up_display: inline-flex;
+        }
+
+        &__button {
+            @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
+            color: currentColor;
+            font-size: 1em;
+        }
+
+        .icon {
+            --icon-size: #{$gap-m};
+            --icon-color: currentColor;
+        }
+
+        &__pop-up {
+            @include flex-set(var(--lang-pop-up_display), column, nowrap, 0, stretch, stretch, stretch);
+            @include center-content(absolute, 100%, 50%, -50%, 0);
+            @include box-shadow-set;
+            @include border-radius(s);
+            overflow: hidden;
+            background-color: var(--lang-pop-up_bg-color, $color-secondary--bg);
+
+            @include mq-responsive('tablet', max) {
+                --lang-pop-up_bg-color: #{$color-nav_bg};
+            }
+        }
+
+        &__item {
+            @include padding-set-x($gap-m);
+            @include padding-set-y($gap-s);
+            background-color: var(--lang-switch-item_bg-color, $color-transparent);
+            font-size: 1em;
+            color: var(--lang-switch-item_color, $color-white);
+
+            @include mq-hover {
+                --lang-switch-item_bg-color: #{$color-secondary--hover};
+            }
+
+            &.active {
+                --lang-switch-item_color: #{$color-primary};
             }
         }
     }

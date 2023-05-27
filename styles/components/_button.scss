@@ -2,6 +2,11 @@
 @use '../base/variables/index' as *;
 
 @mixin create-button {
+    button {
+        background-color: $color-transparent;
+        border-color: $color-transparent;
+        cursor: pointer;
+    }
 
     .button {
         --shadow-alpha: .3;
