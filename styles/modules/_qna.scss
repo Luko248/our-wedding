@@ -17,6 +17,7 @@
     @include mq-responsive('mobile-xl', max) {
       --qna_background-size: 65%;
       --qna_bg-pos-x: 60%;
+      --qna_bg-pos-y: 80%;
     }
 
     .container {
