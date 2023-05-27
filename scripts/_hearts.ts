@@ -1,7 +1,7 @@
 export const initHearts = (): void => {
   const header = document.querySelector('header') as HTMLElement;
 
-  if (!header) {
+  if (!header || window.innerWidth < 768) {
     return;
   }
 
@@ -25,7 +25,7 @@ export const initHearts = (): void => {
 
   function shouldGenerateHeart(): boolean {
     // Adjust the probability value as needed (20% = 0.2)
-    const probability = .15;
+    const probability = .1;
     return Math.random() < probability;
   }
 

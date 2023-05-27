@@ -14,9 +14,20 @@
         --button-cursor: pointer;
         --button-outline: none;
         --button-before_inline-size: #{$gap-2xl};
+        --button-before_block-size: #{$gap-2xl};
 
         @include mq-hover {
             --button-before_inline-size: 100%;
+            --button-color: #{$color-white};
+        }
+
+        @include mq-responsive('mobile-xl', max) {
+            --button-before_inline-size: 100%;
+            --button-color: #{$color-white};
+            --button-font-size: #{$gap-m};
+            --button-padding-inline: #{$gap-s};
+            --button-padding-block: #{$gap-m};
+            --button-before_block-size: 100%;
         }
 
         &--secondary {
@@ -52,7 +63,8 @@
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-        transition: background-color $trans-time ease-in-out;
+        transition: color $trans-time ease-in-out;
+        transition-delay: calc($trans-time / 2);
         cursor: pointer;
 
         &:focus:not(:focus-visible) {
@@ -65,7 +77,7 @@
             inset: 50% auto auto 0;
             content: '';
             inline-size: var(--button-before_inline-size);
-            block-size: $gap-2xl;
+            block-size: var(--button-before_block-size);
             background-color: var(--color-primary);
             translate: 0 -50%;
             transition: inline-size $trans-time ease-in-out;

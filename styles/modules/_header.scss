@@ -27,7 +27,8 @@
         &__container {
             --header-container_gap: 5dvb;
             @include flex-set(flex, column, nowrap, var(--header-container_gap), center, flex-end);
-            @include padding-set-x(var(--container_padding-x, $gap-2xl));
+            inline-size: calc(100% - var(--container_padding-x, 0));
+            margin-inline: auto;
             position: relative;
             background-color: $color-white;
             color: $color-secondary;
@@ -50,10 +51,11 @@
                 display: block;
                 margin: 0;
                 font-family: var(--font-title);
-                font-size: clamp($gap-xl, var(--font-size, 12dvi), var(--max-font-size, 12.5rem));
+                font-size: clamp($gap-l, var(--font-size, 10dvi), var(--max-font-size, 12.5rem));
                 color: $color-white;
                 translate: 0 calc(var(--header-img_size) / 3.5);
                 backgdrop-filter: blur(10px);
+                white-space: nowrap;
                 pointer-events: none;
                 -webkit-text-stroke: clamp($border-width, .5dvi, $gap-xs) $color-secondary;
 
@@ -64,8 +66,8 @@
                 }
 
                 @include mq-responsive('mobile-xl', max) {
-                    --font-size: 6dvb;
-                    --max-font-size: 3.5rem;
+                    --font-size: 7dvb;
+                    --max-font-size: 4rem;
                     translate: 0 calc(var(--header-img_size) / 2.5);
                 }
 
@@ -73,28 +75,25 @@
                     translate: 0 calc(var(--header-img_size) / 2.5);
                 }
 
-
                 @include mq-responsive('mobile-m', max) {
-                    --font-size: 7dvb;
-                    --max-font-size: 5rem;
+                    --font-size: 8dvb;
+                    --max-font-size: 3.2rem;
                     translate: 0 calc(var(--header-img_size) / 2.5);
                 }
-
             }
 
             >span {
-                background-color: $color-white;
                 font-family: var(--font-text);
                 font-size: clamp($gap-l, 4em, $gap-2xl);
                 font-weight: 300;
-                translate: 0 calc(var(--header-img_size) / 2.5);
+                translate: 0 calc(var(--header-img_size) / 2.6);
 
                 @include mq-responsive('tablet', max) {
                     translate: 0 calc(var(--header-img_size) / 2.2);
                 }
 
                 @include mq-responsive('mobile-xl', max) {
-                    font-size: clamp($gap-l, 2.5em, $gap-xl);
+                    font-size: clamp($gap-l, 1.7em, $gap-xl);
                     translate: 0 calc(var(--header-img_size) / 2);
                 }
             }

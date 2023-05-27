@@ -19,7 +19,7 @@
         backdrop-filter: blur($gap-s);
 
         @include mq-responsive('tablet', max) {
-            --nav_bg: var(--color-white);
+            --nav_shadow-color: #{$color-secondary--trans};
         }
 
         &.sticked {
