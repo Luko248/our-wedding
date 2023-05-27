@@ -2,61 +2,141 @@
 @use '../base/variables/index' as *;
 
 @mixin create-nav {
+    body {
+        &:has(nav.sticked) {
+            --nav-height: 4rem;
+        }
+
+        @include mq-responsive('tablet', max) {
+            --nav-height: 4rem;
+        }
+
+        &.overflow-hidden {
+
+            header,
+            section,
+            footer {
+                filter: blur($gap-xs);
+            }
+        }
+    }
+
     nav {
+        --nav_color: #{$color-secondary};
         @include flex-set(flex, row, nowrap, center);
+        @include box-shadow-set($gap, 0, 0, var(--nav_shadow-color, $color-transparent));
         position: fixed;
         inset: 0 0 auto 0;
         inline-size: 100%;
         block-size: var(--nav-height);
         background-color: var(--nav_bg, var(--color-transparent));
-        z-index: 9999;
+        color: var(--nav_color);
+        transition: block-size .1s ease-in-out, color .1s ease-in-out, background-color .1s ease-in-out, box-shadow .1s ease-in-out;
+        translate: 0 -100%;
+        animation: showNav $trans-time forwards 3s linear;
+        z-index: 999;
+        backdrop-filter: blur($gap-s);
 
-        @include mq-responsive('tablet', max){
-            --nav_bg: var(--color-white);
+        @include mq-responsive('tablet', max) {
+            --nav-height: 4rem;
+            --nav_bg: #{$color-nav_bg};
+            --nav_color: #{$color-white};
+            --nav_shadow-color: #{$color-nav_bg};
         }
 
-        .container{
-            @include flex-set(flex, row, nowrap, var(--gap-3xl), center, flex-end);
+        &.sticked {
+            --nav-height: 4rem;
+            --nav_bg: #{$color-nav_bg};
+            --nav_color: #{$color-white};
+            --nav_shadow-color: #{$color-nav_bg};
+
+            .button {
+                --button-color: #{$color-white};
+            }
+        }
+
+        .container {
+            @include flex-set(flex, row, nowrap, var(--gap-3xl), center, space-between);
         }
 
         ul {
-            @include flex-set(var(--menu_display, inline-flex), var(--menu_fd, row), nowrap, var(--menu_gap, var(--gap-3xl)), center, var(--menu_jc, flex-end));
+            @include flex-set(var(--menu_display, inline-flex), var(--menu_fd, row), nowrap, var(--menu_gap, var(--gap-2xl)), center, var(--menu_jc, flex-end));
             padding: 0;
             margin: 0;
             list-style: none;
 
-            @include mq-responsive('tablet', max){
+            @include mq-responsive('tablet', max) {
                 --menu_display: none;
                 --menu_fd: column;
                 --menu_jc: center;
                 --menu_gap: var(--gap-2xl);
-                background-color: var(--color-white);
                 position: absolute;
                 inset: 100% 0 auto 0;
+                opacity: 0;
+                animation: showMenu $trans-time linear forwards;
                 block-size: calc(100dvb - var(--nav-height));
+                background-color: $color-nenu_bg;
             }
 
-            &.open{
-                @include mq-responsive('tablet', max){
+            &.open {
+                @include mq-responsive('tablet', max) {
                     --menu_display: flex;
+                }
+            }
+
+            >li:last-of-type {
+                @include mq-responsive('tablet', max) {
+                    margin-block-start: 15dvb;
                 }
             }
 
             a {
                 font-family: var(--font-text);
+                font-size: var(--nav-link_font-size, clamp(1rem, 2dvb, $gap-l));
                 font-weight: 300;
-                color: var(--nav-link_color, var(--color-white));
-                text-decoration: var(--nav-item_text-decor, none);;
+                letter-spacing: 3pt;
+                color: var(--nav-link_color, currentColor);
+                text-decoration: var(--nav-item_text-decor, none);
                 text-transform: uppercase;
 
                 @include mq-hover {
                     --nav-item_text-decor: underline;
                 }
 
-                @include mq-responsive('tablet', max){
-                    --nav-link_color: var(--color-black);
+                @include mq-responsive('tablet', max) {
+                    --nav-link_color: #{$color-white};
+                    --nav-link_font-size: clamp(#{$gap-l}, 3dvb, #{$gap-xl});
+                }
+
+                @include mq-responsive('mobile-xl', max) {
+                    --nav-link_color: #{$color-white};
+                    --nav-link_font-size: clamp(#{$gap-m}, 2.5dvb, #{$gap-l});
                 }
             }
+        }
+
+        &:has(~ main > section#home:target) ul>li:nth-of-type(1)>a {
+            text-decoration: underline;
+        }
+
+        &:has(~ main > section#place:target) ul>li:nth-of-type(2)>a {
+            text-decoration: underline;
+        }
+
+        &:has(~ main > section.qna:target) ul>li:nth-of-type(3)>a {
+            text-decoration: underline;
+        }
+    }
+
+    @keyframes showMenu {
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes showNav {
+        to {
+            translate: 0 0;
         }
     }
 }

@@ -1,0 +1,48 @@
+@use "../base/functions/index" as *;
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin create-typography {
+  .title {
+    margin-block: 0;
+    margin-inline: auto;
+    font-family: $font-title;
+    font-size: var(--title_font-size, clamp($gap-3xl, 5dvi, 5rem));
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: $gap-s;
+    color: var(--title_color, #{$color-secondary});
+    text-align: center;
+    text-transform: var(--title_text-transform, uppercase);
+    white-space: var(--title_white-space, nowrap);
+
+    @include mq-responsive('tablet', max) {
+      --title_font-size: clamp(#{$gap-xl}, 5dvi, #{$gap-2xl});
+      --title_white-space: none;
+    }
+
+    &--m {
+      --title_font-size: clamp(#{$gap-2xl}, 7.5dvi, 6.5rem);
+    }
+
+    &--l {
+      --title_font-size: clamp(#{$gap-3xl}, 10dvi, 8rem);
+
+      @include mq-responsive('tablet', max) {
+        --title_font-size: clamp(#{$gap-2xl}, 15dvi, 5rem);
+      }
+    }
+
+    &--outline {
+      --title_color: #{$color-transparent};
+      -webkit-text-stroke: $border-width-l $color-secondary;
+    }
+  }
+
+  .desc {
+    font-family: $font-text;
+    font-size: clamp(16px, 2.5dvi, 20px);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+}

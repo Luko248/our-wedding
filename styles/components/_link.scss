@@ -1,0 +1,18 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-link{
+    .link{
+        --link_color: #{$color-primary};
+        --link_text-decor: none;
+        font-size: 1em;
+        color: var(--link_color);
+        text-decoration: var(--link_text-decor);
+        transition: color .1s ease-in-out;
+    
+        @include mq-hover{
+            --link_color: #{$color-primary--hover};
+            --link_text-decor: underline;
+        }
+    }
+}

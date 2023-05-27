@@ -1,0 +1,19 @@
+@use 'burger' as *;
+@use 'button' as *;
+@use 'icon' as *;
+@use 'lang-switch' as *;
+@use 'link' as *;
+@use 'heart' as *;
+@use 'nav' as *;
+@use 'select' as *;
+
+@mixin create-components {
+    @include create-burger;
+    @include create-button;
+    @include create-icon;
+    @include create-lang-switch;
+    @include create-link;
+    @include create-heart;
+    @include create-nav;
+    @include create-select;
+}

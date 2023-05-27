@@ -2,70 +2,135 @@
 @use '../base/variables/index' as *;
 
 @mixin create-header {
+    header {
+        --header-img_size: 70dvb;
+        position: relative;
+        display: grid;
+        place-items: center;
+        block-size: 100dvb;
+
+        @include mq-responsive('desktop-s', max) {
+            --header-img_size: 50dvi;
+        }
+
+        @include mq-responsive('tablet', max) {
+            --header-img_size: 70dvi;
+        }
+
+        @include mq-responsive('mobile-xl', max) {
+            --header-img_size: clamp(calc(#{$width-mobile-s} / 2), 80dvi, #{$width-mobile-l});
+        }
+    }
+
     .header {
+
         &__container {
+            --header-container_gap: 5dvb;
+            @include flex-set(flex, column, nowrap, var(--header-container_gap), center, flex-end);
             position: relative;
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            justify-content: center;
-            block-size: 100dvb;
-            row-gap: $gap-2xl;
-            background-color: $color-secondary;
-            color: $color-white;
+            inline-size: calc(100% - var(--container_padding-x, 0));
+            margin-inline: auto;
+            background-color: $color-white;
+            color: $color-secondary;
             text-align: center;
-            animation: circle-show 1.5s forwards 2s linear;
             z-index: 2;
-            clip-path: circle(0% at 50% 50%);
+
+            @include mq-responsive('tablet', max) {
+                --header-container_pad-bottom: clamp(5rem, 14dvb, 10rem);
+                --container_padding-x: #{$gap-xl};
+            }
+
+            @include mq-responsive('mobile-l', max) {
+                --container_padding-x: #{$gap-l};
+            }
 
             >h1 {
+                position: relative;
                 display: block;
                 margin: 0;
                 font-family: var(--font-title);
-                font-size: clamp(1rem, 30dvb, var(--max-font-size, 8rem));
+                font-size: clamp($gap-l, var(--font-size, 10dvi), var(--max-font-size, 12.5rem));
+                color: $color-white;
+                white-space: nowrap;
+                opacity: 0;
+                translate: 0 calc(var(--header-img_size) / var(--title_trans-y-factor, 3.5));
+                pointer-events: none;
+                -webkit-text-stroke: clamp($border-width, .5dvi, $gap-xs) $color-secondary;
+                animation: show-text .5s linear 2.5s forwards;
+                opacity: 0;
 
-                @include mq-responsive('desktop-s', max) {
-                    --max-font-size: 6rem;
+                @include mq-responsive('desktop-l', max) {
+                    --title_trans-y-factor: 6;
                 }
 
                 @include mq-responsive('tablet', max) {
-                    --max-font-size: 4.5rem;
+                    --font-size: 10dvb;
+                    --max-font-size: 6rem;
+                    --title_trans-y-factor: 3;
                 }
 
-                @include mq-responsive('mobile-l', max) {
-                    --max-font-size: 3rem;
+                @include mq-responsive('mobile-xl', max) {
+                    --font-size: 7dvb;
+                    --max-font-size: 4rem;
+                    --title_trans-y-factor: 2.5;
+                }
+
+                @include mq-responsive('mobile-m', max) {
+                    --font-size: 8dvb;
+                    --max-font-size: 3.2rem;
                 }
             }
 
             >span {
                 font-family: var(--font-text);
-                font-size: clamp(1.5rem, 10dvb, 4em);
+                font-size: clamp($gap-l, 4em, $gap-2xl);
                 font-weight: 300;
+                translate: 0 calc(var(--header-img_size) / var(--date_trans-y-factor, 2.6));
+                animation: show-text .5s linear 3s forwards;
+                opacity: 0;
 
-                @include mq-responsive('mobile-l', max) {
-                    font-size: clamp(1.5rem, 10dvb, 2.5em);
+                @include mq-responsive('desktop-l', max) {
+                    --date_trans-y-factor: 2.4;
+                }
+
+                @include mq-responsive('tablet', max) {
+                    --date_trans-y-factor: 2.2;
+                }
+
+                @include mq-responsive('mobile-xl', max) {
+                    --date_trans-y-factor: 2;
+                    font-size: clamp($gap-l, 1.7em, $gap-xl);
                 }
             }
+        }
 
-            >b {
-                position: absolute;
-                bottom: 5dvb;
-                left: 50%;
-                font-size: 2.5dvb;
-                translate: -50%;
+        &__img {
+            @include border-radius(circle);
+            @include center-content(absolute, 45%);
+            @include border-set-all(clamp($gap-xs, 2dvi, 1rem), solid, $color-secondary);
+            block-size: clamp(200px, var(--header-img_size), $width-desktop-s);
+            aspect-ratio: 1;
+            background-image: url('../images/kiss.jpg');
+            background-position: center 10%;
+            background-size: cover;
+            filter: grayscale(100%);
+            transition: opacity $trans-time $trans-fnc, filter .5s ease-in-out;
+            animation: circle-show 1s forwards 2s linear;
+            clip-path: circle(0% at 50% 50%);
+
+            @include mq-hover {
+                filter: grayscale(0);
             }
         }
 
         &__anim {
-            // display: none;
             position: fixed;
             inset: 0;
             margin: 0;
             background-color: $color-white;
             font-family: var(--font-title);
             font-weight: 600;
-            animation: display-none 0 forwards 3s;
-            z-index: 1;
+            z-index: 9999;
 
             >span {
                 position: absolute;
@@ -106,12 +171,6 @@
         }
     }
 
-    @keyframes display-none {
-        to {
-            display: none;
-        }
-    }
-
     @keyframes circle-show {
         from {
             clip-path: circle(0% at 50% 50%);
@@ -122,7 +181,9 @@
         }
     }
 
-    #map {
-        block-size: 50vh;
+    @keyframes show-text {
+        to {
+            opacity: 1;
+        }
     }
 }

@@ -1,13 +1,9 @@
 ﻿@use 'base/layers' as *;
 @use 'base/reset' as *;
 @use 'base/root' as *;
-@use 'components/burger' as *;
-@use 'components/button' as *;
-@use 'components/icon' as *;
-@use 'components/nav' as *;
-@use 'modules/container' as *;
-@use 'modules/header' as *;
-@use 'modules/section' as *;
+@use 'base/typography' as *;
+@use 'components/index' as *;
+@use 'modules/index' as *;
 @use 'utilities/classes' as *;
 
 @at-root {
@@ -16,19 +12,15 @@
 
   @layer base {
     @include reset;
+    @include create-typography;
   }
 
   @layer components {
-    @include create-burger;
-    @include create-button;
-    @include create-icon;
-    @include create-nav;
+    @include create-components;
   }
 
   @layer modules {
-    @include create-container;
-    @include create-header;
-    @include create-section;
+    @include create-modules;
   }
 
   @layer utilities {

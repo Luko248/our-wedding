@@ -163,4 +163,12 @@ $displayTypes: (
       @include grid-row-span(4);
     }
   }
+
+  .text-to-center {
+    text-align: center;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
 }

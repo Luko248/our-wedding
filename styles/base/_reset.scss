@@ -1,3 +1,7 @@
+@use '../base/variables/colors' as *;
+@use '../base/variables/fonts' as *;
+@use '../base/variables/sizes' as *;
+
 @mixin reset {
 
     *,
@@ -14,9 +18,11 @@
         min-block-size: 100dvh;
         max-block-size: 100dvh;
         margin: 0;
-        animation: body-overflow 0s forwards 3s;
         overflow-x: hidden;
-        overflow-y: hidden;
+
+        &.start {
+            overflow: hidden;
+        }
     }
 
     textarea {
@@ -25,7 +31,23 @@
     }
 
     address {
+        font-family: $font-text;
+        font-weight: 300;
         font-style: normal;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $font-title;
+    }
+
+    p {
+        font-family: $font-text;
+        font-size: clamp(1rem, 2.5dvb, $gap-l);
     }
 
     @keyframes body-overflow {

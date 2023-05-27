@@ -1,0 +1,107 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-seating-plan {
+    .plan {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        row-gap: 1rem;
+        padding: 20dvb 25dvi;
+    }
+
+    .table {
+        background-color: #984f21;
+
+        &:not(.table--main) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: stretch;
+            gap: 1rem;
+
+            .chair{
+                &:nth-of-type(odd) {
+                    --chair-top: 50%;
+                    --chair-size: 100cqi;
+                    --chair-left: 0;
+                    --chair-translate: calc(-100% - 1rem) -50%;
+                }
+        
+                &:nth-of-type(even){
+                    --chair-top: 50%;
+                    --chair-size: 100cqi;
+                    --chair-left: 100%;
+                    --chair-translate: 1rem -50%;
+                }
+            }
+        }
+
+        &--main {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            aspect-ratio: 7 / 1;
+            grid-column-end: span 7;
+        }
+
+        &--1 {
+            aspect-ratio: 1 / 10;
+            grid-column: 1 / 2;
+        }
+
+        &--2 {
+            aspect-ratio: 1 / 10;
+            grid-column: 4 / 5;
+        }
+
+        &--3 {
+            aspect-ratio: 1 / 10;
+            grid-column: 7 / 8;
+        }
+    }
+
+    .chair {
+        --chair-top: 0;
+        --chair-left: 50%;
+        --chair-translate: -50% calc(-100% - 1rem);
+        --chair-size: 50cqi;
+        --chair_bg-color: darkgrey;
+        --chair_border-color: #{$color-transparent};
+        container-type: inline-size;
+        position: relative;
+        background-color: $color-transparent;
+        border-width: 0;
+        z-index: 1;
+        outline: none;
+
+        &--selected {
+            --chair_bg-color: lime;
+        }
+
+        &:is(:focus, :focus-visible){
+            --chair_border-color: #{$color-black};
+        }
+
+        @include mq-hover{
+            &:not(.chair--selected){
+                --chair_bg-color: grey;
+            }
+        }
+
+        &:before {
+            position: absolute;
+            top: var(--chair-top);
+            left: var(--chair-left);
+            display: grid;
+            content: attr(data-number);
+            place-items: center;
+            inline-size: var(--chair-size);
+            aspect-ratio: 1;
+            background-color: var(--chair_bg-color);
+            border: $border-width-l solid var(--chair_border-color);
+            border-radius: 50%;
+            font-size: 18px;
+            translate: var(--chair-translate);
+            isolation: isolate;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 @mixin center-content($position, $top: 50%, $left: 50%, $translateX: -50%, $translateY: -50%) {
-    @if ($position) {
+    @if ($position != null) {
         position: $position;
         top: $top;
         left: $left;

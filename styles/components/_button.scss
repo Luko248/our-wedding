@@ -2,27 +2,54 @@
 @use '../base/variables/index' as *;
 
 @mixin create-button {
+    button {
+        background-color: $color-transparent;
+        border-color: $color-transparent;
+        cursor: pointer;
+    }
 
     .button {
         --shadow-alpha: .3;
-        --button-min-width: 18rem;
-        --button-border-width: .2rem;
-        --button-background: var(--color-primary);
-        --button-color: #{$color-white};
-        --button-border-color: #{$color-primary};
-        --button-padding: clamp(#{$gap-m}, 5vw, #{$gap-l}) clamp(#{$gap-l}, 5vw, #{$gap-xl});
-        --button-font-size: clamp(#{$gap-s}, 5dvi, #{$gap-l});
+        --button-min-width: 15rem;
+        --button-background: var(--color-transparent);
+        --button-color: #{$color-secondary};
+        --button-padding-inline: clamp(#{$gap-m}, 1dvi, #{$gap-xl});
+        --button-padding-block: clamp(#{$gap-m}, 1dvb, #{$gap-l});
+        --button-font-size: clamp(#{$gap-s}, 1em, #{$gap-l});
         --button-cursor: pointer;
         --button-outline: none;
+        --button-before_inline-size: #{$gap-2xl};
+        --button-before_block-size: #{$gap-2xl};
+
+        @include mq-hover {
+            --button-before_inline-size: 100%;
+            --button-color: #{$color-white};
+        }
+
+        @include mq-responsive('mobile-xl', max) {
+            --button-before_inline-size: 100%;
+            --button-color: #{$color-white};
+            --button-font-size: #{$gap-m};
+            --button-padding-inline: #{$gap-s};
+            --button-padding-block: #{$gap-m};
+            --button-before_block-size: 100%;
+        }
 
         &--secondary {
             --button-color: #{$color-white};
             --button-border-color: #{$color-secondary};
             --button-background: #{$color-secondary};
         }
+
+        &--s {
+            --button-font-size: clamp(#{$gap-s}, 1em, #{$gap-m});
+            text-transform: uppercase;
+        }
     }
 
     .button {
+        @include border-radius(full);
+        position: relative;
         display: inline-flex;
         flex-flow: row nowrap;
         align-items: center;
@@ -30,28 +57,42 @@
         width: auto;
         min-width: var(--button-min-width);
         gap: $gap-m;
-        padding: var(--button-padding);
+        padding-block: var(--button-padding-block);
+        padding-inline: var(--button-padding-inline);
         background-color: var(--button-background);
-        border-radius: 100vmax;
-        font-family: var(--font-title);
+        font-family: var(--font-text);
         font-size: var(--button-font-size);
+        font-weight: 300;
+        letter-spacing: 2.5px;
         color: var(--button-color);
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-        transition: background-color $trans-time ease-in-out;
+        transition: color $trans-time ease-in-out;
         cursor: pointer;
 
         &:focus:not(:focus-visible) {
             outline: var(--button-outline);
         }
 
-        @include mq-hover {
-            --button-background: var(--color-primary--hover);
+        &:before {
+            @include border-radius(full);
+            position: absolute;
+            inset: 50% auto auto 0;
+            content: '';
+            inline-size: var(--button-before_inline-size);
+            block-size: var(--button-before_block-size);
+            background-color: var(--color-primary);
+            translate: 0 -50%;
+            transition: inline-size $trans-time ease-in-out;
+            z-index: -1;
         }
 
-        >.icon {
+        >.icon,
+        >svg {
             --icon-size: 1.2em;
+            inline-size: var(--icon-size);
+            aspect-ratio: 1;
             fill: var(--button-color);
         }
     }

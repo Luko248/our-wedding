@@ -1,0 +1,115 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+@import "../base/fragments/container";
+
+@mixin create-contact {
+    .contact {
+        container-type: inline-size;
+        position: relative;
+        inline-size: calc(100% - var(--container_padding-x, 0));
+        grid-column-start: var(--contact_col-start, 2);
+
+        @include mq-responsive("tablet", max) {
+            --contact_col-start: 1;
+            --container_padding-x: #{$gap-xl};
+            margin-inline: auto;
+        }
+
+        @include mq-responsive('mobile-l', max) {
+            --container_padding-x: #{$gap-l};
+        }
+
+        &__card {
+            --cart_margin-block: 8dvb;
+            @include flex-set(flex, column, nowrap, $gap-l, stretch, space-between);
+            @include border-set-all($gap-s, solid, $color-contact_border-color);
+            @include box-shadow-set(2dvi, 0, 0, $color-contact_shadow-color);
+            position: var(--card_position, absolute);
+            inset: var(--card_inset, var(--cart_margin-block) 2.5dvi var(--cart_margin-block) -2.5dvi);
+            padding-block: clamp($gap-xl, 8cqi, $gap-3xl);
+            padding-inline: var(--card_pad-x, clamp($gap-xl, 6cqi, $gap-3xl));
+            background-color: $color-contact_bg;
+            border-radius: clamp($gap-l, 4dvi, $gap-2xl);
+            color: $color-white;
+            backdrop-filter: blur($gap-m);
+
+            @include mq-responsive("tablet", max) {
+                --contact_col-start: 1;
+                --card_position: relative;
+                --card_inset: none;
+                margin-block-start: 7dvb;
+            }
+
+            @include mq-responsive("mobile-xl", max) {
+                --card_pad-x: clamp(#{$gap-l}, 4cqi, #{$gap-2xl});
+            }
+        }
+
+        &__title {
+            margin: 0;
+            margin-block-end: clamp($gap-l, 5cqi, $gap-2xl);
+            font-size: clamp($gap-l, 6cqi, $gap-3xl);
+        }
+
+        p {
+            font-size: clamp(1rem, 2dvb, $gap-l);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        address {
+            margin-block-start: clamp($gap-l, 6dvb, $gap-3xl);
+            font-size: clamp($gap-m, 3cqi, $gap-xl);
+            line-height: 1.7;
+
+            >strong {
+                display: block;
+                margin-block-end: $gap-s;
+                font-size: 1.2em;
+                letter-spacing: $gap-xs;
+                text-transform: uppercase;
+            }
+        }
+
+        &__button-wrapper {
+            @include flex-set(flex, row, nowrap, $gap-l, stretch, var(--button-wrapper_justify-content, flex-end))
+        }
+
+        &__button {
+            --contact-button-icon_scale: 1;
+            --color-shadow: #{$color-secondary};
+            @include box-shadow-set($gap-l);
+            display: inline-grid;
+            place-items: center;
+            aspect-ratio: 1;
+            padding: clamp($gap, 2cqi, $gap-l);
+            background-color: var(--contact-button_bg-color);
+            border-radius: clamp($gap-s, 2.5cqi, $gap);
+            color: var(--contact-button_color);
+            text-decoration: none;
+            transition: background-color $trans-time $trans-fnc, box-shadow $trans-time $trans-fnc;
+
+            @include mq-hover {
+                --color-shadow: #{$color-black};
+                --contact-button-icon_scale: 1.05;
+            }
+
+            &--google {
+                --contact-button_bg-color: #{$color-white};
+            }
+
+            &--waze {
+                --contact-button_bg-color: #{$color-waze};
+            }
+
+            >img {
+                display: block;
+                max-inline-size: clamp($gap-3xl, 10cqi, 5rem);
+                max-block-size: clamp($gap-3xl, 10cqi, 5rem);
+                aspect-ratio: 1;
+                scale: var(--contact-button-icon_scale);
+                transition: scale $trans-time $trans-fnc;
+            }
+        }
+    }
+}

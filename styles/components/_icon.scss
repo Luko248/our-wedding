@@ -5,6 +5,7 @@
 @mixin create-icon {
     .icon {
         --icon-size: #{$gap-l};
+        fill: var(--icon-color, #{$gap-l});
         display: block;
         inline-size: min(var(--icon-size), var(--icon-size));
         aspect-ratio: 1;

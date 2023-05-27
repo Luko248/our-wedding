@@ -1,0 +1,46 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-heart {
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    font-size: 20px;
+    color: #ff4565;
+    animation-name: bubble, scale;
+    animation-iteration-count: forwards, forwards;
+    animation-timing-function: linear, linear;
+    z-index: 10;
+    pointer-events: none;
+    -webkit-text-stroke: 0 $color-transparent;
+  }
+
+  @keyframes bubble {
+    0% {
+      opacity: 0;
+      translate: -50% 0;
+    }
+
+    30%,
+    70% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      translate: -50% -100dvb;
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(5);
+    }
+  }
+}
