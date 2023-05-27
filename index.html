@@ -76,7 +76,8 @@
         <li><a href="#questions-and-answers" data-localize="nav_qna"></a></li>
         <li>
           <div id="langSwitch" class="lang-switch">
-            <button type="button" aria-label="Zvolte jazyk" class="lang-switch__button">
+            <button type="button" aria-label="Zvolte jazyk" class="lang-switch__button"
+              onclick="this.classList.toggle('open')">
               <span data-localize="selected-language"></span>
               <svg class="icon icon-down">
                 <use xlink:href="#icon-down"></use>
@@ -210,6 +211,18 @@
             <span data-localize="qna_question-6"></span>
           </summary>
           <p class="desc" data-localize="qna_answer-6"></p>
+        </details>
+
+        <details class="qna__item" open>
+          <summary>
+            <span data-localize="qna_question-7"></span>
+          </summary>
+          <p class="desc">
+            <span data-localize="qna_answer-7"></span>
+            <a href="https://photos.app.goo.gl/NnC1LkFFgR34GKyg9" class="link" target="_blank"
+              aria-label="Prejsť na Google Photos" data-localize="qna_answer-7-link"></a>.
+            <span data-localize="qna_answer-7-2"></span>
+          </p>
         </details>
       </div>
     </section>

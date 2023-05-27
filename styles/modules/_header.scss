@@ -48,16 +48,16 @@
                 position: relative;
                 display: block;
                 margin: 0;
+                opacity: 0;
+                opacity: 0;
                 font-family: var(--font-title);
                 font-size: clamp($gap-l, var(--font-size, 10dvi), var(--max-font-size, 12.5rem));
                 color: $color-white;
                 white-space: nowrap;
-                opacity: 0;
+                animation: show-text .5s linear 2.5s forwards;
                 translate: 0 calc(var(--header-img_size) / var(--title_trans-y-factor, 3.5));
                 pointer-events: none;
                 -webkit-text-stroke: clamp($border-width, .5dvi, $gap-xs) $color-secondary;
-                animation: show-text .5s linear 2.5s forwards;
-                opacity: 0;
 
                 @include mq-responsive('desktop-l', max) {
                     --title_trans-y-factor: 6;
@@ -82,12 +82,12 @@
             }
 
             >span {
+                opacity: 0;
                 font-family: var(--font-text);
                 font-size: clamp($gap-l, 4em, $gap-2xl);
                 font-weight: 300;
-                translate: 0 calc(var(--header-img_size) / var(--date_trans-y-factor, 2.6));
                 animation: show-text .5s linear 3s forwards;
-                opacity: 0;
+                translate: 0 calc(var(--header-img_size) / var(--date_trans-y-factor, 2.6));
 
                 @include mq-responsive('desktop-l', max) {
                     --date_trans-y-factor: 2.4;
@@ -108,14 +108,14 @@
             @include border-radius(circle);
             @include center-content(absolute, 45%);
             @include border-set-all(clamp($gap-xs, 2dvi, 1rem), solid, $color-secondary);
+            inline-size: clamp(200px, var(--header-img_size), $width-desktop-s);
             block-size: clamp(200px, var(--header-img_size), $width-desktop-s);
-            aspect-ratio: 1;
-            background-image: url('../images/kiss.jpg');
+            background-image: url('../images/backgrounds/header-bg.webp');
             background-position: center 10%;
             background-size: cover;
             filter: grayscale(100%);
-            transition: opacity $trans-time $trans-fnc, filter .5s ease-in-out;
             animation: circle-show 1s forwards 2s linear;
+            transition: opacity $trans-time $trans-fnc, filter .5s ease-in-out;
             clip-path: circle(0% at 50% 50%);
 
             @include mq-hover {

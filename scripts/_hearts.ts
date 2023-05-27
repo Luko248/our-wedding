@@ -25,7 +25,7 @@ export const initHearts = (): void => {
 
   function shouldGenerateHeart(): boolean {
     // Adjust the probability value as needed (20% = 0.2)
-    const probability = .1;
+    const probability = .15;
     return Math.random() < probability;
   }
 
