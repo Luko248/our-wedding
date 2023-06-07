@@ -5,10 +5,10 @@
 @mixin create-select {
     .select {
         @include flex-set(inline-flex, column, nowrap, $gap-xs);
-        font-family: $font-title;
-        text-transform: uppercase;
         margin-inline: auto;
+        font-family: $font-title;
         font-size: 14px;
+        text-transform: uppercase;
         text-transform: uppercase;
 
         &__autocomplete {
@@ -21,10 +21,10 @@
             @include padding-set-y($gap-m);
             @include border-radius(m);
             @include border-set-all($border-width-l, solid, var(--autocomplete_border-color, $color-secondary));
-            font-size: 16px;
-            font-family: $font-text;
-            text-transform: initial;
             inline-size: calc($width-mobile-s - $gap-xl);
+            font-family: $font-text;
+            font-size: 16px;
+            text-transform: initial;
 
             &:is(:focus, :focus-visible) {
                 --autocomplete_border-color: #{$color-primary};
@@ -36,8 +36,8 @@
             position: absolute;
             top: 50%;
             left: calc(100% + $gap-s);
-            translate: 0 -50%;
             display: none;
+            translate: 0 -50%;
 
             @include mq-hover {
                 --icon-scale: 1.05;
