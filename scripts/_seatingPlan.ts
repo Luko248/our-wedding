@@ -3,6 +3,17 @@ export const initSeatingPlan = () => {
   const autocomplete = document.getElementById("guestsSelect") as HTMLInputElement
   const clearSelect = document.getElementById("clearSelect") as HTMLButtonElement
 
+  autocomplete.addEventListener("input", () => {
+    const value = autocomplete.value.trim();
+
+    if (value.length >= 1) {
+      clearSelect.style.display = 'inline-block'
+    }
+    else {
+      clearSelect.style.display = 'none'
+    }
+  });
+
   const createGuestList = () => {
     fetch('/scripts/guests.json')
       .then(response => response.json())
@@ -96,6 +107,7 @@ export const initSeatingPlan = () => {
 
   clearSelect.addEventListener("click", () => {
     autocomplete.value = ""
+    clearSelect.style.display = 'none'
     removeSelectedClass()
   })
 

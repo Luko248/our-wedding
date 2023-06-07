@@ -4,7 +4,50 @@
 
 @mixin create-select {
     .select {
-        display: inline-flex;
+        @include flex-set(inline-flex, column, nowrap, $gap-xs);
+        font-family: $font-title;
+        text-transform: uppercase;
         margin-inline: auto;
+        font-size: 14px;
+        text-transform: uppercase;
+
+        &__autocomplete {
+            @include flex-set(inline-flex, row, nowrap, 0, center, center, center);
+            position: relative;
+        }
+
+        input {
+            @include padding-set-x($gap-m);
+            @include padding-set-y($gap-m);
+            @include border-radius(m);
+            @include border-set-all($border-width-l, solid, var(--autocomplete_border-color, $color-secondary));
+            font-size: 16px;
+            font-family: $font-text;
+            text-transform: initial;
+            inline-size: calc($width-mobile-s - $gap-xl);
+
+            &:is(:focus, :focus-visible) {
+                --autocomplete_border-color: #{$color-primary};
+            }
+        }
+
+        button {
+            --icon-scale: 1;
+            position: absolute;
+            top: 50%;
+            left: calc(100% + $gap-s);
+            translate: 0 -50%;
+            display: none;
+
+            @include mq-hover {
+                --icon-scale: 1.05;
+            }
+
+            .icon {
+                --icon-size: 1.2rem;
+                scale: var(--icon-scale);
+                transition: scale $trans-time $trans-fnc;
+            }
+        }
     }
 }

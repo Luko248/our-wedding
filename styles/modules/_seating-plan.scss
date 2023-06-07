@@ -3,22 +3,40 @@
 
 @mixin create-seating-plan {
     .plan {
+        @include padding-set-y(8dvb);
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         row-gap: $gap-l;
-        column-gap: $gap-m;
-        padding: 20dvb 25dvi;
+        column-gap: clamp($border-width, 1.5dvi, $gap-m);
+        max-inline-size: $width-desktop-s;
+        inline-size: calc(100% - $gap-l);
+        margin-inline: auto;
+
+        @include mq-responsive('mobile-l', max) {
+            row-gap: $gap-xl;
+        }
+
+        &__top {
+            @include flex-set(flex, row, nowrap, 0, center, center, center);
+            @include padding-set-y($gap-l);
+            position: sticky;
+            top: var(--nav-height);
+            background-color: var(--nav_bg, hsl(0 0% 100% / 50%));
+            backdrop-filter: blur($gap-s);
+            z-index: 100;
+        }
     }
 
     .table {
         @include border-set-all($border-width-l);
         @include border-radius(m);
-        @include padding-set-all($gap-m);
+        @include padding-set-all(clamp($gap-xs, 1.5dvi, $gap-m));
         background-color: var(--table_bg-color, $color-white);
         transition: background-color $trans-time $trans-fnc;
         position: relative;
 
-        &:focus-within {
+        &:focus-within,
+        &:has(.chair--selected) {
             --table_bg-color: #{lighten($color-primary, 35%)};
         }
 
@@ -26,7 +44,8 @@
             content: attr(data-title);
             position: absolute;
             font-family: $font-title;
-            font-size: $gap-l;
+            font-size: clamp(1rem, 2dvi, $gap-l);
+            white-space: nowrap;
         }
 
         &--main {
@@ -47,13 +66,20 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             align-items: stretch;
-            gap: $gap-l;
+            gap: clamp($gap-m, 2dvi, $gap-l);
             place-items: center;
 
             &:after {
                 writing-mode: vertical-rl;
                 left: calc(100% + $gap-m);
                 top: $gap-3xl;
+
+                @include mq-responsive('mobile-l', max) {
+                    top: 0;
+                    left: 50%;
+                    translate: -50% calc(-100% - $gap-s);
+                    writing-mode: initial;
+                }
             }
         }
 
@@ -74,13 +100,15 @@
         --chair_bg-color: #{$color-secondary};
         --chair_border-color: #{$color-transparent};
         @include border-radius(circle);
+        display: grid;
+        place-items: center;
         position: relative;
         background-color: var(--chair_bg-color);
         border-width: 0;
-        aspect-ratio: 1;
         font-family: $font-text;
-        block-size: $gap-3xl;
-        font-size: $gap-l;
+        block-size: clamp($gap-xl, 5dvi, $gap-3xl);
+        inline-size: clamp($gap-xl, 5dvi, $gap-3xl);
+        font-size: clamp($gap-m, 3dvi, $gap-l);
         z-index: 1;
         color: $color-white;
 
@@ -100,6 +128,7 @@
 
         &:before {
             content: attr(data-number);
+            font-weight: 300;
         }
     }
 }

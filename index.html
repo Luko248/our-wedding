@@ -43,19 +43,17 @@
   <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
+      <symbol id="icon-close" viewBox="0 0 32 32">
+        <path
+          d="M1.563 32c-0 0-0 0-0 0-0.863 0-1.563-0.7-1.563-1.563 0-0.432 0.175-0.822 0.458-1.105l28.875-28.875c0.283-0.283 0.673-0.458 1.105-0.458 0.863 0 1.563 0.7 1.563 1.563 0 0.432-0.175 0.822-0.458 1.105l-28.875 28.875c-0.282 0.283-0.672 0.457-1.103 0.457-0.001 0-0.001 0-0.002 0h0z">
+        </path>
+        <path
+          d="M30.438 32c-0.001 0-0.001 0-0.002 0-0.431 0-0.821-0.175-1.103-0.457l-28.875-28.875c-0.283-0.283-0.458-0.673-0.458-1.105 0-0.863 0.7-1.563 1.563-1.563 0.432 0 0.822 0.175 1.105 0.458l28.875 28.875c0.283 0.283 0.458 0.673 0.458 1.105 0 0.863-0.7 1.563-1.563 1.563-0 0-0 0-0 0v0z">
+        </path>
+      </symbol>
       <symbol id="icon-down" viewBox="0 0 32 32">
         <path
           d="M29.604 10.528l-12.073 12.828c-0.83 0.882-2.232 0.882-3.062 0l-12.074-12.828c-0.907-0.964-0.224-2.546 1.1-2.546h25.009c1.324 0 2.007 1.582 1.1 2.546z">
-        </path>
-      </symbol>
-      <symbol id="icon-minus" viewBox="0 0 32 32">
-        <path
-          d="M4.003 14.667c-0.724 0.016-1.304 0.607-1.304 1.333s0.581 1.317 1.303 1.333l0.002 0h23.995c0.724-0.016 1.304-0.607 1.304-1.333s-0.581-1.317-1.303-1.333l-0.002-0z">
-        </path>
-      </symbol>
-      <symbol id="icon-plus" viewBox="0 0 32 32">
-        <path
-          d="M30.75 14.75h-13.5v-13.5c0-0.69-0.56-1.25-1.25-1.25s-1.25 0.56-1.25 1.25v13.5h-13.5c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25h13.5v13.5c0 0.69 0.56 1.25 1.25 1.25s1.25-0.56 1.25-1.25v-13.5h13.5c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25z">
         </path>
       </symbol>
       <symbol id="icon-calendar" viewBox="0 0 32 32">
@@ -235,13 +233,20 @@
         <h2 class="title">Zasadací poriadok
       </div>
 
-      <label class="select">
-        Select guest
-        <input type="text" list="guestList" id="guestsSelect">
-        <datalist id="guestList">
-        </datalist>
-        <button id="clearSelect">Clear</button>
-      </label>
+      <div class="plan__top">
+        <label class="select" aria-label="Zadajte meno hosťa">
+          <div class="select__autocomplete">
+            <input type="text" list="guestList" id="guestsSelect" placeholder="Zadajte meno hosťa...">
+            <datalist id="guestList">
+            </datalist>
+            <button id="clearSelect" title="Zrušiť" aria-label="Zrušiť">
+              <svg class="icon icon-close">
+                <use xlink:href="#icon-close"></use>
+              </svg>
+            </button>
+          </div>
+        </label>
+      </div>
       </div>
 
       <div class="plan">
