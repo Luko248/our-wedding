@@ -34,8 +34,11 @@ export const initSeatingPlan = () => {
     const guests = guestList.querySelectorAll("option");
     for (let i = 1; i <= guests.length; i++) {
       const chair = document.createElement('button')
+      const guest = guests[i - 1];
       chair.classList.add('chair')
       chair.setAttribute('data-number', `${i}`)
+      chair.setAttribute("title", guest.value);
+
       if (i <= 7) {
         mainTable.appendChild(chair)
       }

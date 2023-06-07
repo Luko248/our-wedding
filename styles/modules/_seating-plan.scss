@@ -5,103 +5,101 @@
     .plan {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        row-gap: 1rem;
+        row-gap: $gap-l;
+        column-gap: $gap-m;
         padding: 20dvb 25dvi;
     }
 
     .table {
-        background-color: #984f21;
+        @include border-set-all($border-width-l);
+        @include border-radius(m);
+        @include padding-set-all($gap-m);
+        background-color: var(--table_bg-color, $color-white);
+        transition: background-color $trans-time $trans-fnc;
+        position: relative;
 
-        &:not(.table--main) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            align-items: stretch;
-            gap: 1rem;
+        &:focus-within {
+            --table_bg-color: #{lighten($color-primary, 35%)};
+        }
 
-            .chair{
-                &:nth-of-type(odd) {
-                    --chair-top: 50%;
-                    --chair-size: 100cqi;
-                    --chair-left: 0;
-                    --chair-translate: calc(-100% - 1rem) -50%;
-                }
-        
-                &:nth-of-type(even){
-                    --chair-top: 50%;
-                    --chair-size: 100cqi;
-                    --chair-left: 100%;
-                    --chair-translate: 1rem -50%;
-                }
-            }
+        &:after {
+            content: attr(data-title);
+            position: absolute;
+            font-family: $font-title;
+            font-size: $gap-l;
         }
 
         &--main {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            aspect-ratio: 7 / 1;
+            aspect-ratio: 7 / 1.25;
             grid-column-end: span 7;
+            place-items: center;
+
+            &:after {
+                left: 50%;
+                bottom: calc(100% + $gap-m);
+                translate: -50%;
+            }
+        }
+
+        &:not(.table--main) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: stretch;
+            gap: $gap-l;
+            place-items: center;
+
+            &:after {
+                writing-mode: vertical-rl;
+                left: calc(100% + $gap-m);
+                top: $gap-3xl;
+            }
         }
 
         &--1 {
-            aspect-ratio: 1 / 10;
             grid-column: 1 / 2;
         }
 
         &--2 {
-            aspect-ratio: 1 / 10;
             grid-column: 4 / 5;
         }
 
         &--3 {
-            aspect-ratio: 1 / 10;
             grid-column: 7 / 8;
         }
     }
 
     .chair {
-        --chair-top: 0;
-        --chair-left: 50%;
-        --chair-translate: -50% calc(-100% - 1rem);
-        --chair-size: 50cqi;
-        --chair_bg-color: darkgrey;
+        --chair_bg-color: #{$color-secondary};
         --chair_border-color: #{$color-transparent};
-        container-type: inline-size;
+        @include border-radius(circle);
         position: relative;
-        background-color: $color-transparent;
+        background-color: var(--chair_bg-color);
         border-width: 0;
+        aspect-ratio: 1;
+        font-family: $font-text;
+        block-size: $gap-3xl;
+        font-size: $gap-l;
         z-index: 1;
-        outline: none;
+        color: $color-white;
 
         &--selected {
-            --chair_bg-color: lime;
+            --chair_bg-color: #{$color-primary};
         }
 
-        &:is(:focus, :focus-visible){
-            --chair_border-color: #{$color-black};
-        }
-
-        @include mq-hover{
-            &:not(.chair--selected){
+        @include mq-hover {
+            &:not(.chair--selected) {
                 --chair_bg-color: grey;
             }
         }
 
+        &:not(.chair--selected):focus {
+            --chair_bg-color: grey;
+        }
+
         &:before {
-            position: absolute;
-            top: var(--chair-top);
-            left: var(--chair-left);
-            display: grid;
             content: attr(data-number);
-            place-items: center;
-            inline-size: var(--chair-size);
-            aspect-ratio: 1;
-            background-color: var(--chair_bg-color);
-            border: $border-width-l solid var(--chair_border-color);
-            border-radius: 50%;
-            font-size: 18px;
-            translate: var(--chair-translate);
-            isolation: isolate;
-            cursor: pointer;
         }
     }
 }

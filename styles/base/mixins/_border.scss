@@ -1,5 +1,6 @@
 @use '../functions/get-color' as *;
 @use '../variables/sizes' as *;
+@use '../variables/colors' as *;
 
 $radiusList: (
   xs: $radius-xs,
@@ -10,7 +11,7 @@ $radiusList: (
   full: $radius-full,
 );
 
-@mixin border-set($top: $border-width, $right: $border-width, $bottom: $border-width, $left: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+@mixin border-set($top: $border-width, $right: $border-width, $bottom: $border-width, $left: $border-width, $style: solid, $color: $color-secondary) {
   border-style: $style;
   border-color: $color;
   border-top-width: $top;
@@ -19,19 +20,19 @@ $radiusList: (
   border-left-width: $left;
 }
 
-@mixin border-set-x($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+@mixin border-set-x($width: $border-width, $style: solid, $color: $color-secondary) {
   border: $width $style $color;
   border-top-width: 0;
   border-bottom-width: 0;
 }
 
-@mixin border-set-y($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+@mixin border-set-y($width: $border-width, $style: solid, $color: $color-secondary) {
   border: $width $style $color;
   border-right-width: 0;
   border-left-width: 0;
 }
 
-@mixin border-set-all($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+@mixin border-set-all($width: $border-width, $style: solid, $color: $color-secondary) {
   border: $width $style $color;
 }
 
