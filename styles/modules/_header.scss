@@ -3,7 +3,7 @@
 
 @mixin create-header {
     header {
-        --header-img_size: 70dvb;
+        --header-img_size: 75dvb;
         position: relative;
         display: grid;
         place-items: center;
@@ -107,21 +107,23 @@
         &__img {
             @include border-radius(circle);
             @include center-content(absolute, 45%);
-            @include border-set-all(clamp($gap-xs, 2dvi, 1rem), solid, $color-secondary);
             inline-size: clamp(200px, var(--header-img_size), $width-desktop-s);
             block-size: clamp(200px, var(--header-img_size), $width-desktop-s);
             background-image: url('../images/backgrounds/header-bg.webp');
             background-position: center 10%;
             background-size: cover;
             filter: grayscale(100%);
-            animation: circle-show 1s forwards 2s linear;
+            animation: circle-show 1s forwards 2s linear, blobAnim1 10s linear 0s infinite;
             transition: opacity $trans-time $trans-fnc, filter .5s ease-in-out;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
             clip-path: circle(0% at 50% 50%);
 
             @include mq-hover {
                 filter: grayscale(0);
             }
         }
+
+
 
         &__anim {
             position: fixed;
@@ -184,6 +186,30 @@
     @keyframes show-text {
         to {
             opacity: 1;
+        }
+    }
+
+    @keyframes blobAnim1 {
+
+        0%,
+        100% {
+            border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+        }
+
+        20% {
+            border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+        }
+
+        40% {
+            border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        }
+
+        60% {
+            border-radius: 35% 65% 64% 36% / 62% 43% 57% 38%;
+        }
+
+        80% {
+            border-radius: 65% 35% 41% 59% / 42% 57% 43% 58%;
         }
     }
 }
