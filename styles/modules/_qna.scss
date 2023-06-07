@@ -20,7 +20,7 @@
     }
 
     &__container {
-      --qna-container_gap: clamp(#{$gap-xl}, 5dvb, #{$gap-3xl});
+      --qna-container_gap: clamp(#{$gap-xl}, 8dvb, #{$gap-3xl});
       --question-number_size: clamp(#{$gap-xl}, 4dvi, #{$gap-2xl});
       @include flex-set(flex, column, nowrap, var(--qna-container_gap));
       position: relative;
@@ -37,7 +37,6 @@
       --question-number_border-color: #{$color-secondary};
       --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
       --qna-item-line_size: 0;
-      --question-circle_bg-image: url('../images/icons/plus.svg');
       position: relative;
       counter-increment: questions;
 
@@ -48,7 +47,6 @@
       &[open] {
         --question-number_border-color: #{$color-primary};
         --qna-item-line_size: calc(100% + var(--qna-container_gap));
-        --question-circle_bg-image: url('../images/icons/minus.svg');
       }
 
       &:last-of-type {
@@ -110,17 +108,12 @@
           @include border-radius(circle);
           @include border-set-all($gap-s, solid, var(--question-number_border-color));
           display: inline-grid;
-          // content: counter(questions);
-          content: "";
-          border-collapse: collapse;
+          content: counter(questions);
           place-items: center;
           block-size: clamp($gap-xl, var(--question-number_size), $gap-3xl);
           aspect-ratio: 1;
-          background-position: center center;
-          background-repeat: no-repeat;
           background-color: var(--question-number_bg-color);
-          background-image: var(--question-circle_bg-image);
-          background-size: 1rem;
+          border-collapse: collapse;
           font-family: var(--font-text);
           font-size: var(--question-number_font-size);
           font-weight: 300;
