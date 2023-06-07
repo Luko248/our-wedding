@@ -41,7 +41,7 @@
       counter-increment: questions;
 
       @include mq-responsive('tablet', max) {
-        --question-number_font-size: clamp(#{$gap-l}, 1em, #{$gap-2xl});
+        --question-number_font-size: clamp(#{$gap-m}, .8em, #{$gap-2xl});
       }
 
       &[open] {
@@ -63,7 +63,7 @@
         top: $gap-m;
         left: calc(var(--question-number_size) / 2);
         content: '';
-        inline-size: $gap-s;
+        inline-size: clamp($gap-xs, .5dvi, $gap-s);
         translate: -50%;
       }
 
@@ -106,7 +106,7 @@
 
         &:before {
           @include border-radius(circle);
-          @include border-set-all($gap-s, solid, var(--question-number_border-color));
+          @include border-set-all(clamp($gap-xs, .5dvi, $gap-s), solid, var(--question-number_border-color));
           display: inline-grid;
           content: counter(questions);
           place-items: center;
