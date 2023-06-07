@@ -1,6 +1,6 @@
 ﻿import { initNav } from "./_nav";
 import { initHearts } from "./_hearts";
-import { initSeatingPlan } from "./_seatingPlan";
+// import { initSeatingPlan } from "./_seatingPlan";
 
 
 // declare global {
@@ -94,7 +94,7 @@ initMap();
 document.addEventListener('DOMContentLoaded', () => {
     initNav()
     initHearts()
-    initSeatingPlan()
+    // initSeatingPlan()
 
     const body = document.querySelector('body');
     const headerAnim = document.querySelector('.header__anim');
