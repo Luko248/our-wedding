@@ -113,9 +113,9 @@
             background-position: center 10%;
             background-size: cover;
             filter: grayscale(100%);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
             animation: circle-show 1s forwards 2s linear, blobAnim1 10s linear 0s infinite;
             transition: opacity $trans-time $trans-fnc, filter .5s ease-in-out;
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
             clip-path: circle(0% at 50% 50%);
 
             @include mq-hover {
