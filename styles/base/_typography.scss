@@ -4,8 +4,9 @@
 
 @mixin create-typography {
   .title {
-    margin-block: 0;
+    margin: 0;
     margin-inline: auto;
+    margin-block-end: var(--title_margin-bottom, 6dvb);
     font-family: $font-title;
     font-size: var(--title_font-size, clamp($gap-3xl, 5dvi, 5rem));
     font-weight: 800;
@@ -19,6 +20,7 @@
     @include mq-responsive('tablet', max) {
       --title_font-size: clamp(#{$gap-xl}, 5dvi, #{$gap-2xl});
       --title_white-space: none;
+      --title_margin-bottom: 4rem;
     }
 
     &--m {
@@ -44,5 +46,6 @@
     font-size: clamp(16px, 2.5dvi, 20px);
     font-weight: 300;
     line-height: 1.7;
+    margin: 0;
   }
 }

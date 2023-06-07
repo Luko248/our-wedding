@@ -17,28 +17,69 @@
     @include mq-responsive('mobile-xl', max) {
       --qna_background-size: 65%;
       --qna_bg-pos-x: 60%;
-      --qna_bg-pos-y: 80%;
     }
 
-    .container {
-      @include flex-set(flex, column, nowrap, var(--qna_gap, clamp($gap-xl, 5dvb, $gap-3xl)));
+
+
+    &__container {
+      --qna-container_gap: clamp(#{$gap-xl}, 5dvb, #{$gap-3xl});
+      --question-number_size: clamp(#{$gap-xl}, 5dvi, #{$gap-3xl});
+      @include flex-set(flex, column, nowrap, var(--qna-container_gap));
+      position: relative;
+
+      @include mq-responsive('tablet', max) {
+        --question-number_size: clamp(#{$gap-xl}, 4dvi, #{$gap-3xl});
+      }
     }
 
     &__item {
       --question_gap: clamp(#{$gap-m}, 2.5dvi, #{$gap-xl});
-      --question-number_size: clamp(#{$gap-xl}, 5dvi, #{$gap-3xl});
       --question-number_font-size: clamp(#{$gap-xl}, .5em, #{$gap-3xl});
       --question-number_bg-color: #{$color-secondary};
+      --question-number_shadow-color: #{$color-transparent};
       --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
+      --qna-item-line_size: 0;
       counter-increment: questions;
+      position: relative;
 
       @include mq-responsive('tablet', max) {
-        --question-number_size: clamp(#{$gap-xl}, 4dvi, #{$gap-3xl});
         --question-number_font-size: clamp(#{$gap-l}, 1em, #{$gap-2xl});
       }
 
       &[open] {
-        --question-number_bg-color: #{$color-primary};
+        --question-number_shadow-color: #{$color-primary};
+        --qna-item-line_size: calc(100% + var(--qna-container_gap));
+      }
+
+      &:last-of-type {
+
+        &:before,
+        &:after {
+          display: none;
+        }
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        content: '';
+        top: $gap-m;
+        inline-size: $gap-s;
+        left: calc(var(--question-number_size) / 2);
+        translate: -50%;
+      }
+
+      &:before {
+        background-color: $color-secondary;
+        z-index: -2;
+        block-size: calc(100% + var(--qna-container_gap));
+      }
+
+      &:after {
+        background-color: $color-primary;
+        transition: block-size $trans-time ease-in-out;
+        block-size: var(--qna-item-line_size);
+        z-index: -1;
       }
 
       >p {
@@ -46,7 +87,6 @@
         font-weight: 300;
         line-height: 1.7;
       }
-
 
       >summary {
         --qna-question_text-decoration: none;
@@ -68,7 +108,7 @@
 
         &:before {
           @include border-radius(circle);
-          @include box-shadow-set(var(--qna-number_box-shadow-radius), 0, 0, var(--question-number_bg-color));
+          box-shadow: 0 0 0 $gap-s var(--question-number_shadow-color);
           display: inline-grid;
           content: counter(questions);
           place-items: center;
