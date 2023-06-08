@@ -2,6 +2,12 @@
 @use '../base/variables/index' as *;
 
 @mixin create-qna {
+
+  details summary::-webkit-details-marker,
+  details summary::-moz-list-bullet {
+    display: none;
+  }
+
   .qna {
     position: relative;
     background-image: url(/dist/images/backgrounds/sticker.svg);
@@ -92,7 +98,6 @@
         @include flex-set(flex, row, nowrap, var(--question_gap), center);
         font-family: var(--font-title);
         font-size: clamp($gap-l, var(--qna-question_font-size, 4dvb), $gap-2xl);
-        list-style: none;
         cursor: pointer;
 
         @include mq-hover {
@@ -131,15 +136,6 @@
         >span {
           text-decoration: var(--qna-question_text-decoration);
         }
-      }
-
-      >summary::marker {
-        content: "";
-        content: none;
-        width: 0;
-        height: 0;
-        font-size: 0;
-        color: $color-transparent;
       }
     }
   }
