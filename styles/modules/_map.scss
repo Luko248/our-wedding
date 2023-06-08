@@ -40,7 +40,7 @@
         }
 
         @include mq-responsive('mobile-l', max) {
-            --map-container_block-size: 130dvb;
+            --map-container_block-size: 150dvb;
         }
     }
 
