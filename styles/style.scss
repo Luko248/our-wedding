@@ -2,8 +2,8 @@
 @use 'base/reset' as *;
 @use 'base/root' as *;
 @use 'base/typography' as *;
-@use 'components/index' as *;
-@use 'modules/index' as *;
+@use 'components/_index' as *;
+@use 'modules/_index' as *;
 @use 'utilities/classes' as *;
 
 @at-root {

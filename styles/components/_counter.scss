@@ -1,0 +1,35 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-counter {
+    .counter {
+        --conter-col-min: 100px;
+        @include grid-columns(inline-grid, repeat(4, minmax(var(--conter-col-min), 1fr)), $gap-m, stretch, center, center);
+        margin-block-start: $gap-m;
+        margin-block-end: clamp($gap-xl, 5dvb, 5rem);
+        font-family: $font-title;
+        font-size: var(--counter_font-size, clamp($gap-2xl, 8dvb, 5rem));
+
+        @include mq-responsive('mobile-xl', max) {
+            --counter_font-size: clamp(#{$gap-l}, 6dvb, #{$gap-3xl});
+            --conter-col-min: 60px;
+        }
+
+        >div {
+            @include flex-set(inline-flex, column, nowrap, 0, center);
+        }
+
+        span {
+            font-size: 1em;
+            font-weight: 600;
+            line-height: 1;
+            color: $color-white;
+            -webkit-text-stroke: $border-width-l $color-secondary;
+        }
+
+        small {
+            font-size: clamp(16px, .33em, $gap-2xl);
+            font-weight: 700;
+        }
+    }
+}

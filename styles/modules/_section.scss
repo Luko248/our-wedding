@@ -16,8 +16,23 @@
             --section_pad-block: 8dvb;
         }
 
-        @include mq-responsive('mobile', max) {
-            --section_pad-block: 5dvb;
+        @include mq-responsive('mobile-l', max) {
+            --section_pad-block: 4dvb;
+        }
+    }
+
+    section {
+        min-block-size: 100dvb;
+
+        &#home {
+            --section_pad-block: 0;
+            display: grid;
+            place-items: center;
+
+            @include mq-responsive('mobile-l', max) {
+                --section_pad-block: 4dvb;
+                display: block;
+            }
         }
     }
 }

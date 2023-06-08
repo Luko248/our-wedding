@@ -1,5 +1,6 @@
 @use 'burger' as *;
 @use 'button' as *;
+@use 'counter' as *;
 @use 'icon' as *;
 @use 'lang-switch' as *;
 @use 'link' as *;
@@ -10,6 +11,7 @@
 @mixin create-components {
     @include create-burger;
     @include create-button;
+    @include create-counter;
     @include create-icon;
     @include create-lang-switch;
     @include create-link;
