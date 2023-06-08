@@ -113,8 +113,8 @@
             background-position: center 10%;
             background-size: cover;
             filter: grayscale(100%);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: circle-show 1s forwards 2s linear, blobAnim1 10s linear 0s infinite;
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            animation: circle-show 1s forwards 2s linear, blobAnim1 20s linear 2s infinite;
             transition: opacity $trans-time $trans-fnc, filter .5s ease-in-out;
             clip-path: circle(0% at 50% 50%);
 
@@ -122,8 +122,6 @@
                 filter: grayscale(0);
             }
         }
-
-
 
         &__anim {
             position: fixed;
@@ -193,23 +191,43 @@
 
         0%,
         100% {
-            border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
         }
 
         20% {
-            border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+            border-radius: 61% 39% 61% 39% / 41% 56% 44% 59%;
+        }
+
+        20% {
+            border-radius: 60% 40% 68% 32% / 65% 60% 40% 35%;
+        }
+
+        30% {
+            border-radius: 44% 56% 45% 55% / 35% 44% 56% 65%;
         }
 
         40% {
-            border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+            border-radius: 58% 42% 66% 34% / 51% 35% 65% 49%;
+        }
+
+        50% {
+            border-radius: 58% 42% 66% 34% / 39% 52% 48% 61%;
         }
 
         60% {
-            border-radius: 35% 65% 64% 36% / 62% 43% 57% 38%;
+            border-radius: 38% 62% 34% 66% / 39% 38% 62% 61%;
+        }
+
+        70% {
+            border-radius: 61% 39% 20% 80% / 58% 55% 45% 42%;
         }
 
         80% {
-            border-radius: 65% 35% 41% 59% / 42% 57% 43% 58%;
+            border-radius: 51% 49% 44% 56% / 38% 61% 39% 62%;
+        }
+
+        90% {
+            border-radius: 35% 65% 34% 66% / 61% 61% 39% 39%;
         }
     }
 }
