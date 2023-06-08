@@ -26,7 +26,7 @@
             --button-color: #{$color-white};
         }
 
-        @include mq-responsive('mobile-xl', max) {
+        @include mq-responsive('tablet', max) {
             --button-before_inline-size: 100%;
             --button-color: #{$color-white};
             --button-font-size: #{$gap-m};
