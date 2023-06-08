@@ -30,6 +30,7 @@
     &--l {
       --title_font-size: clamp(#{$gap-3xl}, 10dvi, 8rem);
       --title_margin-bottom: 4dvb;
+      line-height: 1.5;
 
       @include mq-responsive('tablet', max) {
         --title_font-size: clamp(#{$gap-2xl}, 15dvi, 5rem);
