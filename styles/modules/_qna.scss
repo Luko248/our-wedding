@@ -7,7 +7,10 @@
   details>summary::-moz-list-bullet,
   details>summary::marker {
     display: none !important;
-    content: none !important;
+  }
+
+  details summary::-moz-list-bullet {
+    list-style-type: none;
   }
 
   .qna {
@@ -101,7 +104,8 @@
         font-family: var(--font-title);
         font-size: clamp($gap-l, var(--qna-question_font-size, 4dvb), $gap-2xl);
         cursor: pointer;
-        list-style: none !important;
+        list-style: none;
+        list-style-type: none;
 
         @include mq-hover {
           --qna-question_text-decoration: underline;
