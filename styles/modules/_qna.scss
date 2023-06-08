@@ -7,6 +7,13 @@
   details>summary::-moz-list-bullet,
   details>summary::marker {
     display: none !important;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    font-size: 0;
   }
 
   details summary::-moz-list-bullet {
