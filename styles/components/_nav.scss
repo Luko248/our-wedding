@@ -112,19 +112,11 @@
                     --nav-link_color: #{$color-white};
                     --nav-link_font-size: clamp(#{$gap-m}, 2.5dvb, #{$gap-l});
                 }
+
+                &.active {
+                    --nav-item_text-decor: underline;
+                }
             }
-        }
-
-        &:has(~ main > section#home:target) ul>li:nth-of-type(1)>a {
-            text-decoration: underline;
-        }
-
-        &:has(~ main > section#place:target) ul>li:nth-of-type(2)>a {
-            text-decoration: underline;
-        }
-
-        &:has(~ main > section.qna:target) ul>li:nth-of-type(3)>a {
-            text-decoration: underline;
         }
     }
 
