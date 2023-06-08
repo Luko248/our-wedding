@@ -7,10 +7,6 @@
         --lang-pop-up_display: none;
         position: relative;
 
-        &:focus-within {
-            --lang-pop-up_display: inline-flex;
-        }
-
         @include mq-hover {
             --lang-pop-up_display: inline-flex;
         }
@@ -44,6 +40,10 @@
             @include border-radius(s);
             background-color: var(--lang-pop-up_bg-color, $color-secondary--bg);
             overflow: hidden;
+
+            &.open {
+                --lang-pop-up_display: inline-flex;
+            }
 
             @include mq-responsive('tablet', max) {
                 --lang-pop-up_bg-color: #{$color-nav_bg};

@@ -15,7 +15,8 @@ export const initNav = (): void => {
         navObserver.observe(scrollWatcher);
     }
 
-    const menuBtn = document.getElementById('menuBtn') as HTMLElement;
+    const menuBtn = document.getElementById('menuBtn') as HTMLButtonElement;
+    const langSwitchBtn = document.getElementById('langSwitchBtn') as HTMLButtonElement;
     const menu = document.querySelector('nav ul') as HTMLElement;
     const navLinks = menu.querySelectorAll('nav a');
 
@@ -57,7 +58,9 @@ export const initNav = (): void => {
     });
 
     document.addEventListener('click', (event) => {
-        if (menuBtn && event.target !== menuBtn) {
+
+        if (!menuBtn) return
+        if (event.target !== menuBtn && event.target !== langSwitchBtn) {
             closeMenu();
         }
     });
