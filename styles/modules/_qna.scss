@@ -142,6 +142,11 @@
 
         >span {
           text-decoration: var(--qna-question_text-decoration);
+
+          @supports (-webkit-touch-callout: none) {
+            background-color: $color-white;
+            translate: calc(0 - calc(var(--question_gap) + 16px));
+          }
         }
       }
     }
