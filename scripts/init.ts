@@ -4,7 +4,7 @@ import { initLangSwitch } from "./_langSwitch";
 import { initHearts } from "./_hearts";
 import { updateCounter } from "./_counter";
 import { initMap } from "./_map";
-// import { initSeatingPlan } from "./_seatingPlan";
+import { initSeatingPlan } from "./_seatingPlan";
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderAnim()
@@ -13,5 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHearts()
     initMap()
     updateCounter()
-    // initSeatingPlan()
+    initSeatingPlan()
 })

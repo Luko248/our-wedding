@@ -5,6 +5,8 @@ export const initHearts = (): void => {
     return;
   }
 
+  let animationFrameId: number;
+
   function createHeart(x: number, y: number): HTMLDivElement {
     const heart = document.createElement('div');
     heart.classList.add('heart');
@@ -25,8 +27,10 @@ export const initHearts = (): void => {
 
   function shouldGenerateHeart(): boolean {
     // Adjust the probability value as needed (20% = 0.2)
-    const probability = .15;
-    return Math.random() < probability;
+    const probability = 0.2;
+    const randy = Math.random();
+    console.log(randy);
+    return randy < probability;
   }
 
   function addHeartToHeader(event: MouseEvent): void {
@@ -40,5 +44,23 @@ export const initHearts = (): void => {
     header.appendChild(heart);
   }
 
-  header.addEventListener('mousemove', addHeartToHeader);
+  function handleAnimationFrame(event: MouseEvent): void {
+    addHeartToHeader(event);
+  }
+
+  function handleMouseMove(event: MouseEvent): void {
+    cancelAnimationFrame(animationFrameId);
+    animationFrameId = requestAnimationFrame(() => handleAnimationFrame(event));
+  }
+
+  function stopAnimation(): void {
+    cancelAnimationFrame(animationFrameId);
+    header.removeEventListener('mousemove', handleMouseMove);
+  }
+
+  header.addEventListener('mouseenter', () => {
+    header.addEventListener('mousemove', handleMouseMove);
+  });
+
+  header.addEventListener('mouseleave', stopAnimation);
 };
