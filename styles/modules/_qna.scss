@@ -3,11 +3,11 @@
 
 @mixin create-qna {
 
-  details summary::-webkit-details-marker,
-  details summary::-moz-list-bullet,
-  details summary::marker {
-    display: none;
-    content: none;
+  details>summary::-webkit-details-marker,
+  details>summary::-moz-list-bullet,
+  details>summary::marker {
+    display: none !important;
+    content: none !important;
   }
 
   .qna {
@@ -101,6 +101,7 @@
         font-family: var(--font-title);
         font-size: clamp($gap-l, var(--qna-question_font-size, 4dvb), $gap-2xl);
         cursor: pointer;
+        list-style: none !important;
 
         @include mq-hover {
           --qna-question_text-decoration: underline;
