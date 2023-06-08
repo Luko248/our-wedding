@@ -19,6 +19,10 @@
             @include flex-set(inline-flex, column, nowrap, 0, center);
         }
 
+        >p.desc {
+            @include grid-col-span(4);
+        }
+
         span {
             font-size: 1em;
             font-weight: 600;
