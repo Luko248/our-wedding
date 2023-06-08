@@ -3,7 +3,7 @@ export const initSeatingPlan = () => {
   const autocomplete = document.getElementById("guestsSelect") as HTMLInputElement
   const clearSelect = document.getElementById("clearSelect") as HTMLButtonElement
 
-  autocomplete.addEventListener("input", () => {
+  const checkInputValue = (): void => {
     const value = autocomplete.value.trim();
 
     if (value.length >= 1) {
@@ -12,6 +12,10 @@ export const initSeatingPlan = () => {
     else {
       clearSelect.style.display = 'none'
     }
+  }
+
+  autocomplete.addEventListener("input", () => {
+    checkInputValue()
   });
 
   const createGuestList = () => {
@@ -73,6 +77,7 @@ export const initSeatingPlan = () => {
     chairs.forEach(chair => {
       chair.addEventListener("click", (event) => {
         showEqualName(event)
+        checkInputValue()
       })
     })
   }

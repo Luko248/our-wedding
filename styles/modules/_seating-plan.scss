@@ -9,11 +9,11 @@
         inline-size: calc(100% - $gap-l);
         max-inline-size: $width-desktop-s;
         column-gap: clamp($border-width, 1.5dvi, $gap-m);
-        row-gap: $gap-l;
+        row-gap: var(--row-gap, $gap-2xl);
         margin-inline: auto;
 
         @include mq-responsive('mobile-l', max) {
-            row-gap: $gap-xl;
+            --row-gap: #{$gap-xl};
         }
 
         &__top {
@@ -69,16 +69,10 @@
             gap: clamp($gap-m, 2dvi, $gap-l);
 
             >span {
-                top: $gap-3xl;
-                left: calc(100% + $gap-m);
-                writing-mode: vertical-rl;
-
-                @include mq-responsive('mobile-l', max) {
-                    top: 0;
-                    left: 50%;
-                    writing-mode: initial;
-                    translate: -50% calc(-100% - $gap-s);
-                }
+                top: 0;
+                left: 50%;
+                writing-mode: initial;
+                translate: -50% calc(-100% - $gap-s);
             }
         }
 
@@ -117,12 +111,12 @@
 
         @include mq-hover {
             &:not(.chair--selected) {
-                --chair_bg-color: grey;
+                --chair_bg-color: #{$color-secondary--focus};
             }
         }
 
         &:not(.chair--selected):focus {
-            --chair_bg-color: grey;
+            --chair_bg-color: #{$color-secondary--focus};
         }
 
         &:before {
