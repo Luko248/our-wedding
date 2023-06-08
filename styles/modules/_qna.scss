@@ -3,17 +3,12 @@
 
 @mixin create-qna {
 
-  details>summary::-webkit-details-marker,
-  details>summary::-moz-list-bullet,
-  details>summary::marker {
-    display: none !important;
-    width: 0;
-    height: 0;
-    visibility: hidden;
-    opacity: 0;
-    z-index: -1;
-    position: absolute;
-    font-size: 0;
+  summary::marker {
+    display: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
   }
 
   details summary::-moz-list-bullet {
