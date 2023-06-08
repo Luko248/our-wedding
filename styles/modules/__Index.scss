@@ -3,7 +3,7 @@
 @use 'header' as *;
 @use 'map' as *;
 @use 'qna' as *;
-@use 'seating-plan' as *;
+// @use 'seating-plan' as *;
 @use 'section' as *;
 
 @mixin create-modules {
@@ -12,6 +12,6 @@
     @include create-header;
     @include create-map;
     @include create-qna;
-    @include create-seating-plan;
+    // @include create-seating-plan;
     @include create-section;
 }

@@ -10,6 +10,18 @@
     background-size: var(--qna_background-size, 25%);
     background-attachment: fixed;
 
+    @supports not (-webkit-touch-callout: none) {
+      background-position: var(--qna_bg-pos-x, 90%) var(--qna_bg-pos-y, 50%);
+
+      @include mq-responsive('mobile-xl', max) {
+        --qna_bg-pos-x: 60%;
+      }
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      background-position: center 50%;
+    }
+
     @include mq-responsive('tablet', max) {
       --qna_background-size: 40%;
     }
