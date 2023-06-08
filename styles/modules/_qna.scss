@@ -33,7 +33,7 @@
     &__item {
       --question_gap: clamp(#{$gap-m}, 2.5dvi, #{$gap-xl});
       --question-number_font-size: clamp(#{$gap-l}, .5em, #{$gap-2xl});
-      --question-number_bg-color: #{$color-secondary};
+      --question-number_bg-color: #{$color-white};
       --question-number_border-color: #{$color-secondary};
       --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
       --qna-item-line_size: 0;
@@ -119,8 +119,9 @@
           font-size: var(--question-number_font-size);
           font-weight: 300;
           line-height: 1;
-          color: $color-white;
+          color: $color-secondary;
           text-align: center;
+          font-weight: 700;
           text-decoration: none;
           transition: border-color var(--trans-time) var(--trans-fnc), background-color var(--trans-time) var(--trans-fnc);
 
@@ -131,11 +132,6 @@
 
         >span {
           text-decoration: var(--qna-question_text-decoration);
-
-          @supports (-webkit-touch-callout: none) {
-            background-color: $color-white;
-            translate: calc(0 - calc(var(--question_gap) + 16px));
-          }
         }
       }
     }

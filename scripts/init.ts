@@ -12,13 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initMap()
     updateCounter()
     // initSeatingPlan()
-
-    const isTablet = window.innerWidth <= 768
-    const questions = document.querySelectorAll('.qna__container > details:not(:first-of-type, :nth-of-type(2))')
-
-    questions.forEach(question => {
-        if (isTablet) {
-            question.removeAttribute('open')
-        }
-    });
 })
