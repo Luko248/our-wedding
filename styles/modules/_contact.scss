@@ -1,5 +1,6 @@
 @use "../base/mixins/index" as *;
 @use "../base/variables/index" as *;
+@use "../base/functions/index" as *;
 @import "../base/fragments/container";
 
 @mixin create-contact {
@@ -81,7 +82,8 @@
             @include box-shadow-set($gap-l);
             display: inline-grid;
             place-items: center;
-            aspect-ratio: 1;
+            block-size: var(--buttn_block-size, convert-to-rem(100px));
+            aspect-ratio: 1 / 1;
             padding: clamp($gap, 2cqi, $gap-l);
             background-color: var(--contact-button_bg-color);
             border-radius: clamp($gap-s, 2.5cqi, $gap);
@@ -92,6 +94,10 @@
             @include mq-hover {
                 --color-shadow: #{$color-black};
                 --contact-button-icon_scale: 1.05;
+            }
+
+            @include mq-responsive('mobile-l', max) {
+                --buttn_block-size: #{convert-to-rem(90px)};
             }
 
             &--google {

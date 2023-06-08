@@ -40,9 +40,8 @@
             --table_bg-color: #{lighten($color-primary, 35%)};
         }
 
-        &:after {
+        >span {
             position: absolute;
-            content: attr(data-title);
             font-family: $font-title;
             font-size: clamp(1rem, 2dvi, $gap-l);
             white-space: nowrap;
@@ -55,7 +54,7 @@
             aspect-ratio: 7 / 1.25;
             grid-column-end: span 7;
 
-            &:after {
+            >span {
                 bottom: calc(100% + $gap-m);
                 left: 50%;
                 translate: -50%;
@@ -69,7 +68,7 @@
             align-items: stretch;
             gap: clamp($gap-m, 2dvi, $gap-l);
 
-            &:after {
+            >span {
                 top: $gap-3xl;
                 left: calc(100% + $gap-m);
                 writing-mode: vertical-rl;
