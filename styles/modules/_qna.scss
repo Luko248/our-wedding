@@ -2,19 +2,6 @@
 @use '../base/variables/index' as *;
 
 @mixin create-qna {
-
-  summary::marker {
-    display: none !important;
-  }
-
-  summary::-webkit-details-marker {
-    display: none !important;
-  }
-
-  details summary::-moz-list-bullet {
-    list-style-type: none;
-  }
-
   .qna {
     position: relative;
     background-image: url(/dist/images/backgrounds/sticker.svg);

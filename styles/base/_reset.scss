@@ -56,4 +56,20 @@
             overflow-y: auto;
         }
     }
+
+    summary::marker {
+        display: none !important;
+    }
+
+    details summary:is([open])::-webkit-details-marker {
+        display: none !important;
+    }
+
+    details summary:not([open])::-webkit-details-marker {
+        display: none !important;
+    }
+
+    details summary::-moz-list-bullet {
+        list-style-type: none;
+    }
 }
