@@ -72,7 +72,7 @@
         <li><a href="#home" data-localize="nav_home" rel="noopener"></a></li>
         <li><a href="#place" data-localize="nav_place" rel="noopener"></a></li>
         <li><a href="#questions-and-answers" data-localize="nav_qna" rel="noopener"></a></li>
-        <!-- <li><a href="#seating-plan" data-localize="nav_seating" rel="noopener"></a></li> -->
+        <li><a href="#seating-plan" data-localize="nav_seating" rel="noopener"></a></li>
         <li>
           <div id="langSwitch" class="lang-switch">
             <button type="button" aria-label="Zvolte jazyk" class="lang-switch__button" id="langSwitchBtn">
@@ -249,7 +249,7 @@
       </div>
     </section>
 
-    <!-- <section id="seating-plan">
+    <section id="seating-plan">
       <div class="container text-to-center">
         <h2 class="title" data-localize="plan_title">Zasadací poriadok</h2>
       </div>
@@ -257,7 +257,8 @@
       <div class="plan__top">
         <label class="select" aria-label="Zadajte meno hosťa">
           <div class="select__autocomplete">
-            <input type="text" list="guestList" id="guestsSelect" placeholder="Zadajte meno hosťa...">
+            <input type="text" list="guestList" id="guestsSelect" placeholder=""
+              data-localize-placeholder="plan_input-placeholder">
             <datalist id="guestList">
             </datalist>
             <button id="clearSelect" title="Zrušiť" aria-label="Zrušiť">
@@ -283,7 +284,7 @@
           <span data-localize="plan_table-3"></span>
         </div>
       </div>
-    </section> -->
+    </section>
   </main>
   <footer>
     <div class="container">

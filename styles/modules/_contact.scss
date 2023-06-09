@@ -88,10 +88,10 @@
             display: inline-grid;
             place-items: center;
             block-size: var(--buttn_block-size);
-            font-size: var(--buttn_block-size);
             aspect-ratio: 1 / 1;
             background-color: var(--contact-button_bg-color);
             border-radius: clamp($gap-s, 2.5cqi, $gap);
+            font-size: var(--buttn_block-size);
             color: var(--contact-button_color);
             text-decoration: none;
             transition: background-color $trans-time $trans-fnc, box-shadow $trans-time $trans-fnc;
