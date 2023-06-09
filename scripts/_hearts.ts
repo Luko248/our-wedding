@@ -29,7 +29,6 @@ export const initHearts = (): void => {
     // Adjust the probability value as needed (20% = 0.2)
     const probability = 0.2;
     const randy = Math.random();
-    console.log(randy);
     return randy < probability;
   }
 
