@@ -34,6 +34,10 @@
             color: $color-white;
             backdrop-filter: blur($gap-m);
 
+            @include mq-responsive("desktop-l", max) {
+                --cart_margin-block: 5dvb;
+            }
+
             @include mq-responsive("tablet", max) {
                 --contact_col-start: 1;
                 --card_position: relative;
@@ -77,14 +81,15 @@
         }
 
         &__button {
+            --buttn_block-size: #{convert-to-rem(100px)};
             --contact-button-icon_scale: 1;
             --color-shadow: #{$color-secondary};
             @include box-shadow-set($gap-l);
             display: inline-grid;
             place-items: center;
-            block-size: var(--buttn_block-size, convert-to-rem(100px));
+            block-size: var(--buttn_block-size);
+            font-size: var(--buttn_block-size);
             aspect-ratio: 1 / 1;
-            padding: clamp($gap, 2cqi, $gap-l);
             background-color: var(--contact-button_bg-color);
             border-radius: clamp($gap-s, 2.5cqi, $gap);
             color: var(--contact-button_color);
@@ -96,8 +101,8 @@
                 --contact-button-icon_scale: 1.05;
             }
 
-            @include mq-responsive('mobile-l', max) {
-                --buttn_block-size: #{convert-to-rem(90px)};
+            @include mq-responsive('desktop-l', max) {
+                --buttn_block-size: #{convert-to-rem(85px)};
             }
 
             &--google {
@@ -110,8 +115,8 @@
 
             >img {
                 display: block;
-                max-inline-size: clamp($gap-3xl, 10cqi, 5rem);
-                max-block-size: clamp($gap-3xl, 10cqi, 5rem);
+                inline-size: .7em;
+                block-size: .7em;
                 aspect-ratio: 1;
                 scale: var(--contact-button-icon_scale);
                 transition: scale $trans-time $trans-fnc;

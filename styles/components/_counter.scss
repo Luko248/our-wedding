@@ -21,6 +21,10 @@
 
         >p.desc {
             @include grid-col-span(4);
+
+            &:last-of-type {
+                margin-block-start: 4dvb;
+            }
         }
 
         span {

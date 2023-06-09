@@ -19,7 +19,7 @@
     }
 
     @supports (-webkit-touch-callout: none) {
-      background-position: center 50%;
+      background-position: center 75%;
     }
 
     @include mq-responsive('tablet', max) {
