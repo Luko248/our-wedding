@@ -12,10 +12,10 @@
         @include border-radius(full);
         @include box-shadow-set;
         position: relative;
+        inline-size: calc($gap-2xl + $border-width-l);
+        block-size: calc($gap-l + $border-width-l);
         background-color: lighten($color-secondary, 50%);
         border-width: 0;
-        block-size: calc($gap-l + $border-width-l);
-        inline-size: calc($gap-2xl + $border-width-l);
 
         @include mq-hover{
             --dot_bg-color: #{$color-secondary--hover};
@@ -26,14 +26,14 @@
             position: absolute;
             top: 50%;
             left: $border-width-l;
-            translate: var(--dot_trans-x) -50%;
-            content: '';
-            display: block;;
+            display: block;
+            content: '';;
             inline-size: calc($gap-l - $border-width-l);
             min-inline-size: calc($gap-l - $border-width-l);
             aspect-ratio: 1;
-            transition: translate $trans-time $trans-fnc, background-color $trans-time $trans-fnc;
             background-color: var(--dot_bg-color);
+            translate: var(--dot_trans-x) -50%;
+            transition: translate $trans-time $trans-fnc, background-color $trans-time $trans-fnc;
             z-index: 2;
         }
 
@@ -43,10 +43,10 @@
             top: 50%;
             left: border-width;
             display: none;
-            fill: $color-secondary;
-            z-index: 1;
-            transition: translate $trans-time $trans-fnc;
             translate: var(--icon_trans-x) -50%;
+            transition: translate $trans-time $trans-fnc;
+            z-index: 1;
+            fill: $color-secondary;
 
             &-sun{
                 display: var(--icon-sun_display);

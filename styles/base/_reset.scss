@@ -19,9 +19,9 @@
         max-block-size: 100dvh;
         margin: 0;
         background-color: var(--_bg-color);
-        overflow-x: hidden;
         transition: color $trans-time $trans-fnc, background-color $trans-time $trans-fnc;
         transition-delay: 0;
+        overflow-x: hidden;
 
         &.start {
             overflow: hidden;

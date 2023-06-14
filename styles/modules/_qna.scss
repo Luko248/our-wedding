@@ -6,20 +6,20 @@
     position: relative;
 
     &:before{
-      content: "";
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      content: "";
       background-image: url('your-image-url.jpg');
-      filter: var(--_qna_image-filter);
-      z-index: -1;
       background-image: url(/dist/images/backgrounds/sticker.svg);
       background-repeat: no-repeat;
       background-position: var(--qna_bg-pos-x, 90%) var(--qna_bg-pos-y, 50%);
       background-size: var(--qna_background-size, 25%);
       background-attachment: fixed;
+      filter: var(--_qna_image-filter);
+      z-index: -1;
 
       @supports not (-webkit-touch-callout: none) {
         background-position: var(--qna_bg-pos-x, 90%) var(--qna_bg-pos-y, 50%);
