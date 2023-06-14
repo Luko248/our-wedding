@@ -88,6 +88,10 @@
             z-index: -1;
         }
 
+        >span{
+            white-space: nowrap;
+        }
+
         >.icon,
         >svg {
             --icon-size: 1.2em;
