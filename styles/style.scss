@@ -1,6 +1,7 @@
 ﻿@use 'base/layers' as *;
 @use 'base/reset' as *;
 @use 'base/root' as *;
+@use 'base/theme' as *;
 @use 'base/typography' as *;
 @use 'components/_index' as *;
 @use 'modules/_index' as *;
@@ -9,6 +10,7 @@
 @at-root {
   @include create-root;
   @include create-layers;
+  @include set-theme;
 
   @layer base {
     @include reset;

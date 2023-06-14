@@ -12,7 +12,7 @@
     font-weight: 800;
     line-height: 1;
     letter-spacing: $gap-s;
-    color: var(--title_color, #{$color-secondary});
+    color: var(--title_color, var(--_title-color));
     text-align: center;
     text-transform: var(--title_text-transform, uppercase);
     white-space: var(--title_white-space, nowrap);
@@ -39,8 +39,8 @@
     }
 
     &--outline {
-      --title_color: #{$color-transparent};
-      -webkit-text-stroke: $border-width-l $color-secondary;
+      --title_color: var(--_title-color_secondary);
+      -webkit-text-stroke: $border-width-l var(--_title-outline-color);
     }
   }
 
@@ -50,5 +50,6 @@
     font-size: clamp(16px, 2.5dvi, 20px);
     font-weight: 300;
     line-height: 1.7;
+    color: var(--_text-color);
   }
 }

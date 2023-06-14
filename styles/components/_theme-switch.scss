@@ -1,0 +1,74 @@
+@use "../base/functions/index" as *;
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin create-theme-switch {
+    .theme-switch {
+        --dot_bg-color: #{$color-secondary};
+        --dot_trans-x: 0;
+        --icon_trans-x: calc(100% + #{$border-width-l});
+        --icon-sun_display: block;
+        --icon-moon_display: none;
+        @include border-radius(full);
+        @include box-shadow-set;
+        position: relative;
+        background-color: lighten($color-secondary, 50%);
+        border-width: 0;
+        block-size: calc($gap-l + $border-width-l);
+        inline-size: calc($gap-2xl + $border-width-l);
+
+        @include mq-hover{
+            --dot_bg-color: #{$color-secondary--hover};
+        }
+
+        &:after {
+            @include border-radius(circle);
+            position: absolute;
+            top: 50%;
+            left: $border-width-l;
+            translate: var(--dot_trans-x) -50%;
+            content: '';
+            display: block;;
+            inline-size: calc($gap-l - $border-width-l);
+            min-inline-size: calc($gap-l - $border-width-l);
+            aspect-ratio: 1;
+            transition: translate $trans-time $trans-fnc, background-color $trans-time $trans-fnc;
+            background-color: var(--dot_bg-color);
+            z-index: 2;
+        }
+
+        >.icon{
+            --icon-size: 1.2rem;
+            position: absolute;
+            top: 50%;
+            left: border-width;
+            display: none;
+            fill: $color-secondary;
+            z-index: 1;
+            transition: translate $trans-time $trans-fnc;
+            translate: var(--icon_trans-x) -50%;
+
+            &-sun{
+                display: var(--icon-sun_display);
+            }
+
+            &-moon{
+                display: var(--icon-moon_display);
+            }
+        }
+
+        &--light {
+            --dot_trans-x: 0;
+            --icon_trans-x: calc(100% + #{$border-width-l});
+            --icon-sun_display: block;
+            --icon-moon_display: none;
+        }
+
+        &--dark {
+            --dot_trans-x: calc(100% + #{$border-width-l});
+            --icon_trans-x: 0;
+            --icon-sun_display: none;
+            --icon-moon_display: block;
+        }
+    }
+}

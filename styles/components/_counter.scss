@@ -31,13 +31,14 @@
             font-size: 1em;
             font-weight: 600;
             line-height: 1;
-            color: $color-white;
-            -webkit-text-stroke: $border-width-l $color-secondary;
+            color: var(--_title-color_secondary);
+            -webkit-text-stroke: $border-width-l var(--_title-outline-color);
         }
 
         small {
             font-size: clamp(16px, .33em, $gap-2xl);
             font-weight: 700;
+            color: var(--_text-color);
         }
     }
 }

@@ -4,9 +4,11 @@ import { initLangSwitch } from "./_langSwitch";
 import { initHearts } from "./_hearts";
 import { updateCounter } from "./_counter";
 import { initMap } from "./_map";
+import { initTheme } from './_theme';
 // import { initSeatingPlan } from "./_seatingPlan";
 
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme()
     initHeaderAnim()
     initNav()
     initLangSwitch()

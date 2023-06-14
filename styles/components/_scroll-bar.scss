@@ -1,0 +1,22 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-scroll-bar {
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $color-secondary--hover;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $color-primary;
+        border-radius: 100vmax;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: $color-primary--hover;
+    }
+}

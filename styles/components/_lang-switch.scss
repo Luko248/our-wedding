@@ -14,7 +14,7 @@
         &__button {
             @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
             font-size: 1em;
-            color: currentColor;
+            color: var(--lang-switch_color, var(--nav_color));
 
             >span,
             >.icon {

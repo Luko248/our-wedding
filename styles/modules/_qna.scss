@@ -4,24 +4,37 @@
 @mixin create-qna {
   .qna {
     position: relative;
-    background-image: url(/dist/images/backgrounds/sticker.svg);
-    background-repeat: no-repeat;
-    background-position: var(--qna_bg-pos-x, 90%) var(--qna_bg-pos-y, 50%);
-    background-size: var(--qna_background-size, 25%);
-    background-attachment: fixed;
 
-    @supports not (-webkit-touch-callout: none) {
+    &:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url('your-image-url.jpg');
+      filter: var(--_qna_image-filter);
+      z-index: -1;
+      background-image: url(/dist/images/backgrounds/sticker.svg);
+      background-repeat: no-repeat;
       background-position: var(--qna_bg-pos-x, 90%) var(--qna_bg-pos-y, 50%);
+      background-size: var(--qna_background-size, 25%);
+      background-attachment: fixed;
 
-      @include mq-responsive('mobile-xl', max) {
-        --qna_bg-pos-x: 60%;
+      @supports not (-webkit-touch-callout: none) {
+        background-position: var(--qna_bg-pos-x, 90%) var(--qna_bg-pos-y, 50%);
+  
+        @include mq-responsive('mobile-xl', max) {
+          --qna_bg-pos-x: 60%;
+        }
       }
-    }
 
-    @supports (-webkit-touch-callout: none) {
-      background-position: center 75%;
+      @supports (-webkit-touch-callout: none) {
+        background-position: center 75%;
+      }
+  
     }
-
+   
     @include mq-responsive('tablet', max) {
       --qna_background-size: 40%;
     }
@@ -45,8 +58,8 @@
     &__item {
       --question_gap: clamp(#{$gap-m}, 2.5dvi, #{$gap-xl});
       --question-number_font-size: clamp(#{$gap-l}, .5em, #{$gap-2xl});
-      --question-number_bg-color: #{$color-white};
-      --question-number_border-color: #{$color-secondary};
+      --question-number_bg-color: var(--_qna-circle_bg);
+      --question-number_border-color: var(--_qna-line_color);
       --question-content_pad-left: calc(var(--question_gap) + var(--question-number_size));
       --qna-item-line_size: 0;
       position: relative;
@@ -81,7 +94,7 @@
 
       &:before {
         block-size: calc(100% + var(--qna-container_gap));
-        background-color: $color-secondary;
+        background-color: var(--_qna-line_color);
         z-index: -2;
       }
 
@@ -96,6 +109,7 @@
         padding-inline-start: var(--question-content_pad-left);
         font-weight: 300;
         line-height: 1.7;
+        color: var(--_text-color);
       }
 
       >summary {
@@ -106,6 +120,7 @@
         font-size: clamp($gap-l, var(--qna-question_font-size, 4dvb), $gap-2xl);
         list-style: none;
         list-style-type: none;
+        color: var(--_text-color);
         cursor: pointer;
 
         @include mq-hover {
@@ -132,7 +147,7 @@
           font-weight: 300;
           font-weight: 700;
           line-height: 1;
-          color: $color-secondary;
+          color: var(--_qna-circle_color);
           text-align: center;
           text-decoration: none;
           transition: border-color var(--trans-time) var(--trans-fnc), background-color var(--trans-time) var(--trans-fnc);

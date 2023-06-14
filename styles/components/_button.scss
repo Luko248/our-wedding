@@ -12,7 +12,7 @@
         --shadow-alpha: .3;
         --button-min-width: 15rem;
         --button-background: var(--color-transparent);
-        --button-color: #{$color-secondary};
+        --button-color: var(--_text-color);
         --button-padding-inline: clamp(#{$gap-m}, 1dvi, #{$gap-xl});
         --button-padding-block: clamp(#{$gap-m}, 1dvb, #{$gap-l});
         --button-font-size: clamp(#{$gap-s}, 1em, #{$gap-l});
@@ -30,7 +30,7 @@
             --button-before_inline-size: 100%;
             --button-color: #{$color-white};
             --button-font-size: #{$gap-m};
-            --button-padding-inline: #{$gap-s};
+            --button-padding-inline: #{$gap-m};
             --button-padding-block: #{$gap-m};
             --button-before_block-size: 100%;
         }
@@ -68,7 +68,7 @@
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-        transition: color $trans-time ease-in-out;
+        transition: color $trans-time ease-in-out 0;
         cursor: pointer;
 
         &:focus:not(:focus-visible) {
@@ -94,6 +94,7 @@
             inline-size: var(--icon-size);
             aspect-ratio: 1;
             fill: var(--button-color);
+            transition: fill $trans-time ease-in-out;
         }
     }
 }

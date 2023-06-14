@@ -7,6 +7,8 @@
 @use 'heart' as *;
 @use 'nav' as *;
 @use 'select' as *;
+@use 'scroll-bar' as *;
+@use 'theme-switch' as *;
 
 @mixin create-components {
     @include create-burger;
@@ -18,4 +20,6 @@
     @include create-heart;
     @include create-nav;
     @include create-select;
+    @include create-scroll-bar;
+    @include create-theme-switch;
 }
