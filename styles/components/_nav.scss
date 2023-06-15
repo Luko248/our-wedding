@@ -56,7 +56,11 @@
         }
 
         .container {
-            @include flex-set(flex, row, nowrap, var(--gap-3xl), center, space-between);
+            @include flex-set(flex, row, nowrap, var(--nav-container_gap, var(--gap-3xl)), center, space-between);
+
+            @include mq-responsive('tablet', max) {
+                --nav-container_gap: var(--gap-l);
+            }
         }
 
         ul {

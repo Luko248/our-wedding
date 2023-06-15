@@ -9,6 +9,8 @@
         background-color: var(--color-transparent);
         border-color: var(--color-transparent);
         cursor: pointer;
+        padding: 0;
+        translate: $gap-s;
 
         @include mq-responsive("tablet", max) {
             --burger_display: block;
