@@ -17,7 +17,7 @@
         background-color: lighten($color-secondary, 50%);
         border-width: 0;
 
-        @include mq-hover{
+        @include mq-hover {
             --dot_bg-color: #{$color-secondary--hover};
         }
 
@@ -27,7 +27,8 @@
             top: 50%;
             left: $border-width-l;
             display: block;
-            content: '';;
+            content: '';
+            ;
             inline-size: calc($gap-l - $border-width-l);
             min-inline-size: calc($gap-l - $border-width-l);
             aspect-ratio: 1;
@@ -37,29 +38,29 @@
             z-index: 2;
         }
 
-        >.icon{
-            --icon-size: 1.2rem;
+        >.icon {
+            --icon-size: 1.1rem;
             position: absolute;
             top: 50%;
-            left: border-width;
+            left: var(--icon_left, border-width);
             display: none;
             translate: var(--icon_trans-x) -50%;
             transition: translate $trans-time $trans-fnc;
             z-index: 1;
             fill: $color-secondary;
 
-            &-sun{
+            &-sun {
                 display: var(--icon-sun_display);
             }
 
-            &-moon{
+            &-moon {
                 display: var(--icon-moon_display);
             }
         }
 
         &--light {
             --dot_trans-x: 0;
-            --icon_trans-x: calc(100% + #{$border-width-l});
+            --icon_trans-x: calc(100% + #{$gap-s});
             --icon-sun_display: block;
             --icon-moon_display: none;
         }
