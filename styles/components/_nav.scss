@@ -99,7 +99,7 @@
                     translate: 0 $gap-s;
 
                     @for $i from 1 through $li-count {
-                        $delay: $delay-start +($i - 1) * $delay-increment;
+                        $delay: $delay-start + ($i - 1) * $delay-increment;
 
                         &:nth-child(#{$i}) {
                             animation-delay: $delay;
