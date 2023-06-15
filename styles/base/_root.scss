@@ -4,7 +4,7 @@
 
 @mixin create-root {
   :root {
-    // color-scheme: dark light;
+    color-scheme: dark light;
     @include generate-colors;
     @include generate-fonts;
     @include generate-sizes;
