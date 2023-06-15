@@ -22,7 +22,7 @@
     }
 
     nav {
-        --nav_color: #{$color-secondary};
+        --nav_color: var(--_text-color);
         @include flex-set(flex, row, nowrap, center);
         @include box-shadow-set($gap, 0, 0, var(--nav_shadow-color, $color-transparent));
         position: fixed;
@@ -56,7 +56,11 @@
         }
 
         .container {
-            @include flex-set(flex, row, nowrap, var(--gap-3xl), center, space-between);
+            @include flex-set(flex, row, nowrap, var(--nav-container_gap, var(--gap-3xl)), center, space-between);
+
+            @include mq-responsive('tablet', max) {
+                --nav-container_gap: var(--gap-l);
+            }
         }
 
         ul {
@@ -84,9 +88,32 @@
                 }
             }
 
-            >li:last-of-type {
+            >li {
+                $delay-start: 0.1s;
+                $delay-increment: 0.1s;
+                $li-count: 5;
+
                 @include mq-responsive('tablet', max) {
-                    margin-block-start: 15dvb;
+                    opacity: 0;
+                    translate: 0 $gap-s;
+                    animation: showMobileNavItem $trans-time linear forwards;
+
+                    @for $i from 1 through $li-count {
+                        $delay: $delay-start +($i - 1) * $delay-increment;
+
+                        &:nth-child(#{$i}) {
+                            animation-delay: $delay;
+                        }
+                    }
+                }
+
+                &:nth-last-of-type(2) {
+                    position: relative;
+                    z-index: 3;
+
+                    @include mq-responsive('tablet', max) {
+                        margin-block-start: 15dvb;
+                    }
                 }
             }
 
@@ -95,7 +122,7 @@
                 font-size: var(--nav-link_font-size, clamp(1rem, 2dvb, $gap-l));
                 font-weight: 300;
                 letter-spacing: 3pt;
-                color: var(--nav-link_color, currentColor);
+                color: var(--nav-link_color, var(--nav_color));
                 text-decoration: var(--nav-item_text-decor, none);
                 text-transform: uppercase;
 
@@ -128,6 +155,13 @@
 
     @keyframes showNav {
         to {
+            translate: 0 0;
+        }
+    }
+
+    @keyframes showMobileNavItem {
+        to {
+            opacity: 1;
             translate: 0 0;
         }
     }

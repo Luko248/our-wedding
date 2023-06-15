@@ -1,0 +1,54 @@
+@use '../base/variables/index' as *;
+
+@mixin set-theme {
+  body {
+    --_bg-color: var(--color-white);
+    --_title-color: var(--color-secondary);
+    --_title-color_secondary: var(--color-white);
+    --_title-outline-color: var(--color-secondary);
+    --_text-color: var(--color-secondary);
+    --_qna-circle_bg: var(--color-white);
+    --_qna-circle_color: var(--color-secondary);
+    --_qna-line_color: var(--color-secondary);
+    --_qna_image-filter: invert(0%);
+
+    &.dark-theme {
+      --_bg-color: var(--color-secondary);
+      --_title-color: var(--color-white);
+      --_title-color_secondary: var(--color-secondary);
+      --_title-outline-color: var(--color-white);
+      --_text-color: var(--color-white);
+      --_qna-circle_bg: var(--color-secondary);
+      --_qna-circle_color: var(--color-white);
+      --_qna-line_color: var(--color-secondary--hover);
+      --_qna_image-filter: invert(100%);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    /* defaults to dark theme */
+    body {
+      --_bg-color: var(--color-secondary);
+      --_title-color: var(--color-white);
+      --_title-color_secondary: var(--color-secondary);
+      --_title-outline-color: var(--color-white);
+      --_text-color: var(--color-white);
+      --_qna-circle_bg: var(--color-secondary);
+      --_qna-circle_color: var(--color-white);
+      --_qna-line_color: var(--color-secondary--hover);
+      --_qna_image-filter: invert(100%);
+
+      &.light-theme {
+        --_bg-color: var(--color-white);
+        --_title-color: var(--color-secondary);
+        --_title-color_secondary: var(--color-white);
+        --_title-outline-color: var(--color-secondary);
+        --_text-color: var(--color-secondary);
+        --_qna-circle_bg: var(--color-white);
+        --_qna-circle_color: var(--color-secondary);
+        --_qna-line_color: var(--color-secondary);
+        --_qna_image-filter: invert(0%);
+      }
+    }
+  }
+}
