@@ -6,7 +6,7 @@
     .theme-switch {
         --dot_bg-color: #{$color-secondary};
         --dot_trans-x: 0;
-        --icon_trans-x: calc(100% + #{$border-width-l});
+        --icon_trans-x: calc(100% + #{$gap-s});
         --icon-sun_display: block;
         --icon-moon_display: none;
         @include border-radius(full);
@@ -19,6 +19,10 @@
 
         @include mq-hover {
             --dot_bg-color: #{$color-secondary--hover};
+        }
+
+        @include mq-responsive('mobile-xl', max){
+            --icon_trans-x: calc(100% + #{$border-width-l});
         }
 
         &:after {
@@ -60,16 +64,24 @@
 
         &--light {
             --dot_trans-x: 0;
-            --icon_trans-x: calc(100% + #{$border-width-l});
+            --icon_trans-x: calc(100% + #{$gap-s});
             --icon-sun_display: block;
             --icon-moon_display: none;
+
+            @include mq-responsive('mobile-xl', max){
+                --icon_trans-x: calc(100% + #{$border-width-l});
+            }
         }
 
         &--dark {
             --dot_trans-x: calc(100% + #{$border-width-l});
-            --icon_trans-x: #{num-neg($border-width-l)};
+            --icon_trans-x: 0;
             --icon-sun_display: none;
             --icon-moon_display: block;
+
+            @include mq-responsive('mobile-xl', max){
+                --icon_trans-x: #{num-neg($gap-s)};
+            }
         }
     }
 }
