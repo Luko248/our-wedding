@@ -95,8 +95,8 @@
 
                 @include mq-responsive('tablet', max) {
                     opacity: 0;
-                    translate: 0 $gap-s;
                     animation: showMobileNavItem $trans-time linear forwards;
+                    translate: 0 $gap-s;
 
                     @for $i from 1 through $li-count {
                         $delay: $delay-start +($i - 1) * $delay-increment;
