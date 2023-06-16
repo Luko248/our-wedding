@@ -60,14 +60,14 @@
 
         &--light {
             --dot_trans-x: 0;
-            --icon_trans-x: calc(100% + #{$gap-s});
+            --icon_trans-x: calc(100% + #{$border-width-l});
             --icon-sun_display: block;
             --icon-moon_display: none;
         }
 
         &--dark {
             --dot_trans-x: calc(100% + #{$border-width-l});
-            --icon_trans-x: 0;
+            --icon_trans-x: #{num-neg($border-width-l)};
             --icon-sun_display: none;
             --icon-moon_display: block;
         }

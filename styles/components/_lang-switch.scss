@@ -47,6 +47,7 @@
 
             @include mq-responsive('tablet', max) {
                 --lang-pop-up_bg-color: #{$color-nav_bg};
+                @include center-content(absolute, 0, 50%, -50%, calc(-100% - $gap-s));
             }
         }
 
@@ -57,8 +58,17 @@
             font-size: 1em;
             color: var(--lang-switch-item_color, $color-white);
 
+            @include mq-responsive('tablet', max) {
+                --lang-switch-item_bg-color: #{$color-secondary--hover};
+            }
+
             @include mq-hover {
                 --lang-switch-item_bg-color: #{$color-secondary--hover};
+
+                @include mq-responsive('tablet', max) {
+                    --lang-switch-item_bg-color: #{$color-transparent};
+
+                }
             }
 
             &.active {
