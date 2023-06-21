@@ -21,23 +21,27 @@
             @include padding-set-y($gap-l);
             position: sticky;
             top: var(--nav-height);
-            background-color: var(--nav_bg, hsl(0 0% 100% / 50%));
+            background-color: var(--nav_bg, var(--_plan-nav_bg-color));
             z-index: 100;
             backdrop-filter: blur($gap-s);
         }
     }
 
     .table {
-        @include border-set-all($border-width-l);
+        @include border-set-all($border-width-l, solid, var(--_table_border-color));
         @include border-radius(m);
         @include padding-set-all(clamp($gap-xs, 1.5dvi, $gap-m));
         position: relative;
-        background-color: var(--table_bg-color, $color-white);
+        background-color: var(--table_bg-color, var(--_bg-color));
         transition: background-color $trans-time $trans-fnc;
 
         &:focus-within,
         &:has(.chair--selected) {
-            --table_bg-color: #{lighten($color-primary, 35%)};
+            --table_bg-color: #{$color-primary--trans};
+
+            .chair:not(.chair--selected){
+                --chair_bg-color: var(--color-secondary);
+            }
         }
 
         >span {
@@ -45,6 +49,7 @@
             font-family: $font-title;
             font-size: clamp(1rem, 2dvi, $gap-l);
             white-space: nowrap;
+            color: var(--_text-color);
         }
 
         &--main {
@@ -90,7 +95,7 @@
     }
 
     .chair {
-        --chair_bg-color: #{$color-secondary};
+        --chair_bg-color: var(--_chair_bg-color);
         --chair_border-color: #{$color-transparent};
         @include border-radius(circle);
         position: relative;

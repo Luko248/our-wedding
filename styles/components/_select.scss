@@ -7,8 +7,7 @@
         @include flex-set(inline-flex, column, nowrap, $gap-xs);
         margin-inline: auto;
         font-family: $font-title;
-        font-size: 14px;
-        text-transform: uppercase;
+        font-size: 16px;
         text-transform: uppercase;
 
         &__autocomplete {
@@ -20,11 +19,13 @@
             @include padding-set-x($gap-m);
             @include padding-set-y($gap-m);
             @include border-radius(m);
-            @include border-set-all($border-width-l, solid, var(--autocomplete_border-color, $color-secondary));
+            @include border-set-all($border-width-l, solid, var(--autocomplete_border-color, var(--_table_border-color)));
             inline-size: calc($width-mobile-s - $gap-xl);
             font-family: $font-text;
             font-size: 16px;
             text-transform: initial;
+            color: var(--_text-color);
+            background-color: var(--_color_bg);
 
             &:is(:focus, :focus-visible) {
                 --autocomplete_border-color: #{$color-primary};
