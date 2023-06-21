@@ -1,8 +1,10 @@
 $color-white: hsl(0 0% 100%);
+$color-white--trans: hsl(0 0% 100% / 50%);
 $color-black: hsl(0 0% 0%);
 $color-transparent: hsl(0 0% 0% / 0%);
 $color-primary: hsl(41 57% 55%);
 $color-primary--hover: hsl(41 57% 45%);
+$color-primary--trans: hsl(41 57% 55% / 20%);
 $color-secondary: hsl(0 0% 12%);
 $color-secondary--hover: hsl(0 0% 25%);
 $color-secondary--bg: hsl(0 0% 17% / 90%);
@@ -18,6 +20,7 @@ $color-nenu_bg: hsl(0 0% 7% / .95);
 
 @mixin generate-colors {
   --color-white: #{$color-white};
+  --color-white--trans: #{$color-white--trans};
   --color-black: #{$color-black};
   --color-transparent: #{$color-transparent};
   --color-primary: #{$color-primary};
@@ -26,6 +29,6 @@ $color-nenu_bg: hsl(0 0% 7% / .95);
   --color-secondary--hover: #{$color-secondary--hover};
   --color-secondary--focus: #{$color-secondary--focus};
   --color-secondary--bg: #{$color-secondary--bg};
-  --color-secondary--transr: #{$color-secondary--trans};
+  --color-secondary--trans: #{$color-secondary--trans};
   --color-shadow: #{$color-shadow};
 }

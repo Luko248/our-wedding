@@ -11,6 +11,9 @@
     --_qna-circle_color: var(--color-secondary);
     --_qna-line_color: var(--color-secondary);
     --_qna_image-filter: invert(0%);
+    --_chair_bg-color: var(--color-secondary);
+    --_table_border-color: var(--color-secondary);
+    --_plan-nav_bg-color: var(--color-white--trans);
 
     &.dark-theme {
       --_bg-color: var(--color-secondary);
@@ -22,6 +25,10 @@
       --_qna-circle_color: var(--color-white);
       --_qna-line_color: var(--color-secondary--hover);
       --_qna_image-filter: invert(100%);
+      --_chair_bg-color: var(--color-secondary--hover);
+      --_table_border-color: var(--color-secondary--hover);
+      --_plan-nav_bg-color: var(--color-secondary--trans);
+
     }
   }
 
@@ -37,6 +44,9 @@
       --_qna-circle_color: var(--color-white);
       --_qna-line_color: var(--color-secondary--hover);
       --_qna_image-filter: invert(100%);
+      --_chair_bg-color: var(--color-secondary--hover);
+      --_table_border-color: var(--color-secondary--hover);
+      --_plan-nav_bg-color: var(--color-secondary--trans);
 
       &.light-theme {
         --_bg-color: var(--color-white);
@@ -48,6 +58,10 @@
         --_qna-circle_color: var(--color-secondary);
         --_qna-line_color: var(--color-secondary);
         --_qna_image-filter: invert(0%);
+        --_chair_bg-color: var(--color-secondary);
+        --_table_border-color: var(--color-secondary);
+        --_plan-nav_bg-color: var(--color-white--trans);
+
       }
     }
   }
