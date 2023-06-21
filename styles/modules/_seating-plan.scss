@@ -21,7 +21,7 @@
             @include padding-set-y($gap-l);
             position: sticky;
             top: var(--nav-height);
-            background-color: var(--nav_bg, var(--_plan-nav_bg-color));
+            background-color: var(--_plan-nav_bg-color);
             z-index: 100;
             backdrop-filter: blur($gap-s);
         }

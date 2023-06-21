@@ -25,7 +25,7 @@
             font-size: 16px;
             text-transform: initial;
             color: var(--_text-color);
-            background-color: var(--_color_bg);
+            background-color: var(--_bg-color);
 
             &:is(:focus, :focus-visible) {
                 --autocomplete_border-color: #{$color-primary};
