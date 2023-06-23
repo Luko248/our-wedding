@@ -21,11 +21,11 @@
             @include border-radius(m);
             @include border-set-all($border-width-l, solid, var(--autocomplete_border-color, var(--_table_border-color)));
             inline-size: calc($width-mobile-s - $gap-xl);
+            background-color: var(--_bg-color);
             font-family: $font-text;
             font-size: 16px;
-            text-transform: initial;
             color: var(--_text-color);
-            background-color: var(--_bg-color);
+            text-transform: initial;
 
             &:is(:focus, :focus-visible) {
                 --autocomplete_border-color: #{$color-primary};

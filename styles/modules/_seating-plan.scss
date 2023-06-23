@@ -48,8 +48,8 @@
             position: absolute;
             font-family: $font-title;
             font-size: clamp(1rem, 2dvi, $gap-l);
-            white-space: nowrap;
             color: var(--_text-color);
+            white-space: nowrap;
         }
 
         &--main {
