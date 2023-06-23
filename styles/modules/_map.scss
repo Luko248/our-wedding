@@ -54,10 +54,12 @@
 
             address {
                 padding: $gap-m;
+                background-color: var(--_bg-color);
                 font-family: $font-text;
                 font-size: 1rem;
                 font-weight: 200;
                 line-height: 1.5;
+                color: var(--_bg-color);
 
                 >strong {
                     font-size: 1.2em;
