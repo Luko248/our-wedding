@@ -10,7 +10,8 @@
     --_qna-circle_bg: var(--color-white);
     --_qna-circle_color: var(--color-secondary);
     --_qna-line_color: var(--color-secondary);
-    --_qna_image-filter: invert(0%);
+    --_qna_image-filter: invert(0);
+    --_form-filter: invert(0);
 
     &.dark-theme {
       --_bg-color: var(--color-secondary);
@@ -21,7 +22,8 @@
       --_qna-circle_bg: var(--color-secondary);
       --_qna-circle_color: var(--color-white);
       --_qna-line_color: var(--color-secondary--hover);
-      --_qna_image-filter: invert(100%);
+      --_qna_image-filter: invert(1);
+      --_form-filter: invert(1);
     }
   }
 
@@ -36,7 +38,8 @@
       --_qna-circle_bg: var(--color-secondary);
       --_qna-circle_color: var(--color-white);
       --_qna-line_color: var(--color-secondary--hover);
-      --_qna_image-filter: invert(100%);
+      --_qna_image-filter: invert(1);
+      --_form-filter: invert(1);
 
       &.light-theme {
         --_bg-color: var(--color-white);
@@ -47,7 +50,8 @@
         --_qna-circle_bg: var(--color-white);
         --_qna-circle_color: var(--color-secondary);
         --_qna-line_color: var(--color-secondary);
-        --_qna_image-filter: invert(0%);
+        --_qna_image-filter: invert(0);
+        --_form-filter: invert(0);
       }
     }
   }
