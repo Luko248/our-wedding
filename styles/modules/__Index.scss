@@ -1,5 +1,6 @@
 @use 'contact' as *;
 @use 'container' as *;
+@use 'form' as *;
 @use 'header' as *;
 @use 'map' as *;
 @use 'qna' as *;
@@ -9,6 +10,7 @@
 @mixin create-modules {
     @include create-container;
     @include create-contact;
+    @include create-form;
     @include create-header;
     @include create-map;
     @include create-qna;
