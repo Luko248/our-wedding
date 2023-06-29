@@ -5,10 +5,10 @@
 
     iframe {
         display: block;
-        margin-inline: auto;
         inline-size: 100%;
         max-inline-size: $width-tablet;
         block-size: 1050px;
+        margin-inline: auto;
         filter: var(--_form-filter);
         transition: filter $trans-time $trans-fnc;
     }

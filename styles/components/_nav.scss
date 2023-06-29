@@ -37,6 +37,11 @@
         z-index: 999;
         backdrop-filter: blur($gap-s);
 
+        &.no-anim{
+            animation: none;
+            translate: 0 0;
+        }
+
         @include mq-responsive('tablet', max) {
             --nav-height: 4rem;
             --nav_bg: #{$color-nav_bg};
