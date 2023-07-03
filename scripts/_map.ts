@@ -78,8 +78,4 @@ export function initMap(): void {
             closeInfoWindow();
         }
     });
-
-    map.addListener("click", () => {
-        closeInfoWindow();
-    });
 }

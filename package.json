@@ -24,6 +24,7 @@
     "postcss-scss": "^4.0.6",
     "stylelint": "^15.4.0",
     "stylelint-order": "^6.0.3",
+    "supports-avif": "^1.0.0",
     "typescript": "^5.0.4"
   },
   "browserslist": {

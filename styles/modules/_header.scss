@@ -2,6 +2,30 @@
 @use '../base/variables/index' as *;
 
 @mixin create-header {
+    body{
+        --header_bg-image: url('../images/backgrounds/header-bg.webp');
+
+        @include mq-responsive('tablet', max){
+            --header_bg-image: url('../images/backgrounds/header-bg_768.webp');
+        }
+
+        @include mq-responsive('mobile-l', max){
+            --header_bg-image: url('../images/backgrounds/header-bg_460.webp');
+        }
+
+        &:is(.avif){
+            --header_bg-image: url('../images/backgrounds/header-bg.avif');
+
+            @include mq-responsive('tablet', max){
+                --header_bg-image: url('../images/backgrounds/header-bg_768.avif');
+            }
+    
+            @include mq-responsive('mobile-l', max){
+                --header_bg-image: url('../images/backgrounds/header-bg_460.avif');
+            }
+        }
+    }
+
     header {
         --header-img_size: 75dvb;
         position: relative;
@@ -109,7 +133,7 @@
             @include center-content(absolute, 45%);
             inline-size: clamp(200px, var(--header-img_size), $width-desktop-s);
             block-size: clamp(200px, var(--header-img_size), $width-desktop-s);
-            background-image: url('../images/backgrounds/header-bg.webp');
+            background-image: var(--header_bg-image);
             background-position: center 10%;
             background-size: cover;
             filter: grayscale(100%);

@@ -36,8 +36,9 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="dark light">
 
-  <link type="text/css" href="./dist/styles/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.typekit.net/pvo1bzi.css">
+  <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href="https://use.typekit.net/pvo1bzi.css"
+    fetchpriority="high">
+  <link type="text/css" href="./dist/styles/style.css" rel="stylesheet" fetchpriority="high" />
 </head>
 
 <body class="start">
@@ -344,7 +345,7 @@
   </footer>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8&callback=initMap&v=weekly"
-    defer></script>
+    defer fetchpriority="low"></script>
 
   <script type="text/javascript" src="./dist/scripts/init.js" defer></script>
   <script type="text/javascript" src="./dist/scripts/localize.js" defer></script>
