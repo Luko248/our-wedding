@@ -22,7 +22,7 @@ export function initMap(): void {
     const map = new google.maps.Map(
         mapElement,
         {
-            zoom: 17,
+            zoom: 15,
             center: centerPosition,
             mapId: '1406e53bf9ae68ff',
             disableDefaultUI: true,
@@ -36,7 +36,13 @@ export function initMap(): void {
 
     const markers: Record<string, { icon: string }> = {
         main: {
-            icon: iconsUrl + "marker.svg",
+            icon: iconsUrl + "wedding-marker.svg",
+        },
+        bride: {
+            icon: iconsUrl + "bride-marker.svg",
+        },
+        groom: {
+            icon: iconsUrl + "groom-marker.svg",
         }
     };
 
@@ -45,13 +51,23 @@ export function initMap(): void {
             position: new google.maps.LatLng(49.412402, 18.569880),
             type: "main",
             title: "Penzión Kriváň",
+            content: '<div class="map__widnow"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt8gNB43uu0kQeLv784HwPOFhVMiAPwJkNmAGAQsgqfIADJS8yg0OVrJiSZCo0LQqhhR0&usqp=CAU" alt="Penzión Kriváň"></img><address><strong>Penzión Kriváň</strong><br>Dubáčovci 509, 023 21 Korňa<br>Slovensko</address></div>',
+        },
+        {
+            position: new google.maps.LatLng(49.318987, 17.026647),
+            type: "bride",
+            title: "Nevesta",
+            content: '<div class="map__widnow map__widnow--pad-top"><address><strong>Luckin rodný dom <a href="https://goo.gl/maps/fduMrKq2gsWNprGF6" target="_blank" class="link">Zobraziť na mape</a></strong></div>'
+        },
+        {
+            position: new google.maps.LatLng(49.415069, 18.549465),
+            type: "groom",
+            title: "Ženích",
+            content: '<div class="map__widnow map__widnow--pad-top"><address><strong>Lukášov rodný dom <a href="https://goo.gl/maps/AD7yNBY4MEacv8ox6" target="_blank" class="link">Zobraziť na mape</a></strong></div>'
         }
     ];
 
-    const infoWindow = new google.maps.InfoWindow({
-        content: '<div class="map__widnow"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt8gNB43uu0kQeLv784HwPOFhVMiAPwJkNmAGAQsgqfIADJS8yg0OVrJiSZCo0LQqhhR0&usqp=CAU" alt="Penzión Kriváň" loading="lazy"></img><address><strong>Penzión Kriváň</strong><br>Dubáčovci 509, 023 21 Korňa<br>Slovensko</address></div>',
-        ariaLabel: "Penzión Kriváň",
-    });
+    const infoWindow = new google.maps.InfoWindow();
 
     // Function to close infoWindow
     const closeInfoWindow = () => {
@@ -66,10 +82,8 @@ export function initMap(): void {
         });
 
         marker.addListener("click", () => {
-            infoWindow.open({
-                anchor: marker,
-                map,
-            });
+            infoWindow.setContent(positions[i].content);
+            infoWindow.open(map, marker);
         });
     }
 

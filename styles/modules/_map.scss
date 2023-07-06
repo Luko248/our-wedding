@@ -42,11 +42,19 @@
         @include mq-responsive('mobile-l', max) {
             --map-container_block-size: 150dvb;
         }
+
+        button[aria-label="Close"]{
+            filter: invert(1);
+        }
     }
 
     .map {
         &__widnow {
             background-color: var(--_bg-color);
+
+            &--pad-top address{
+                padding-block-start: $gap-l !important;
+            }
 
             >img {
                 display: block;
@@ -62,8 +70,13 @@
                 line-height: 1.5;
                 color: var(--_text-color);
                 
-                *{
+                *:not(.link){
                     color: var(--_text-color);
+                }
+
+                .link{
+                    font-size: .85em;
+                    display: block;
                 }
 
                 >strong {
