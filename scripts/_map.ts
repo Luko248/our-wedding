@@ -51,7 +51,7 @@ export function initMap(): void {
             position: new google.maps.LatLng(49.412402, 18.569880),
             type: "main",
             title: "Penzión Kriváň",
-            content: '<div class="map__widnow"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt8gNB43uu0kQeLv784HwPOFhVMiAPwJkNmAGAQsgqfIADJS8yg0OVrJiSZCo0LQqhhR0&usqp=CAU" alt="Penzión Kriváň"></img><address><strong>Penzión Kriváň</strong><br>Dubáčovci 509, 023 21 Korňa<br>Slovensko</address></div>',
+            content: '<div class="map__widnow"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt8gNB43uu0kQeLv784HwPOFhVMiAPwJkNmAGAQsgqfIADJS8yg0OVrJiSZCo0LQqhhR0&usqp=CAU" alt="Penzión Kriváň"></img><address><strong>Penzión Kriváň</strong><br>Dubáčovci 509, 023 21 Korňa<br>Slovensko<strong><a href="https://www.google.com/maps/place/Penzi%C3%B3n+Kriv%C3%A1%C5%88/@49.4122767,18.5698483,17z/data=!4m20!1m10!3m9!1s0x47146e7cadbec1ef:0xbd81420ef95d1998!2zUGVuemnDs24gS3JpdsOhxYg!5m2!4m1!1i2!8m2!3d49.4122767!4d18.5698483!16s%2Fg%2F11c533xp9_!3m8!1s0x47146e7cadbec1ef:0xbd81420ef95d1998!5m2!4m1!1i2!8m2!3d49.4122767!4d18.5698483!16s%2Fg%2F11c533xp9_?entry=ttu" target="_blank" class="link">Zobraziť na mape</a></strong></address></div>',
         },
         {
             position: new google.maps.LatLng(49.318987, 17.026647),
