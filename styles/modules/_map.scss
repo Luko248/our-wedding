@@ -12,17 +12,26 @@
             display: none;
         }
 
-        .gm-style .gm-style-iw-c {
-            padding: 0 !important;
-            box-shadow: 0 0 $gap 0 $color-secondary !important;
-
-            button {
-                translate: -30% 30%;
-                scale: 1.5;
+        .gm-style {
+            .gm-style-iw-c {
+                padding: 0 !important;
+                box-shadow: 0 0 $gap 0 $color-secondary !important;
+    
+                button {
+                    translate: -30% 30%;
+                    scale: 1.5;
+                }
+    
+                .gm-ui-hover-effect>span {
+                    background: $color-white !important;
+                }
             }
 
-            .gm-ui-hover-effect>span {
-                background-color: $color-white !important;
+            .gm-style-iw-tc{
+                filter: none !important;
+                &:after{
+                    background-color: var(--_bg-color) !important;
+                }
             }
         }
     }
