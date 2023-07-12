@@ -53,6 +53,7 @@ export const initSeatingPlan = () => {
       chair.classList.add('chair')
       chair.setAttribute('data-number', `${i}`)
       chair.setAttribute("title", guest.value);
+      chair.setAttribute("id", formatGuestId(guest.value));
 
       if (i <= 7) {
         mainTable.appendChild(chair)
@@ -72,35 +73,69 @@ export const initSeatingPlan = () => {
     }
   }
 
+  const formatGuestId = (name: string) => {
+    let formattedName = name.toLowerCase().replace(/\s/g, "-");
+    formattedName = formattedName.replace(/ř/g, "r");
+    formattedName = formattedName.replace(/š/g, "s");
+    formattedName = formattedName.replace(/á/g, "a");
+    formattedName = formattedName.replace(/č/g, "c");
+    formattedName = formattedName.replace(/í/g, "i");
+    formattedName = formattedName.replace(/ú/g, "u");
+    formattedName = formattedName.replace(/ô/g, "o");
+    formattedName = formattedName.replace(/ů/g, "u");
+    formattedName = formattedName.replace(/ě/g, "e");
+    formattedName = formattedName.replace(/é/g, "e");
+    formattedName = formattedName.replace(/ý/g, "y");
+    formattedName = formattedName.replace(/ľ/g, "l");
+    formattedName = formattedName.replace(/ž/g, "z");
+    formattedName = formattedName.replace(/ŕ/g, "r");
+    formattedName = formattedName.replace(/ň/g, "n");
+    formattedName = formattedName.replace(/ť/g, "t");
+    return formattedName;
+  };
+
   const handleChairClick = () => {
-    const chairs = document.querySelectorAll(".chair")
+    const chairs = document.querySelectorAll(".chair");
     chairs.forEach(chair => {
       chair.addEventListener("click", (event) => {
-        showEqualName(event)
-        checkInputValue()
-      })
-    })
-  }
+        const chairElement = event.target as HTMLButtonElement;
+        const chairId = chairElement.getAttribute("id");
+        if (chairId) {
+          updateUrlAnchor(chairId);
+          showEqualName(event);
+          checkInputValue();
+        }
+      });
+    });
+  };
+
+  const updateUrlAnchor = (anchor) => {
+    const url = new URL(window.location.href);
+    url.hash = anchor;
+    window.history.replaceState({}, document.title, url.toString());
+  };
 
   createGuestList()
 
   autocomplete.addEventListener("input", () => {
-    const chairs = document.querySelectorAll(".chair")
-    const guests = guestList.querySelectorAll("option")
+    const chairs = document.querySelectorAll(".chair");
+    const guests = guestList.querySelectorAll("option");
 
-    const value = autocomplete.value.toLowerCase()
+    const value = autocomplete.value.toLowerCase();
 
     chairs.forEach((chair) => {
-      chair.classList.remove("chair--selected")
+      chair.classList.remove("chair--selected");
     });
 
     for (let i = 0; i < guests.length; i++) {
       if (guests[i].value.toLowerCase().startsWith(value)) {
-        chairs[i].classList.add("chair--selected")
-        break
+        const chairId = chairs[i].getAttribute("id");
+        updateUrlAnchor(chairId);
+        chairs[i].classList.add("chair--selected");
+        break;
       }
     }
-  })
+  });
 
   const removeSelectedClass = () => {
     const chairs = document.querySelectorAll(".chair")
