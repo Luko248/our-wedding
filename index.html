@@ -35,8 +35,9 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 
-  <link type="text/css" href="./dist/styles/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.typekit.net/pvo1bzi.css">
+  <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href="https://use.typekit.net/pvo1bzi.css"
+    fetchpriority="high">
+  <link type="text/css" href="./dist/styles/style.css" rel="stylesheet" fetchpriority="high" />
 </head>
 
 <body class="start">
@@ -166,7 +167,7 @@
       <div class="container container--s">
         <h2 class="title title--l" data-localize="about_title"></h2>
 
-        <p class="desc">
+        <p class="desc text-to-center">
           <span data-localize="about_desc-1"></span>
           <a href="#questions-and-answers" class="link" rel="noopener" data-localize="about_link"></a>
           <span data-localize="about_desc-2"></span>
@@ -300,16 +301,7 @@
       </div>
     </section>
 
-    <section id="seating-plan">
-      <!-- <section>
-      <div class="container container--s">
-        <iframe style="margin-inline: auto; display: block;"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSedpBMWsWp4Kc1WGLReiHYOSuHmMI_v8v9yX6si1hLyxb2FQQ/viewform?embedded=true"
-          frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-    </section> -->
-
-      <!-- <section id="seating-plan">
+    <!-- <section id="seating-plan">
       <div class="container text-to-center">
         <h2 class="title" data-localize="plan_title">Zasadací poriadok</h2>
       </div>
@@ -352,7 +344,7 @@
   </footer>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8&callback=initMap&v=weekly"
-    defer></script>
+    defer fetchpriority="low"></script>
 
   <script type="text/javascript" src="./dist/scripts/init.js" defer></script>
   <script type="text/javascript" src="./dist/scripts/localize.js" defer></script>
