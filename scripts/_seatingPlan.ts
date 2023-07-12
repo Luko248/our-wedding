@@ -58,11 +58,11 @@ export const initSeatingPlan = () => {
         mainTable.appendChild(chair)
       }
 
-      else if (i > 7 && i <= 27) {
+      else if (i > 7 && i <= 29) {
         table1.appendChild(chair)
       }
 
-      else if (i > 27 && i <= 47) {
+      else if (i > 27 && i <= 51) {
         table2.appendChild(chair)
       }
 

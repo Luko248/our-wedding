@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         if (!firstScrollLogged) {
             initMap()
-            // initSeatingPlan()
+            initSeatingPlan()
             firstScrollLogged = true
         }
     })

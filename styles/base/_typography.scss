@@ -5,7 +5,7 @@
 @mixin create-typography {
   .title {
     margin: 0;
-    margin-block-end: var(--title_margin-bottom, 0);
+    margin-block-end: var(--title_margin-bottom, 4dvb);
     margin-inline: auto;
     font-family: $font-title;
     font-size: var(--title_font-size, clamp($gap-3xl, 5dvi, 5rem));
@@ -22,9 +22,8 @@
       --title_white-space: none;
     }
 
-    &--m {
-      --title_font-size: clamp(#{$gap-2xl}, 7.5dvi, 6.5rem);
-      --title_line-height: 1;
+    &--no-mg {
+      --title_margin-bottom: 0;
     }
 
     &--l {
@@ -50,5 +49,9 @@
     font-weight: 300;
     line-height: 1.7;
     color: var(--_text-color);
+
+    &--mg-b{
+      margin-block-end: 8dvb;
+    }
   }
 }
