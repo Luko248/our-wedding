@@ -118,7 +118,7 @@
 
             a {
                 font-family: var(--font-text);
-                font-size: var(--nav-link_font-size, clamp(1rem, 2dvb, $gap-l));
+                font-size: var(--nav-link_font-size, 1rem);
                 font-weight: 300;
                 letter-spacing: 3pt;
                 color: var(--nav-link_color, var(--nav_color));
