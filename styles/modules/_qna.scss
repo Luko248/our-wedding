@@ -48,8 +48,8 @@
       --qna-container_gap: clamp(#{$gap-xl}, 8dvb, #{$gap-3xl});
       --question-number_size: clamp(#{$gap-xl}, 4dvi, #{$gap-2xl});
       @include flex-set(flex, column, nowrap, var(--qna-container_gap));
-      margin-block-start: 8dvb;
       position: relative;
+      margin-block-start: 8dvb;
 
       @include mq-responsive('tablet', max) {
         --question-number_size: clamp(#{$gap-xl}, 4dvi, #{$gap-3xl});

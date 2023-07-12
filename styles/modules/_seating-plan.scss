@@ -3,13 +3,13 @@
 
 @mixin create-seating-plan {
     .plan {
-        padding-block-start: 8dvb;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         inline-size: calc(100% - $gap-l);
         max-inline-size: $width-desktop-s;
         column-gap: clamp($border-width, 1dvi, $gap-m);
         row-gap: var(--row-gap, $gap-2xl);
+        padding-block-start: 8dvb;
         margin-inline: auto;
 
         @include mq-responsive('mobile-l', max) {
