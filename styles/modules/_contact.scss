@@ -14,6 +14,7 @@
             --contact_col-start: 1;
             --container_padding-x: #{$gap-xl};
             margin-inline: auto;
+            pointer-events: none;
         }
 
         @include mq-responsive('mobile-l', max) {
@@ -43,6 +44,9 @@
                 --card_position: relative;
                 --card_inset: none;
                 margin-block-start: 7dvb;
+                position: relative;
+                z-index: 1;
+                pointer-events: initial;
             }
 
             @include mq-responsive("mobile-xl", max) {
