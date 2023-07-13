@@ -7,22 +7,27 @@
 export function initMap(): void {
     let mapElement = document.getElementById('mapElem') as HTMLDivElement;
     var centerPosition;
-    const mobileCenterPosition = { lat: 49.422500, lng: 18.570000 };
+    var currentZoom;
+    const mobileCenterPosition = { lat: 49.450000, lng: 18.565000 };
     const laptopCenterPosition = { lat: 49.422500, lng: 18.572500 };
     const desktopCenterPosition = { lat: 49.412290, lng: 18.574300 };
+    const mobileZoom = 13;
+    const desktopZoom = 15;
 
     if (window.innerWidth < 768) {
         centerPosition = mobileCenterPosition;
+        currentZoom = mobileZoom;
     } else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
         centerPosition = laptopCenterPosition;
     } else {
         centerPosition = desktopCenterPosition;
+        currentZoom = desktopZoom;
     }
 
     const map = new google.maps.Map(
         mapElement,
         {
-            zoom: 15,
+            zoom: currentZoom,
             center: centerPosition,
             mapId: '1406e53bf9ae68ff',
             disableDefaultUI: true,

@@ -44,12 +44,12 @@
 
         @include mq-responsive('tablet', max) {
             --map_grid-columns: minmax(#{$width-mobile-s}, 1fr);
-            --map-container_block-size: 165dvb;
+            --map-container_block-size: 170dvb;
             sctoll-margin-block-start: var(--nav-height);
         }
 
         @include mq-responsive('mobile-l', max) {
-            --map-container_block-size: 150dvb;
+            --map-container_block-size: 200dvb;
         }
 
         button[aria-label="Close"]{
