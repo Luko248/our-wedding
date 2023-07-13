@@ -316,16 +316,16 @@
 
       <div class="plan__top">
         <label class="select" aria-label="Zadajte meno hosťa">
-          <div class="select__autocomplete">
+          <form class="select__autocomplete">
             <input type="text" list="guestList" id="guestsSelect" placeholder="Zadajte meno hosťa">
             <datalist id="guestList">
             </datalist>
-            <button id="clearSelect" title="Zrušiť" aria-label="Zrušiť">
+            <button id="clearSelect" title="Zrušiť" aria-label="Zrušiť" type="reset">
               <svg class="icon icon-close">
                 <use xlink:href="#icon-close"></use>
               </svg>
             </button>
-          </div>
+          </form>
         </label>
       </div>
 

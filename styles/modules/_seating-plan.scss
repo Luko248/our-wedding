@@ -18,12 +18,16 @@
 
         &__top {
             @include flex-set(flex, row, nowrap, 0, center, center, center);
-            @include padding-set-y($gap-l);
+            @include padding-set-y(var(--top_pad-y, $gap-l));
             position: sticky;
             top: var(--nav-height);
             background-color: var(--_plan-nav_bg-color);
             z-index: 100;
             backdrop-filter: blur($gap-s);
+
+            @include mq-responsive('mobile-l', max){
+                --top_pad-y: #{$gap-m};
+            }
         }
     }
 
@@ -105,16 +109,16 @@
         @include flex-set(flex, column, nowrap, center, center, center);
         @include border-radius(circle);
         position: relative;
-        text-align: center;
         inline-size: clamp($gap-xl, 5dvi, $gap-3xl);
         block-size: clamp($gap-xl, 5dvi, $gap-3xl);
+        scroll-margin-block-start: 20dvb;
         background-color: var(--chair_bg-color);
         border-width: 0;
         font-family: $font-text;
         font-size: clamp($gap-m, 3dvi, $gap-l);
         color: $color-white;
+        text-align: center;
         z-index: 1;
-        scroll-margin-block-start: 20dvb;
 
         &--selected {
             --chair_bg-color: #{$color-primary};
