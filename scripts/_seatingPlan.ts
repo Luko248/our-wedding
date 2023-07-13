@@ -132,10 +132,18 @@ export const initSeatingPlan = () => {
         const chairId = chairs[i].getAttribute("id");
         updateUrlAnchor(chairId);
         chairs[i].classList.add("chair--selected");
+        scrollToSelectedChair();
         break;
       }
     }
   });
+
+  const scrollToSelectedChair = () => {
+    const selectedChair = document.querySelector(".chair--selected");
+    if (selectedChair) {
+      selectedChair.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const removeSelectedClass = () => {
     const chairs = document.querySelectorAll(".chair")

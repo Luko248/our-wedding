@@ -68,6 +68,10 @@
             margin: 0;
             list-style: none;
 
+            @include mq-responsive('desktop-l', max) {
+                --menu_gap: var(--gap-xl);
+            }
+
             @include mq-responsive('tablet', max) {
                 --menu_display: none;
                 --menu_fd: column;
@@ -111,7 +115,7 @@
                     z-index: 3;
 
                     @include mq-responsive('tablet', max) {
-                        margin-block-start: 15dvb;
+                        margin-block-start: 10dvb;
                     }
                 }
             }
