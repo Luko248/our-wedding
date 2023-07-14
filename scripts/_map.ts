@@ -9,7 +9,7 @@ export function initMap(): void {
     var centerPosition;
     var currentZoom = 15;
     const mobileCenterPosition = { lat: 49.450000, lng: 18.565000 };
-    const laptopCenterPosition = { lat: 49.422500, lng: 18.572500 };
+    const laptopCenterPosition = { lat: 49.424500, lng: 18.560000 };
     const desktopCenterPosition = { lat: 49.412290, lng: 18.574300 };
     const mobileZoom = 13;
 
