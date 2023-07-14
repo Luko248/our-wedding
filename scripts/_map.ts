@@ -1,10 +1,27 @@
-// declare global {
-//     interface Window {
-//         initMap: () => void;
-//     }
-// }
+import { Loader } from '@googlemaps/js-api-loader';
 
-export function initMap(): void {
+declare global {
+    interface Window {
+        initMap: () => void;
+    }
+}
+
+export function loadGoogleMapsAPI() {
+    const loader = new Loader({
+        apiKey: 'AIzaSyDVGs8MwGzeMC71ifwhjRNyfMagjqyTbP8',
+        version: 'weekly',
+        libraries: ['places'], // Add additional libraries if needed
+    });
+
+    loader.load().then(() => {
+        // API loaded successfully, now you can initialize your map
+        initMap();
+    }).catch((error) => {
+        console.error('Error loading Google Maps API:', error);
+    });
+}
+
+const initMap = (): void => {
     let mapElement = document.getElementById('mapElem') as HTMLDivElement;
     var centerPosition;
     var currentZoom = 15;
