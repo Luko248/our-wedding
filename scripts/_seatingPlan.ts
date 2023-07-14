@@ -2,9 +2,6 @@ export const initSeatingPlan = () => {
   const guestList = document.getElementById('guestList') as HTMLDataListElement
   const autocomplete = document.getElementById("guestsSelect") as HTMLInputElement
   const clearSelect = document.getElementById("clearSelect") as HTMLButtonElement
-  const form = document.querySelector(".select__autocomplete") as HTMLFormElement;
-
-  let selectedChairIndex = -1;
 
   const checkInputValue = (): void => {
     const value = autocomplete.value.trim();
@@ -48,8 +45,8 @@ export const initSeatingPlan = () => {
     const table1 = document.querySelector(".table--1") as HTMLDivElement
     const table2 = document.querySelector(".table--2") as HTMLDivElement
     const table3 = document.querySelector(".table--3") as HTMLDivElement
-    const guests = guestList.querySelectorAll("option");
 
+    const guests = guestList.querySelectorAll("option");
     for (let i = 1; i <= guests.length; i++) {
       const chair = document.createElement('button')
       const guest = guests[i - 1];
@@ -130,14 +127,12 @@ export const initSeatingPlan = () => {
       chair.classList.remove("chair--selected");
     });
 
-    selectedChairIndex = -1;
-
     for (let i = 0; i < guests.length; i++) {
       if (guests[i].value.toLowerCase().startsWith(value)) {
         const chairId = chairs[i].getAttribute("id");
         updateUrlAnchor(chairId);
         chairs[i].classList.add("chair--selected");
-        selectedChairIndex = i; // Update the selected chair index
+        scrollToSelectedChair();
         break;
       }
     }
@@ -179,11 +174,4 @@ export const initSeatingPlan = () => {
       }
     }
   }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (selectedChairIndex !== -1) {
-      scrollToSelectedChair();
-    }
-  });
 }

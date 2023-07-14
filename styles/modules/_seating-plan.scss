@@ -111,7 +111,7 @@
         position: relative;
         inline-size: clamp($gap-xl, 5dvi, $gap-3xl);
         block-size: clamp($gap-xl, 5dvi, $gap-3xl);
-        scroll-margin-block-start: 20dvb;
+        scroll-margin-block-start: 25dvb;
         background-color: var(--chair_bg-color);
         border-width: 0;
         font-family: $font-text;
