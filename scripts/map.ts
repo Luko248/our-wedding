@@ -8,7 +8,7 @@ function initMap(): void {
     let mapElement = document.getElementById('mapElem') as HTMLDivElement;
     var centerPosition;
     const mobileCenterPosition = { lat: 49.415000, lng: 18.570000 };
-    const laptopCenterPosition = { lat: 49.412290, lng: 18.572500 };
+    const laptopCenterPosition = { lat: 49.412290, lng: 18.570500 };
     const desktopCenterPosition = { lat: 49.412290, lng: 18.574300 };
 
     if (window.innerWidth < 768) {

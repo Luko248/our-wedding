@@ -13,17 +13,23 @@
         }
 
         .gm-style {
-            .gm-style-iw-c {
+            .gm-style-iw-c:is(div[role='dialog']) {
                 padding: 0 !important;
+                background: var(--_bg-color) !important;
                 box-shadow: 0 0 $gap 0 $color-secondary !important;
-    
+
                 button {
                     translate: -30% 30%;
                     scale: 1.5;
                 }
-    
+
+                &:has(.map__widnow > img) > .gm-ui-hover-effect>span{
+                    filter: none;
+                }
+                
                 .gm-ui-hover-effect>span {
                     background: $color-white !important;
+                    filter: var(--_close-buton-filter);
                 }
             }
 
