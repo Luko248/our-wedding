@@ -16,6 +16,7 @@
     --_plan-nav_bg-color: var(--color-white--trans);
     --_qna_image-filter: invert(0);
     --_form-filter: invert(0);
+    --_close-buton-filter: invert(100%);
 
     &.dark-theme {
       --_bg-color: var(--color-secondary);
@@ -32,6 +33,7 @@
       --_plan-nav_bg-color: var(--color-secondary--trans);
       --_qna_image-filter: invert(1);
       --_form-filter: invert(1);
+      --_close-buton-filter: none;
     }
   }
 
@@ -52,6 +54,7 @@
       --_plan-nav_bg-color: var(--color-secondary--trans);
       --_qna_image-filter: invert(1);
       --_form-filter: invert(1);
+      --_close-buton-filter: none;
 
       &.light-theme {
         --_bg-color: var(--color-white);
@@ -66,9 +69,9 @@
         --_chair_bg-color: var(--color-secondary);
         --_table_border-color: var(--color-secondary);
         --_plan-nav_bg-color: var(--color-white--trans);
-
         --_qna_image-filter: invert(0);
         --_form-filter: invert(0);
+        --_close-buton-filter: invert(100%);
       }
     }
   }
