@@ -50,7 +50,7 @@
     },
     {
       "id": 13,
-      "fullname": "Rado Srniček"
+      "fullname": "Martina Stolariková"
     },
     {
       "id": 14,
@@ -58,27 +58,27 @@
     },
     {
       "id": 15,
-      "fullname": "Martina Stolariková"
-    },
-    {
-      "id": 16,
-      "fullname": "Eva Chylíková"
-    },
-    {
-      "id": 17,
       "fullname": "Linda Klinková"
     },
     {
-      "id": 18,
+      "id": 16,
       "fullname": "Pavol Chylík"
     },
     {
-      "id": 19,
+      "id": 17,
       "fullname": "Martin Klinko"
     },
     {
-      "id": 20,
+      "id": 18,
       "fullname": "Oľga Chylíková"
+    },
+    {
+      "id": 19,
+      "fullname": "Eva Chylíková"
+    },
+    {
+      "id": 20,
+      "fullname": "Nikola Chylíková"
     },
     {
       "id": 21,
@@ -86,7 +86,7 @@
     },
     {
       "id": 22,
-      "fullname": "Nikola Chylíková"
+      "fullname": "Štefan Mucha"
     },
     {
       "id": 23,
@@ -94,7 +94,7 @@
     },
     {
       "id": 24,
-      "fullname": "Štefan Mucha"
+      "fullname": "Luboš Hrtus"
     },
     {
       "id": 25,
@@ -102,7 +102,7 @@
     },
     {
       "id": 26,
-      "fullname": "Luboš Hrtus"
+      "fullname": "Marcela Hrtusová"
     },
     {
       "id": 27,
@@ -110,11 +110,11 @@
     },
     {
       "id": 28,
-      "fullname": "Marcela Hrtusová"
+      "fullname": "Voľné miesto 1"
     },
     {
       "id": 29,
-      "fullname": "Voľné miesto 1"
+      "fullname": "Voľné miesto 2"
     },
     {
       "id": 30,
@@ -150,7 +150,7 @@
     },
     {
       "id": 38,
-      "fullname": "Igor Drgonec"
+      "fullname": "Rado Srniček"
     },
     {
       "id": 39,
@@ -158,7 +158,7 @@
     },
     {
       "id": 40,
-      "fullname": "Táňa Dižová"
+      "fullname": "Katarína Kubicová"
     },
     {
       "id": 41,
@@ -166,7 +166,7 @@
     },
     {
       "id": 42,
-      "fullname": "Oliver Hrtus"
+      "fullname": "Igor Drgonec"
     },
     {
       "id": 43,
@@ -174,7 +174,7 @@
     },
     {
       "id": 44,
-      "fullname": "Dada Chrenšťová"
+      "fullname": "Táňa Dižová"
     },
     {
       "id": 45,
@@ -182,7 +182,7 @@
     },
     {
       "id": 46,
-      "fullname": "Alica Chrenšťová"
+      "fullname": "Oliver Hrtus"
     },
     {
       "id": 47,
@@ -190,7 +190,7 @@
     },
     {
       "id": 48,
-      "fullname": "Voľné miesto 3"
+      "fullname": "Dada Chrenšťová"
     },
     {
       "id": 49,
@@ -198,11 +198,11 @@
     },
     {
       "id": 50,
-      "fullname": "Voľné miesto 4"
+      "fullname": "Alica Chrenšťová"
     },
     {
       "id": 51,
-      "fullname": "Voľné miesto 5"
+      "fullname": "Voľné miesto 3"
     },
     {
       "id": 52,
