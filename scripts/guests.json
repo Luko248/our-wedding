@@ -154,7 +154,7 @@
     },
     {
       "id": 39,
-      "fullname": "Jakub Meričko"
+      "fullname": "Vratislav Gorčík"
     },
     {
       "id": 40,
@@ -162,7 +162,7 @@
     },
     {
       "id": 41,
-      "fullname": "Roman Jaška"
+      "fullname": "Michaela Vodová"
     },
     {
       "id": 42,
@@ -170,7 +170,7 @@
     },
     {
       "id": 43,
-      "fullname": "Kristina Jankovičová"
+      "fullname": "Roman Jaška"
     },
     {
       "id": 44,
@@ -178,7 +178,7 @@
     },
     {
       "id": 45,
-      "fullname": "Laura Hrtusová"
+      "fullname": "Kristina Jankovičová"
     },
     {
       "id": 46,
@@ -186,7 +186,7 @@
     },
     {
       "id": 47,
-      "fullname": "Anastasia Chylíková"
+      "fullname": "Laura Hrtusová"
     },
     {
       "id": 48,
@@ -194,7 +194,7 @@
     },
     {
       "id": 49,
-      "fullname": "Viktoria Chylíková"
+      "fullname": "Anastasia Chylíková"
     },
     {
       "id": 50,
@@ -202,7 +202,7 @@
     },
     {
       "id": 51,
-      "fullname": "Voľné miesto 3"
+      "fullname": "Viktoria Chylíková"
     },
     {
       "id": 52,
@@ -246,19 +246,19 @@
     },
     {
       "id": 62,
-      "fullname": "Marek Jančík"
+      "fullname": "Jakub Meričko"
     },
     {
       "id": 63,
-      "fullname": "Vratislav Gorčík"
+      "fullname": "Marek Jančík"
     },
     {
       "id": 64,
-      "fullname": "Petra Kopecká"
+      "fullname": "Ján Vierik"
     },
     {
       "id": 65,
-      "fullname": "Michaela Vodová"
+      "fullname": "Petra Kopecká"
     },
     {
       "id": 66,
@@ -278,19 +278,19 @@
     },
     {
       "id": 70,
-      "fullname": "Filip Barbořík"
-    },
-    {
-      "id": 71,
-      "fullname": "Matuš Máčík"
-    },
-    {
-      "id": 72,
       "fullname": "Barbora Csabaiová"
     },
     {
-      "id": 73,
+      "id": 71,
       "fullname": "Veronika Pašková"
+    },
+    {
+      "id": 72,
+      "fullname": "Filip Barbořík"
+    },
+    {
+      "id": 73,
+      "fullname": "Matuš Máčík"
     }
   ]
 }
