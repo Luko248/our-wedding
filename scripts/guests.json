@@ -234,7 +234,7 @@
     },
     {
       "id": 59,
-      "fullname": "Leona Tyityisová"
+      "fullname": "Ján Vierik"
     },
     {
       "id": 60,
@@ -242,7 +242,7 @@
     },
     {
       "id": 61,
-      "fullname": "Ondřej Skalka"
+      "fullname": "Marek Jančík"
     },
     {
       "id": 62,
@@ -250,47 +250,47 @@
     },
     {
       "id": 63,
-      "fullname": "Marek Jančík"
-    },
-    {
-      "id": 64,
-      "fullname": "Ján Vierik"
-    },
-    {
-      "id": 65,
       "fullname": "Petra Kopecká"
     },
     {
-      "id": 66,
+      "id": 64,
       "fullname": "Barbora Škulcová"
     },
     {
-      "id": 67,
+      "id": 65,
       "fullname": "Paula Fonseca"
     },
     {
-      "id": 68,
+      "id": 66,
       "fullname": "Adam Mahdiar"
     },
     {
-      "id": 69,
+      "id": 67,
       "fullname": "Jan Molík"
     },
     {
-      "id": 70,
+      "id": 68,
       "fullname": "Barbora Csabaiová"
     },
     {
-      "id": 71,
+      "id": 69,
       "fullname": "Veronika Pašková"
     },
     {
-      "id": 72,
+      "id": 70,
       "fullname": "Filip Barbořík"
     },
     {
-      "id": 73,
+      "id": 71,
       "fullname": "Matuš Máčík"
+    },
+    {
+      "id": 72,
+      "fullname": "Voľné miesto 3"
+    },
+    {
+      "id": 73,
+      "fullname": "Voľné miesto 4"
     }
   ]
 }
