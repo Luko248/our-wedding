@@ -94,9 +94,10 @@
 
         >.icon,
         >svg {
-            --icon-size: 1.2em;
+            --icon-size: 1.5em;
             inline-size: var(--icon-size);
             aspect-ratio: 1;
+            translate: 0 15%;
             transition: fill $trans-time ease-in-out;
             fill: var(--button-color);
         }
